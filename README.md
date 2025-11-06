@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 프로젝트 소개
 
-## Getting Started
+이 프로젝트는 **Next.js**를 기반으로 제작되었습니다.  
+로컬 환경에서 개발 서버를 실행하여 손쉽게 확인할 수 있습니다.
 
-First, run the development server:
+## ⚙️ 개발 환경
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Node.js 버전:** 24.11.0
+- **패키지 매니저:** npm
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 실행 방법
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. 패키지 설치
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+   ```bash
+   npm i
+   ```
 
-## Learn More
+2. 개발 서버 실행
 
-To learn more about Next.js, take a look at the following resources:
+   ```bash
+   npm run dev
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. 이하 주소에서 로컬 환경 확인
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+   👉 http://localhost:3000
 
-## Deploy on Vercel
+## 📝 배포 및 블로그
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+배포 링크: https://hyundolog.tistory.com/
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 💡 사용 기술
+
+### Main Skills
+
+- Next.js
+- React
+- TypeScript
+
+### Sub Skills
+
+- Tailwind CSS
+- Vercel
+
+## 📄 라이선스
+
+본 프로젝트는 개인 학습 및 포트폴리오 용도로 제작되었습니다.
