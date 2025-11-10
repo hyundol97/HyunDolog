@@ -4,7 +4,7 @@ import homeLottie from '@/assets/images/home_lottie.json';
 export default function Home() {
   return (
     <div className="w-full max-w-6xl py-8 px-16">
-      <section className="common-sectionflex flex-col items-center">
+      <section className="common-section flex flex-col items-center">
         <CommonLottie file={homeLottie} />
         <p className="mt-4 text-center subpixel-antialiased text-3xl text-shadow-lg/30">
           Welcome to HyunDolog!
