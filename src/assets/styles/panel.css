@@ -1,0 +1,27 @@
+section.common-section {
+    min-height: 100vh;
+}
+
+section.common-section:not(:first-of-type) {
+    margin-top: 100px;
+}
+
+.fade-in-y {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+.fade-out-y {
+    opacity: 0 !important;
+    transform: translateY(8px) !important;
+}
+
+.fade-in-x {
+    opacity: 1 !important;
+    transform: translateX(0) !important;
+}
+
+.fade-out-x {
+    opacity: 0 !important;
+    transform: translateX(-8px) !important;
+}
