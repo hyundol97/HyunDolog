@@ -1,5 +1,5 @@
 section.common-section {
-    min-height: 100vh;
+    min-height: 70vh;
 }
 
 section.common-section:not(:first-of-type) {

@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
+import Image from 'next/image';
 import CommonLottie from '@/components/CommonLottie';
 import homeLottie from '@/assets/images/home_lottie.json';
 
@@ -60,10 +61,10 @@ export default function ScrollContents({ pageName, effectDirection = 'y' }: Scol
     }, [effectDirection]);
 
     return (
-        <div id="section-wrapper" className="w-full max-w-6xl py-8 px-16">
+        <div id="section-wrapper" className="w-full">
             {pageName === 'home' ? (
                 <>
-                    <section className="common-section opacity-0 translate-y-8 transition-all duration-600 ease-out">
+                    <section className="common-section opacity-0 translate-y-8 transition-all duration-1000 ease-out">
                         <div className="flex flex-col items-center">
                             <CommonLottie file={homeLottie} />
                             <p className="mt-4 text-center subpixel-antialiased text-3xl">
@@ -72,39 +73,78 @@ export default function ScrollContents({ pageName, effectDirection = 'y' }: Scol
                         </div>
                     </section>
 
-                    <section className="common-section opacity-0 translate-y-8 transition-all duration-600 ease-out">
-                        <h2 className="text-2xl font-semibold mb-4">두 번째 콘텐츠 영역</h2>
-                        <p>여기에 설명, 이미지, 카드 등 원하는 콘텐츠 배치 가능</p>
+                    <section className="common-section opacity-0 translate-y-8 transition-all duration-1000 ease-out">
+                        <div className="flex">
+                            <div className="mr-4">
+                                <h2 className="text-2xl font-semibold mb-6">Profile</h2>
+                                <p>여기에 설명, 이미지, 카드 등 원하는 콘텐츠 배치 가능</p>
+                            </div>
+                            <div>
+                                <Image
+                                    src="/profile.jpg"
+                                    alt="home profile image"
+                                    width={400}
+                                    height={400}
+                                    className="object-cover w-full h-full"
+                                />
+                            </div>
+                        </div>
                     </section>
 
-                    <section className="common-section opacity-0 translate-y-8 transition-all duration-600 ease-out">
-                        <h2 className="text-2xl font-semibold mb-4">세 번째 콘텐츠 영역</h2>
-                        <p>여기에 설명, 이미지, 카드 등 원하는 콘텐츠 배치 가능</p>
+                    <section className="common-section opacity-0 translate-y-8 transition-all duration-1000 ease-out">
+                        <div className="flex">
+                            <div>
+                                <Image
+                                    src="/portfolio.jpg"
+                                    alt="home portfolio image"
+                                    width={400}
+                                    height={400}
+                                    className="object-cover w-full h-full"
+                                />
+                            </div>
+                            <div className="ml-4">
+                                <h2 className="text-2xl font-semibold mb-6">Portfolio</h2>
+                                <p>여기에 설명, 이미지, 카드 등 원하는 콘텐츠 배치 가능</p>
+                            </div>
+                        </div>
                     </section>
 
-                    <section className="common-section opacity-0 translate-y-8 transition-all duration-600 ease-out">
-                        <h2 className="text-2xl font-semibold mb-4">네 번째 콘텐츠 영역</h2>
-                        <p>여기에 설명, 이미지, 카드 등 원하는 콘텐츠 배치 가능</p>
+                    <section className="common-section opacity-0 translate-y-8 transition-all duration-1000 ease-out">
+                        <div className="flex">
+                            <div className="mr-4">
+                                <h2 className="text-2xl font-semibold mb-6">Interest</h2>
+                                <p>여기에 설명, 이미지, 카드 등 원하는 콘텐츠 배치 가능</p>
+                            </div>
+                            <div>
+                                <Image
+                                    src="/interest.jpg"
+                                    alt="home interest image"
+                                    width={400}
+                                    height={400}
+                                    className="object-cover w-full h-full"
+                                />
+                            </div>
+                        </div>
                     </section>
                 </>
             ) : (
                 <>
-                    <section className="common-section opacity-0 -translate-x-8 transition-all duration-900 ease-out">
+                    <section className="common-section opacity-0 -translate-x-8 transition-all duration-1200 ease-out">
                         <h2 className="text-2xl font-semibold mb-4">첫 번째 콘텐츠 영역</h2>
                         <p>여기에 설명, 이미지, 카드 등 원하는 콘텐츠 배치 가능</p>
                     </section>
 
-                    <section className="common-section opacity-0 -translate-x-8 transition-all duration-900 ease-out">
+                    <section className="common-section opacity-0 -translate-x-8 transition-all duration-1200 ease-out">
                         <h2 className="text-2xl font-semibold mb-4">두 번째 콘텐츠 영역</h2>
                         <p>여기에 설명, 이미지, 카드 등 원하는 콘텐츠 배치 가능</p>
                     </section>
 
-                    <section className="common-section opacity-0 -translate-x-8 transition-all duration-900 ease-out">
+                    <section className="common-section opacity-0 -translate-x-8 transition-all duration-1200 ease-out">
                         <h2 className="text-2xl font-semibold mb-4">세 번째 콘텐츠 영역</h2>
                         <p>여기에 설명, 이미지, 카드 등 원하는 콘텐츠 배치 가능</p>
                     </section>
 
-                    <section className="common-section opacity-0 -translate-x-8 transition-all duration-900 ease-out">
+                    <section className="common-section opacity-0 -translate-x-8 transition-all duration-1200 ease-out">
                         <h2 className="text-2xl font-semibold mb-4">네 번째 콘텐츠 영역</h2>
                         <p>여기에 설명, 이미지, 카드 등 원하는 콘텐츠 배치 가능</p>
                     </section>
