@@ -1,9 +1,9 @@
 import Link from 'next/link';
 import Image from 'next/image';
 
-export default function Navbar() {
+export default function Footer() {
     return (
-        <nav className="flex justify-center items-center font-sans bg-gray-200 dark:bg-stone-900">
+        <div className="flex justify-center items-center font-sans bg-gray-200 dark:bg-stone-900">
             <div className="relative fixed top-0 flex flex-col items-center px-10 py-8">
                 <div className="w-32 h-32 rounded-full overflow-hidden flex items-center justify-center bg-white mb-3">
                     <Link href="/">
@@ -33,6 +33,6 @@ export default function Navbar() {
                     </Link>
                 </div>
             </div>
-        </nav>
+        </div>
     );
 }
