@@ -6,6 +6,11 @@ section.common-section:not(:first-of-type) {
     margin-top: 100px;
 }
 
+section.common-section:last-of-type {
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
 .fade-in-y {
     opacity: 1 !important;
     transform: translateY(0) !important;

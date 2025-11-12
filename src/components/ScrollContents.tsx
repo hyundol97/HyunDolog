@@ -49,8 +49,8 @@ export default function ScrollContents({ pageName, effectDirection = 'y' }: Scol
             },
             {
                 root: null,
-                rootMargin: '-10% 0px -10% 0px',
-                threshold: 0.2,
+                rootMargin: '-25% 0px -25% 0px',
+                threshold: 0.5,
             }
         );
 
@@ -67,19 +67,23 @@ export default function ScrollContents({ pageName, effectDirection = 'y' }: Scol
                     <section className="common-section opacity-0 translate-y-8 transition-all duration-1000 ease-out">
                         <div className="flex flex-col items-center">
                             <CommonLottie file={homeLottie} />
-                            <p className="mt-4 text-center subpixel-antialiased text-3xl">
-                                Welcome to HyunDolog!
-                            </p>
+                            <span className="mt-4 text-center subpixel-antialiased text-3xl animate-[bounce_1.5s_infinite]">
+                                <p className="text-4xl">안녕하세요 👋</p>
+                                <p className="text-4xl pt-1">HyunDolog에 오신 것을 환영합니다!</p>
+                                <p className="text-xl pt-2">
+                                    본 페이지는 Next.js로 제작되었습니다.
+                                </p>
+                            </span>
                         </div>
                     </section>
 
                     <section className="common-section opacity-0 translate-y-8 transition-all duration-1000 ease-out">
                         <div className="flex">
-                            <div className="mr-4">
+                            <div className="mr-4 w-2/5">
                                 <h2 className="text-2xl font-semibold mb-6">Profile</h2>
                                 <p>여기에 설명, 이미지, 카드 등 원하는 콘텐츠 배치 가능</p>
                             </div>
-                            <div>
+                            <div className="w-3/5">
                                 <Image
                                     src="/profile.jpg"
                                     alt="home profile image"
@@ -93,7 +97,7 @@ export default function ScrollContents({ pageName, effectDirection = 'y' }: Scol
 
                     <section className="common-section opacity-0 translate-y-8 transition-all duration-1000 ease-out">
                         <div className="flex">
-                            <div>
+                            <div className="w-3/5">
                                 <Image
                                     src="/portfolio.jpg"
                                     alt="home portfolio image"
@@ -102,7 +106,7 @@ export default function ScrollContents({ pageName, effectDirection = 'y' }: Scol
                                     className="object-cover w-full h-full"
                                 />
                             </div>
-                            <div className="ml-4">
+                            <div className="ml-4 w-2/5">
                                 <h2 className="text-2xl font-semibold mb-6">Portfolio</h2>
                                 <p>여기에 설명, 이미지, 카드 등 원하는 콘텐츠 배치 가능</p>
                             </div>
@@ -111,11 +115,11 @@ export default function ScrollContents({ pageName, effectDirection = 'y' }: Scol
 
                     <section className="common-section opacity-0 translate-y-8 transition-all duration-1000 ease-out">
                         <div className="flex">
-                            <div className="mr-4">
+                            <div className="mr-4 w-2/5">
                                 <h2 className="text-2xl font-semibold mb-6">Interest</h2>
                                 <p>여기에 설명, 이미지, 카드 등 원하는 콘텐츠 배치 가능</p>
                             </div>
-                            <div>
+                            <div className="w-3/5">
                                 <Image
                                     src="/interest.jpg"
                                     alt="home interest image"
