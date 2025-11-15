@@ -1,8 +1,10 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import Link from 'next/link';
 import Image from 'next/image';
 import CommonLottie from '@/components/CommonLottie';
+import Accordion from '@/components/Accordion';
 import homeLottie from '@/assets/images/home_lottie.json';
 
 interface ScollContentsProps {
@@ -11,6 +13,19 @@ interface ScollContentsProps {
 }
 
 export default function ScrollContents({ pageName, effectDirection = 'y' }: ScollContentsProps) {
+    const careerStartDay = new Date('2022-08-09T00:00:00+09:00'); // 사회경험 시작일
+    const today = new Date();
+    const diffMs = today.getTime() - careerStartDay.getTime();
+    const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24)); // 여러번 연산할거 아니니까 메모이제이션 같은 것 안쓰는 것으로..
+
+    // 아코디언이 1개만 열릴 수 있도록 idx 형태의 key를 각각 부여
+    const [isOpenAccordion, setIsOpenAccordion] = useState<number | null>(null);
+
+    // 아코디언 컴포넌트에 props로 넘겨줄 토글 이벤트
+    const handleToggle = (idx: number) => {
+        setIsOpenAccordion(prev => (prev === idx ? null : idx));
+    };
+
     useEffect(() => {
         if (typeof window === 'undefined') {
             return;
@@ -68,20 +83,53 @@ export default function ScrollContents({ pageName, effectDirection = 'y' }: Scol
                         <div className="flex flex-col items-center">
                             <CommonLottie file={homeLottie} />
                             <span className="mt-4 text-center subpixel-antialiased text-3xl animate-[bounce_1.5s_infinite]">
-                                <p className="text-4xl">안녕하세요 👋</p>
-                                <p className="text-4xl pt-1">HyunDolog에 오신 것을 환영합니다!</p>
-                                <p className="text-xl pt-2">
-                                    본 페이지는 Next.js로 제작되었습니다.
-                                </p>
+                                <p className="text-3xl p-1">안녕하세요 👋</p>
+                                <p className="text-3xl p-1">HyunDolog에 오신 것을 환영합니다!</p>
+                                <p className="text-lg p-2">본 페이지는 Next.js로 제작되었습니다.</p>
                             </span>
                         </div>
                     </section>
 
                     <section className="common-section opacity-0 translate-y-8 transition-all duration-1000 ease-out">
                         <div className="flex">
-                            <div className="mr-4 w-2/5">
-                                <h2 className="text-2xl font-semibold mb-6">Profile</h2>
-                                <p>여기에 설명, 이미지, 카드 등 원하는 콘텐츠 배치 가능</p>
+                            <div className="mr-4 w-2/5 flex flex-col">
+                                <h2 className="text-3xl font-semibold mb-6">Profile</h2>
+
+                                <div className="grid gap-y-1 text-lg">
+                                    <Accordion
+                                        key={0}
+                                        title="🏠 거주지"
+                                        context="서울특별시 관악구 서림동"
+                                        onToggle={() => handleToggle(0)}
+                                        isOpen={isOpenAccordion === 0}
+                                    />
+                                    <Accordion
+                                        key={1}
+                                        title="🏫 최종학력"
+                                        context={[
+                                            '소프트웨어학(공학사)',
+                                            '소셜미디어매니지먼트소프프트웨어(융합 학사)',
+                                        ]}
+                                        onToggle={() => handleToggle(1)}
+                                        isOpen={isOpenAccordion === 1}
+                                    />
+
+                                    <div className="flex rounded-xl p-3 bg-gray-300 dark:bg-stone-800">
+                                        <p className="font-semibold text-base">💼 사회경험</p>
+                                        <p className="text-sm pl-2 content-center">+{diffDays}일</p>
+                                    </div>
+                                </div>
+
+                                <div className="rounded-xl mt-auto text-center">
+                                    <Link href="/profile">
+                                        <button
+                                            type="button"
+                                            className="cursor-pointer p-8 w-3/5 bg-indigo-600 font-semibold rounded-xl transition-all duration-200 ease-out hover:bg-indigo-700 hover:shadow-lg hover:scale-[1.05] active:scale-[0.95]"
+                                        >
+                                            Profile 페이지로 이동하기
+                                        </button>
+                                    </Link>
+                                </div>
                             </div>
                             <div className="w-3/5">
                                 <Image
