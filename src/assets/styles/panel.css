@@ -2,6 +2,11 @@ section.common-section {
     min-height: 70vh;
 }
 
+section.text-section {
+    min-height: 50vh;
+    margin-top: 200px;
+}
+
 section.common-section:not(:first-of-type) {
     margin-top: 100px;
 }

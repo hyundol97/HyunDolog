@@ -13,10 +13,24 @@ interface ScollContentsProps {
 }
 
 export default function ScrollContents({ pageName, effectDirection = 'y' }: ScollContentsProps) {
-    const careerStartDay = new Date('2022-08-09T00:00:00+09:00'); // 사회경험 시작일
+    const careerStartDay = new Date('2021-08-09T00:00:00+09:00'); // 사회경험 시작일
     const today = new Date();
     const diffMs = today.getTime() - careerStartDay.getTime();
     const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24)); // 여러번 연산할거 아니니까 메모이제이션 같은 것 안쓰는 것으로..
+    let years = today.getFullYear() - careerStartDay.getFullYear();
+    let months = today.getMonth() - careerStartDay.getMonth();
+    let days = today.getDate() - careerStartDay.getDate();
+
+    if (days < 0) {
+        const prevMonth = new Date(today.getFullYear(), today.getMonth(), 0).getDate();
+        days += prevMonth;
+        months -= 1;
+    }
+
+    if (months < 0) {
+        months += 12;
+        years -= 1;
+    }
 
     // 아코디언이 1개만 열릴 수 있도록 idx 형태의 key를 각각 부여
     const [isOpenAccordion, setIsOpenAccordion] = useState<number | null>(null);
@@ -64,7 +78,7 @@ export default function ScrollContents({ pageName, effectDirection = 'y' }: Scol
             },
             {
                 root: null,
-                rootMargin: '-25% 0px -25% 0px',
+                rootMargin: '-15% 0px -15% 0px',
                 threshold: 0.5,
             }
         );
@@ -90,12 +104,43 @@ export default function ScrollContents({ pageName, effectDirection = 'y' }: Scol
                         </div>
                     </section>
 
-                    <section className="common-section opacity-0 translate-y-8 transition-all duration-1000 ease-out">
-                        <div className="flex">
-                            <div className="mr-4 w-2/5 flex flex-col">
+                    <section className="text-section opacity-0 translate-y-8 transition-all duration-1000 ease-out">
+                        <div className="grid gap-y-3 p-12">
+                            <span className="text-2xl p-1">
+                                <p className="italic text-stone-500">
+                                    子曰 知之者不如好之者 好之者不如樂之者
+                                </p>
+                                <p>
+                                    “공자께서 말씀하셨다. 아는 자는 좋아하는 자만 못하고, 좋아하는
+                                    자는 즐기는 자만 못하다.”
+                                </p>
+                                <p className="text-lg">(공자『논어』中)</p>
+                            </span>
+                            <span className="text-2xl p-1">
+                                <p className="italic text-stone-500">
+                                    Try not to become a man of success but rather to become a man of
+                                    value.
+                                </p>
+                                <p>“성공한 사람보다는 가치 있는 사람이 되라.”</p>
+                                <p className="text-lg">(알버트 아인슈타인)</p>
+                            </span>
+                            <p className="text-2xl mt-12 p-1"></p>
+                        </div>
+                    </section>
+
+                    <section className="common-section p-12 opacity-0 translate-y-8 transition-all duration-1000 ease-out">
+                        <div className="flex gap-x-12">
+                            <div className="w-2/5 flex flex-col">
                                 <h2 className="text-3xl font-semibold mb-6">Profile</h2>
 
-                                <div className="grid gap-y-1 text-lg">
+                                <div className="grid gap-y-2 text-lg">
+                                    <Image
+                                        src="/home_profile_personal.jpg"
+                                        alt="home profile personal image"
+                                        width={150}
+                                        height={150}
+                                        className="object-cover rounded-full w-48 h-48 m-auto mb-3"
+                                    />
                                     <Accordion
                                         key={0}
                                         title="🏠 거주지"
@@ -113,10 +158,11 @@ export default function ScrollContents({ pageName, effectDirection = 'y' }: Scol
                                         onToggle={() => handleToggle(1)}
                                         isOpen={isOpenAccordion === 1}
                                     />
-
                                     <div className="flex rounded-xl p-3 bg-gray-300 dark:bg-stone-800">
                                         <p className="font-semibold text-base">💼 사회경험</p>
-                                        <p className="text-sm pl-2 content-center">+{diffDays}일</p>
+                                        <p className="text-sm pl-2 content-center">
+                                            +{diffDays}일 ({years}년 {months}개월)
+                                        </p>
                                     </div>
                                 </div>
 
@@ -124,58 +170,85 @@ export default function ScrollContents({ pageName, effectDirection = 'y' }: Scol
                                     <Link href="/profile">
                                         <button
                                             type="button"
-                                            className="cursor-pointer p-8 w-3/5 bg-indigo-600 font-semibold rounded-xl transition-all duration-200 ease-out hover:bg-indigo-700 hover:shadow-lg hover:scale-[1.05] active:scale-[0.95]"
+                                            className="cursor-pointer p-6 w-3/5 bg-indigo-600 font-semibold rounded-xl transition-all duration-200 ease-out hover:bg-indigo-700 hover:shadow-lg hover:scale-[1.05] active:scale-[0.95]"
                                         >
                                             Profile 페이지로 이동하기
                                         </button>
                                     </Link>
                                 </div>
                             </div>
-                            <div className="w-3/5">
+                            <div className="w-3/5 rounded-xl overflow-hidden aspect-square">
                                 <Image
                                     src="/profile.jpg"
                                     alt="home profile image"
                                     width={400}
                                     height={400}
-                                    className="object-cover w-full h-full"
+                                    className="object-cover rounded-xl w-full h-full grayscale-[0.75]"
                                 />
                             </div>
                         </div>
                     </section>
 
                     <section className="common-section opacity-0 translate-y-8 transition-all duration-1000 ease-out">
-                        <div className="flex">
-                            <div className="w-3/5">
+                        <div className="flex gap-6 p-12">
+                            <div className="w-1/2">
                                 <Image
                                     src="/portfolio.jpg"
                                     alt="home portfolio image"
                                     width={400}
                                     height={400}
-                                    className="object-cover w-full h-full"
+                                    className="object-cover w-full h-80"
                                 />
+                                <div className="mt-3">
+                                    <h2 className="text-2xl font-semibold mb-6">Portfolio</h2>
+                                    <div className="rounded-xl mt-auto text-center">
+                                        <Link href="/portfolio">
+                                            <button
+                                                type="button"
+                                                className="cursor-pointer p-8 w-3/5 bg-indigo-600 font-semibold rounded-xl transition-all duration-200 ease-out hover:bg-indigo-700 hover:shadow-lg hover:scale-[1.05] active:scale-[0.95]"
+                                            >
+                                                Portfolio 페이지로 이동하기
+                                            </button>
+                                        </Link>
+                                    </div>
+                                </div>
                             </div>
-                            <div className="ml-4 w-2/5">
-                                <h2 className="text-2xl font-semibold mb-6">Portfolio</h2>
-                                <p>여기에 설명, 이미지, 카드 등 원하는 콘텐츠 배치 가능</p>
-                            </div>
-                        </div>
-                    </section>
 
-                    <section className="common-section opacity-0 translate-y-8 transition-all duration-1000 ease-out">
-                        <div className="flex">
-                            <div className="mr-4 w-2/5">
-                                <h2 className="text-2xl font-semibold mb-6">Interest</h2>
-                                <p>여기에 설명, 이미지, 카드 등 원하는 콘텐츠 배치 가능</p>
-                            </div>
-                            <div className="w-3/5">
+                            <div className="w-1/2">
                                 <Image
                                     src="/interest.jpg"
                                     alt="home interest image"
                                     width={400}
                                     height={400}
-                                    className="object-cover w-full h-full"
+                                    className="object-cover w-full h-80"
                                 />
+                                <div className="mt-3">
+                                    <h2 className="text-2xl font-semibold mb-6">Interest</h2>
+                                    <div className="rounded-xl mt-auto text-center">
+                                        <Link href="/interest">
+                                            <button
+                                                type="button"
+                                                className="cursor-pointer p-8 w-3/5 bg-indigo-600 font-semibold rounded-xl transition-all duration-200 ease-out hover:bg-indigo-700 hover:shadow-lg hover:scale-[1.05] active:scale-[0.95]"
+                                            >
+                                                Interest 페이지로 이동하기
+                                            </button>
+                                        </Link>
+                                    </div>
+                                </div>
                             </div>
+                        </div>
+                    </section>
+
+                    <section className="common-section opacity-0 translate-y-8 transition-all duration-1000 ease-out">
+                        <div>
+                            <h2>
+                                “천재는 노력하는 사람을 이길 수 없고, 노력하는 사람은 즐기는 사람을
+                                이길 수 없다.”
+                            </h2>
+                            <p>
+                                공자의 『논어』에 등장하는 이 구절은 저의 삶을 대하는 태도와 닮아
+                                있습니다.
+                            </p>
                         </div>
                     </section>
                 </>
