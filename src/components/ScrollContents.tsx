@@ -5,7 +5,14 @@ import Link from 'next/link';
 import Image from 'next/image';
 import CommonLottie from '@/components/CommonLottie';
 import Accordion from '@/components/Accordion';
+
 import homeLottie from '@/assets/images/home_lottie.json';
+import homeProfileImage from '@/assets/images/home_profile_personal.jpg';
+import profileImage from '@/assets/images/profile.jpg';
+import portfolioChungchungduoImage from '@/assets/images/portfolio_chungjungduo_logo.png';
+import interestTravelImage from '@/assets/images/travel_swiss4.jpg';
+import interestSportsImage from '@/assets/images/interest_sports_hike1.jpg';
+import interestReadingImage from '@/assets/images/interest_reading_book1.jpg';
 
 interface ScollContentsProps {
     pageName: string;
@@ -105,26 +112,44 @@ export default function ScrollContents({ pageName, effectDirection = 'y' }: Scol
                     </section>
 
                     <section className="text-section opacity-0 translate-y-8 transition-all duration-1000 ease-out">
-                        <div className="grid gap-y-3 p-12">
-                            <span className="text-2xl p-1">
-                                <p className="italic text-stone-500">
-                                    子曰 知之者不如好之者 好之者不如樂之者
-                                </p>
-                                <p>
-                                    “공자께서 말씀하셨다. 아는 자는 좋아하는 자만 못하고, 좋아하는
-                                    자는 즐기는 자만 못하다.”
-                                </p>
-                                <p className="text-lg">(공자『논어』中)</p>
+                        <div className="relative p-12 border rounded-xl shadow-sm">
+                            <span className="absolute -top-7 left-12 px-6 py-3 text-lg font-semibold rounded-full bg-stone-800 text-white dark:bg-white dark:text-stone-800">
+                                오늘의 명언
                             </span>
-                            <span className="text-2xl p-1">
-                                <p className="italic text-stone-500">
-                                    Try not to become a man of success but rather to become a man of
-                                    value.
-                                </p>
-                                <p>“성공한 사람보다는 가치 있는 사람이 되라.”</p>
-                                <p className="text-lg">(알버트 아인슈타인)</p>
-                            </span>
-                            <p className="text-2xl mt-12 p-1"></p>
+
+                            <div className="grid gap-y-3">
+                                <span className="text-2xl p-1">
+                                    <p className="italic text-stone-500">
+                                        子曰 知之者不如好之者 好之者不如樂之者
+                                    </p>
+                                    <p>
+                                        “공자께서 말씀하셨다. 아는 자는 좋아하는 자만 못하고,
+                                        좋아하는 자는 즐기는 자만 못하다.”
+                                    </p>
+                                    <p className="text-lg">(공자『논어』中)</p>
+                                </span>
+
+                                <span className="text-2xl p-1">
+                                    <p className="italic text-stone-500">
+                                        Try not to become a man of success but rather to become a
+                                        man of value.
+                                    </p>
+                                    <p>“성공한 사람보다는 가치 있는 사람이 되라.”</p>
+                                    <p className="text-lg">(알버트 아인슈타인)</p>
+                                </span>
+
+                                <span className="text-2xl p-1">
+                                    <p className="italic text-stone-500">
+                                        Everyone thinks of changing the world, but no one thinks of
+                                        changing himself.
+                                    </p>
+                                    <p>
+                                        “모두가 세상을 변화시키려고 생각하지만, 정작 스스로
+                                        변하겠다고 생각하는 사람은 없다.”
+                                    </p>
+                                    <p className="text-lg">(레프 톨스토이)</p>
+                                </span>
+                            </div>
                         </div>
                     </section>
 
@@ -135,7 +160,7 @@ export default function ScrollContents({ pageName, effectDirection = 'y' }: Scol
 
                                 <div className="grid gap-y-2 text-lg">
                                     <Image
-                                        src="/home_profile_personal.jpg"
+                                        src={homeProfileImage}
                                         alt="home profile personal image"
                                         width={150}
                                         height={150}
@@ -179,7 +204,7 @@ export default function ScrollContents({ pageName, effectDirection = 'y' }: Scol
                             </div>
                             <div className="w-3/5 rounded-xl overflow-hidden aspect-square">
                                 <Image
-                                    src="/profile.jpg"
+                                    src={profileImage}
                                     alt="home profile image"
                                     width={400}
                                     height={400}
@@ -191,64 +216,188 @@ export default function ScrollContents({ pageName, effectDirection = 'y' }: Scol
 
                     <section className="common-section opacity-0 translate-y-8 transition-all duration-1000 ease-out">
                         <div className="flex gap-6 p-12">
-                            <div className="w-1/2">
-                                <Image
-                                    src="/portfolio.jpg"
-                                    alt="home portfolio image"
-                                    width={400}
-                                    height={400}
-                                    className="object-cover w-full h-80"
-                                />
-                                <div className="mt-3">
-                                    <h2 className="text-2xl font-semibold mb-6">Portfolio</h2>
-                                    <div className="rounded-xl mt-auto text-center">
-                                        <Link href="/portfolio">
-                                            <button
-                                                type="button"
-                                                className="cursor-pointer p-8 w-3/5 bg-indigo-600 font-semibold rounded-xl transition-all duration-200 ease-out hover:bg-indigo-700 hover:shadow-lg hover:scale-[1.05] active:scale-[0.95]"
-                                            >
-                                                Portfolio 페이지로 이동하기
-                                            </button>
-                                        </Link>
-                                    </div>
+                            <div className="w-1/2 relative p-12 border rounded-xl shadow-sm flex flex-col">
+                                <div className="grid grid-cols-2 gap-4 flex-grow">
+                                    <a
+                                        href="https://www.chungjungduo.com/"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="cursor-pointer border rounded-xl shadow-sm aspect-square flex flex-col items-center justify-center gap-3 hover:scale-105 transition-all duration-200 no-underline"
+                                    >
+                                        <Image
+                                            src={portfolioChungchungduoImage}
+                                            alt="chungjungduo logo image"
+                                            width={100}
+                                            height={100}
+                                            className="object-cover rounded-xl"
+                                        />
+                                        <p className="text-sm">청정듀오 홈페이지</p>
+                                    </a>
+                                    <a className="cursor-pointer border rounded-xl shadow-sm aspect-square flex flex-col items-center justify-center gap-3 hover:scale-105 transition-all duration-200 no-underline invisible"></a>
+                                    <a className="cursor-pointer border rounded-xl shadow-sm aspect-square flex flex-col items-center justify-center gap-3 hover:scale-105 transition-all duration-200 no-underline invisible"></a>
+                                    <a className="cursor-pointer border rounded-xl shadow-sm aspect-square flex flex-col items-center justify-center gap-3 hover:scale-105 transition-all duration-200 no-underline invisible"></a>
+                                </div>
+                                <div className="mt-10 text-center">
+                                    <Link href="/portfolio">
+                                        <button
+                                            type="button"
+                                            className="cursor-pointer p-6 w-3/5 bg-indigo-600 text-sm font-semibold rounded-xl transition-all duration-200 ease-out hover:bg-indigo-700 hover:shadow-lg hover:scale-[1.05] active:scale-[0.95]"
+                                        >
+                                            Portfoilo 페이지로 이동하기
+                                        </button>
+                                    </Link>
                                 </div>
                             </div>
 
-                            <div className="w-1/2">
-                                <Image
-                                    src="/interest.jpg"
-                                    alt="home interest image"
-                                    width={400}
-                                    height={400}
-                                    className="object-cover w-full h-80"
-                                />
-                                <div className="mt-3">
-                                    <h2 className="text-2xl font-semibold mb-6">Interest</h2>
-                                    <div className="rounded-xl mt-auto text-center">
-                                        <Link href="/interest">
-                                            <button
-                                                type="button"
-                                                className="cursor-pointer p-8 w-3/5 bg-indigo-600 font-semibold rounded-xl transition-all duration-200 ease-out hover:bg-indigo-700 hover:shadow-lg hover:scale-[1.05] active:scale-[0.95]"
-                                            >
-                                                Interest 페이지로 이동하기
-                                            </button>
-                                        </Link>
-                                    </div>
+                            <div className="w-1/2 relative p-12 border rounded-xl shadow-sm flex flex-col">
+                                <div className="grid grid-cols-2 gap-4 flex-grow">
+                                    <Link
+                                        href="/interest"
+                                        className="relative cursor-pointer rounded-xl shadow-sm aspect-square overflow-hidden group"
+                                    >
+                                        <Image
+                                            src={interestTravelImage}
+                                            alt="interest travel image"
+                                            fill
+                                            sizes="(max-width: 768px) 100vw, 50vw"
+                                            className="object-cover transition-all duration-300"
+                                        />
+                                        <div className="absolute inset-0 bg-black/30 opacity-0 transition-opacity group-hover:opacity-100"></div>
+                                        <p className="absolute bottom-0 left-1/2 -translate-x-1/2 mb-4 text-white text-xl font-semibold opacity-0 translate-y-4 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0">
+                                            여행
+                                        </p>
+                                    </Link>
+                                    <Link
+                                        href="/interest"
+                                        className="relative cursor-pointer rounded-xl shadow-sm aspect-square overflow-hidden group"
+                                    >
+                                        <Image
+                                            src={interestSportsImage}
+                                            alt="interes sports image"
+                                            fill
+                                            sizes="(max-width: 768px) 100vw, 50vw"
+                                            className="object-cover transition-all duration-300"
+                                        />
+                                        <div className="absolute inset-0 bg-black/30 opacity-0 transition-opacity group-hover:opacity-100"></div>
+                                        <p className="absolute bottom-0 left-1/2 -translate-x-1/2 mb-4 text-white text-xl font-semibold opacity-0 translate-y-4 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0">
+                                            운동
+                                        </p>
+                                    </Link>
+                                    <Link
+                                        href="/interest"
+                                        className="relative cursor-pointer rounded-xl shadow-sm aspect-square overflow-hidden group"
+                                    >
+                                        <Image
+                                            src={interestReadingImage}
+                                            alt="interest reading image"
+                                            fill
+                                            sizes="(max-width: 768px) 100vw, 50vw"
+                                            className="object-cover transition-all duration-300"
+                                        />
+                                        <div className="absolute inset-0 bg-black/30 opacity-0 transition-opacity group-hover:opacity-100"></div>
+                                        <p className="absolute bottom-0 left-1/2 -translate-x-1/2 mb-4 text-white text-xl font-semibold opacity-0 translate-y-4 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0">
+                                            독서
+                                        </p>
+                                    </Link>
+                                    <Link
+                                        href="/interest"
+                                        className="relative cursor-pointer rounded-xl shadow-sm aspect-square overflow-hidden group invisible"
+                                    >
+                                        <Image
+                                            src="/file.svg"
+                                            alt="empty"
+                                            fill
+                                            sizes="(max-width: 768px) 100vw, 50vw"
+                                            className="object-cover transition-all duration-300"
+                                        />
+                                        <div className="absolute inset-0 bg-black/30 opacity-0 transition-opacity group-hover:opacity-100"></div>
+                                        <p className="absolute bottom-0 left-1/2 -translate-x-1/2 mb-4 text-white text-xl font-semibold opacity-0 translate-y-4 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0"></p>
+                                    </Link>
+                                </div>
+
+                                <div className="mt-10 text-center">
+                                    <Link href="/interest">
+                                        <button
+                                            type="button"
+                                            className="cursor-pointer p-6 w-3/5 bg-indigo-600 text-sm font-semibold rounded-xl transition-all duration-200 ease-out hover:bg-indigo-700 hover:shadow-lg hover:scale-[1.05] active:scale-[0.95]"
+                                        >
+                                            Interest 페이지로 이동하기
+                                        </button>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
                     </section>
 
                     <section className="common-section opacity-0 translate-y-8 transition-all duration-1000 ease-out">
-                        <div>
-                            <h2>
-                                “천재는 노력하는 사람을 이길 수 없고, 노력하는 사람은 즐기는 사람을
-                                이길 수 없다.”
-                            </h2>
-                            <p>
-                                공자의 『논어』에 등장하는 이 구절은 저의 삶을 대하는 태도와 닮아
-                                있습니다.
-                            </p>
+                        <div className="flex gap-6 p-12">
+                            <div className="w-1/2">
+                                <h1>프로그래밍 언어, 프레임워크 및 라이브러리</h1>
+                                <div>
+                                    <h2>실무 경험</h2>
+                                    <div>
+                                        <h3>능숙하게 사용 가능해요.</h3>
+                                        <div className="inline-flex">
+                                            <p>JavaScript</p>
+                                            <p>TypeScript</p>
+                                            <p>jQuery</p>
+                                            <p>Vue.js</p>
+                                            <p>React</p>
+                                            <p>HTML5</p>
+                                            <p>CSS3</p>
+                                            <p>Element Plus</p>
+                                            <p>Material UI</p>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <h3>사용할 줄 알아요.</h3>
+                                        <div className="inline-flex">
+                                            <p>MySql</p>
+                                            <p>TailwindCSS</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h2>개인 경험</h2>
+                                    <div className="inline-flex">
+                                        <p>Next.js</p>
+                                        <p>React Native</p>
+                                        <p>Flutter</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="w-1/2">
+                                <h1>도구 및 환경</h1>
+                                <div>
+                                    <h2>실무 경험</h2>
+                                    <div>
+                                        <h3>능숙하게 사용 가능해요.</h3>
+                                        <div className="inline-flex">
+                                            <p>vscode</p>
+                                            <p>Cypress</p>
+                                            <p>GitHub</p>
+                                            <p>Bitbucket</p>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <h3>사용할 줄 알아요.</h3>
+                                        <div className="inline-flex">
+                                            <p>eclipse</p>
+                                            <p>AWS</p>
+                                            <p>Storybook</p>
+                                            <p>Docker</p>
+                                            <p>Gitlab</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h2>개인 경험</h2>
+                                    <div className="inline-flex">
+                                        <p>Firebase</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </section>
                 </>
