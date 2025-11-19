@@ -3,6 +3,8 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { Icon } from '@iconify/react';
+
 import CommonLottie from '@/components/CommonLottie';
 import Accordion from '@/components/Accordion';
 
@@ -156,8 +158,6 @@ export default function ScrollContents({ pageName, effectDirection = 'y' }: Scol
                     <section className="common-section p-12 opacity-0 translate-y-8 transition-all duration-1000 ease-out">
                         <div className="flex gap-x-12">
                             <div className="w-2/5 flex flex-col">
-                                <h2 className="text-3xl font-semibold mb-6">Profile</h2>
-
                                 <div className="grid gap-y-2 text-lg">
                                     <Image
                                         src={homeProfileImage}
@@ -218,7 +218,7 @@ export default function ScrollContents({ pageName, effectDirection = 'y' }: Scol
                         <div className="flex gap-6 p-12">
                             <div className="w-1/2 relative p-12 border rounded-xl shadow-sm flex flex-col">
                                 <div className="grid grid-cols-2 gap-4 flex-grow">
-                                    <a
+                                    <Link
                                         href="https://www.chungjungduo.com/"
                                         target="_blank"
                                         rel="noopener noreferrer"
@@ -232,11 +232,12 @@ export default function ScrollContents({ pageName, effectDirection = 'y' }: Scol
                                             className="object-cover rounded-xl"
                                         />
                                         <p className="text-sm">청정듀오 홈페이지</p>
-                                    </a>
+                                    </Link>
                                     <a className="cursor-pointer border rounded-xl shadow-sm aspect-square flex flex-col items-center justify-center gap-3 hover:scale-105 transition-all duration-200 no-underline invisible"></a>
                                     <a className="cursor-pointer border rounded-xl shadow-sm aspect-square flex flex-col items-center justify-center gap-3 hover:scale-105 transition-all duration-200 no-underline invisible"></a>
                                     <a className="cursor-pointer border rounded-xl shadow-sm aspect-square flex flex-col items-center justify-center gap-3 hover:scale-105 transition-all duration-200 no-underline invisible"></a>
                                 </div>
+
                                 <div className="mt-10 text-center">
                                     <Link href="/portfolio">
                                         <button
@@ -330,71 +331,244 @@ export default function ScrollContents({ pageName, effectDirection = 'y' }: Scol
                     </section>
 
                     <section className="common-section opacity-0 translate-y-8 transition-all duration-1000 ease-out">
-                        <div className="flex gap-6 p-12">
-                            <div className="w-1/2">
-                                <h1>프로그래밍 언어, 프레임워크 및 라이브러리</h1>
-                                <div>
-                                    <h2>실무 경험</h2>
-                                    <div>
-                                        <h3>능숙하게 사용 가능해요.</h3>
-                                        <div className="inline-flex">
-                                            <p>JavaScript</p>
-                                            <p>TypeScript</p>
-                                            <p>jQuery</p>
-                                            <p>Vue.js</p>
-                                            <p>React</p>
-                                            <p>HTML5</p>
-                                            <p>CSS3</p>
-                                            <p>Element Plus</p>
-                                            <p>Material UI</p>
+                        <div className="flex gap-12 p-12">
+                            <div className="w-1/2 space-y-6">
+                                <h1 className="inline-block text-3xl font-bold px-4 py-2 mb-6 bg-gradient-to-r from-cyan-400/70 to-cyan-600/70 text-white rounded-xl">
+                                    언어 / 프레임워크 / 라이브러리
+                                </h1>
+
+                                <div className="space-y-4 pl-2">
+                                    <h2 className="text-xl font-semibold text-gray-700 underline underline-offset-4 decoration-wavy">
+                                        실무 경험
+                                    </h2>
+
+                                    <div className="space-y-3">
+                                        <h3 className="text-lg font-medium">
+                                            능숙하게 사용 가능해요.
+                                        </h3>
+
+                                        <div className="flex flex-wrap gap-3">
+                                            <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-stone-800 dark:text-white">
+                                                <Icon
+                                                    icon="logos:javascript"
+                                                    width="16"
+                                                    height="16"
+                                                />
+                                                JavaScript
+                                            </span>
+                                            <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-stone-800 dark:text-white">
+                                                <Icon
+                                                    icon="logos:typescript-icon"
+                                                    width="16"
+                                                    height="16"
+                                                />
+                                                TypeScript
+                                            </span>
+                                            <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-stone-800 dark:text-white">
+                                                <Icon icon="logos:jquery" width="32" height="24" />
+                                                jQuery
+                                            </span>
+                                            <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-stone-800 dark:text-white">
+                                                <Icon icon="logos:vue" width="16" height="16" />
+                                                Vue.js
+                                            </span>
+                                            <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-stone-800 dark:text-white">
+                                                <Icon icon="logos:react" width="16" height="16" />
+                                                React
+                                            </span>
+                                            <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-stone-800 dark:text-white">
+                                                <Icon icon="logos:html-5" width="16" height="16" />
+                                                HTML5
+                                            </span>
+                                            <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-stone-800 dark:text-white">
+                                                <Icon icon="logos:css-3" width="16" height="16" />
+                                                CSS3
+                                            </span>
+                                            <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-stone-800 dark:text-white">
+                                                <Icon icon="logos:element" width="16" height="16" />
+                                                Element Plus
+                                            </span>
+                                            <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-stone-800 dark:text-white">
+                                                <Icon
+                                                    icon="logos:material-ui"
+                                                    width="16"
+                                                    height="16"
+                                                />
+                                                Material UI
+                                            </span>
                                         </div>
                                     </div>
-                                    <div>
-                                        <h3>사용할 줄 알아요.</h3>
-                                        <div className="inline-flex">
-                                            <p>MySql</p>
-                                            <p>TailwindCSS</p>
+
+                                    <div className="space-y-3">
+                                        <h3 className="text-lg font-medium">사용할 줄 알아요.</h3>
+
+                                        <div className="flex flex-wrap gap-3">
+                                            <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-stone-800 dark:text-white">
+                                                <Icon
+                                                    icon="logos:mysql-icon"
+                                                    width="16"
+                                                    height="16"
+                                                />
+                                                MySQL
+                                            </span>
+                                            <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-stone-800 dark:text-white">
+                                                <Icon
+                                                    icon="logos:tailwindcss-icon"
+                                                    width="16"
+                                                    height="16"
+                                                />
+                                                TailwindCSS
+                                            </span>
                                         </div>
                                     </div>
                                 </div>
-                                <div>
-                                    <h2>개인 경험</h2>
-                                    <div className="inline-flex">
-                                        <p>Next.js</p>
-                                        <p>React Native</p>
-                                        <p>Flutter</p>
+
+                                <div className="space-y-3 pl-2">
+                                    <h2 className="text-xl font-semibold text-gray-700 underline underline-offset-4 decoration-wavy">
+                                        개인 경험
+                                    </h2>
+
+                                    <div className="flex flex-wrap gap-3">
+                                        <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-stone-800 dark:text-white">
+                                            <Icon icon="logos:nextjs-icon" width="16" height="16" />
+                                            Next.js
+                                        </span>
+                                        <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-stone-800 dark:text-white">
+                                            <Icon icon="logos:c" width="16" height="16" />C
+                                        </span>
+                                        <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-stone-800 dark:text-white">
+                                            <Icon icon="logos:unity" width="16" height="16" />
+                                            Unity
+                                        </span>
+                                        <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-stone-800 dark:text-white">
+                                            <Icon icon="logos:react" width="16" height="16" />
+                                            React Native
+                                        </span>
+                                        <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-stone-800 dark:text-white">
+                                            <Icon icon="logos:flutter" width="16" height="16" />
+                                            Flutter
+                                        </span>
                                     </div>
                                 </div>
                             </div>
 
-                            <div className="w-1/2">
-                                <h1>도구 및 환경</h1>
-                                <div>
-                                    <h2>실무 경험</h2>
-                                    <div>
-                                        <h3>능숙하게 사용 가능해요.</h3>
-                                        <div className="inline-flex">
-                                            <p>vscode</p>
-                                            <p>Cypress</p>
-                                            <p>GitHub</p>
-                                            <p>Bitbucket</p>
+                            <div className="flex items-center">
+                                <div className="w-px h-full bg-gradient-to-b from-transparent via-gray-300 to-transparent"></div>
+                            </div>
+
+                            <div className="w-1/2 space-y-6">
+                                <h1 className="inline-block text-3xl font-bold px-4 py-2 mb-6 bg-gradient-to-r from-cyan-700/70 to-cyan-500/70 text-white rounded-xl shadow-md">
+                                    도구 / 환경
+                                </h1>
+
+                                <div className="space-y-4 pl-2">
+                                    <h2 className="text-xl font-semibold text-gray-700 underline underline-offset-4 decoration-wavy">
+                                        실무 경험
+                                    </h2>
+
+                                    <div className="space-y-3">
+                                        <h3 className="text-lg font-medium">
+                                            능숙하게 사용 가능해요.
+                                        </h3>
+
+                                        <div className="flex flex-wrap gap-3">
+                                            <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-stone-800 dark:text-white">
+                                                <Icon
+                                                    icon="logos:visual-studio-code"
+                                                    width="16"
+                                                    height="16"
+                                                />
+                                                vscode
+                                            </span>
+                                            <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-stone-800 dark:text-white">
+                                                <Icon
+                                                    icon="logos:cypress-icon"
+                                                    width="16"
+                                                    height="16"
+                                                />
+                                                Cypress
+                                            </span>
+                                            <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-stone-800 dark:text-white">
+                                                <Icon
+                                                    icon="logos:github-icon"
+                                                    width="16"
+                                                    height="16"
+                                                />
+                                                GitHub
+                                            </span>
+                                            <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-stone-800 dark:text-white">
+                                                <Icon
+                                                    icon="logos:bitbucket"
+                                                    width="16"
+                                                    height="16"
+                                                />
+                                                Bitbucket
+                                            </span>
                                         </div>
                                     </div>
-                                    <div>
-                                        <h3>사용할 줄 알아요.</h3>
-                                        <div className="inline-flex">
-                                            <p>eclipse</p>
-                                            <p>AWS</p>
-                                            <p>Storybook</p>
-                                            <p>Docker</p>
-                                            <p>Gitlab</p>
+
+                                    <div className="space-y-3">
+                                        <h3 className="text-lg font-medium">사용할 줄 알아요.</h3>
+
+                                        <div className="flex flex-wrap gap-3">
+                                            <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-stone-800 dark:text-white">
+                                                <Icon
+                                                    icon="logos:eclipse-icon"
+                                                    width="16"
+                                                    height="16"
+                                                />
+                                                eclipse
+                                            </span>
+                                            <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-stone-800 dark:text-white">
+                                                <Icon icon="logos:aws" width="24" height="16" />
+                                                AWS
+                                            </span>
+                                            <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-stone-800 dark:text-white">
+                                                <Icon
+                                                    icon="logos:storyblocks-icon"
+                                                    width="16"
+                                                    height="16"
+                                                />
+                                                Storybook
+                                            </span>
+                                            <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-stone-800 dark:text-white">
+                                                <Icon
+                                                    icon="logos:docker-icon"
+                                                    width="16"
+                                                    height="16"
+                                                />
+                                                Docker
+                                            </span>
+                                            <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-stone-800 dark:text-white">
+                                                <Icon
+                                                    icon="logos:gitlab-icon"
+                                                    width="16"
+                                                    height="16"
+                                                />
+                                                Gitlab
+                                            </span>
                                         </div>
                                     </div>
                                 </div>
-                                <div>
-                                    <h2>개인 경험</h2>
-                                    <div className="inline-flex">
-                                        <p>Firebase</p>
+
+                                <div className="space-y-3 pl-2">
+                                    <h2 className="text-xl font-semibold text-gray-700 underline underline-offset-4 decoration-wavy">
+                                        개인 경험
+                                    </h2>
+
+                                    <div className="flex flex-wrap gap-3">
+                                        <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-stone-800 dark:text-white">
+                                            <Icon
+                                                icon="logos:firebase-icon"
+                                                width="16"
+                                                height="16"
+                                            />
+                                            Firebase
+                                        </span>
+                                        <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-stone-800 dark:text-white">
+                                            <Icon icon="logos:vercel-icon" width="16" height="16" />
+                                            Vercel
+                                        </span>
                                     </div>
                                 </div>
                             </div>
