@@ -88,7 +88,7 @@ export default function ScrollContents({ pageName, effectDirection = 'y' }: Scol
             {
                 root: null,
                 rootMargin: '-15% 0px -15% 0px',
-                threshold: 0.5,
+                threshold: window.innerWidth < 768 ? 0.25 : 0.5,
             }
         );
 
@@ -103,68 +103,74 @@ export default function ScrollContents({ pageName, effectDirection = 'y' }: Scol
             {pageName === 'home' ? (
                 <>
                     <section className="common-section opacity-0 translate-y-8 transition-all duration-1000 ease-out">
-                        <div className="flex flex-col items-center">
+                        <div className="flex flex-col items-center px-4">
                             <CommonLottie file={homeLottie} />
-                            <span className="mt-4 text-center subpixel-antialiased text-3xl animate-[bounce_1.5s_infinite]">
-                                <p className="text-3xl p-1">안녕하세요 👋</p>
-                                <p className="text-3xl p-1">HyunDolog에 오신 것을 환영합니다!</p>
-                                <p className="text-lg p-2">본 페이지는 Next.js로 제작되었습니다.</p>
+                            <span className="mt-4 text-center subpixel-antialiased text-2xl md:text-3xl animate-[bounce_1.5s_infinite]">
+                                <p className="text-2xl md:text-3xl p-1">안녕하세요 👋</p>
+                                <p className="text-2xl md:text-3xl p-1">
+                                    HyunDolog에 오신 것을 환영합니다!
+                                </p>
+                                <p className="text-base md:text-lg p-2">
+                                    본 페이지는 Next.js로 제작되었습니다.
+                                </p>
                             </span>
                         </div>
                     </section>
 
-                    <section className="text-section opacity-0 translate-y-8 transition-all duration-1000 ease-out">
-                        <div className="relative p-12 border rounded-xl shadow-sm">
-                            <span className="absolute -top-7 left-12 px-6 py-3 text-lg font-semibold rounded-full bg-stone-800 text-white dark:bg-white dark:text-stone-800">
+                    <section className="text-section opacity-0 translate-y-8 transition-all duration-1000 ease-out px-4">
+                        <div className="relative p-6 md:p-12 border rounded-xl shadow-sm">
+                            <span className="absolute -top-7 left-6 md:left-12 px-4 md:px-6 py-2 md:py-3 text-base md:text-lg font-semibold rounded-full bg-stone-800 text-white dark:bg-white dark:text-stone-800">
                                 오늘의 명언
                             </span>
 
                             <div className="grid gap-y-3">
-                                <span className="text-2xl p-1">
-                                    <p className="italic text-stone-500">
+                                <span className="text-lg md:text-2xl p-1">
+                                    <p className="italic text-stone-500 text-sm md:text-base">
                                         子曰 知之者不如好之者 好之者不如樂之者
                                     </p>
-                                    <p>
-                                        “공자께서 말씀하셨다. 아는 자는 좋아하는 자만 못하고,
-                                        좋아하는 자는 즐기는 자만 못하다.”
+                                    <p className="text-base md:text-xl">
+                                        "공자께서 말씀하셨다. 아는 자는 좋아하는 자만 못하고,
+                                        좋아하는 자는 즐기는 자만 못하다."
                                     </p>
-                                    <p className="text-lg">(공자『논어』中)</p>
+                                    <p className="text-sm md:text-lg">(공자『논어』中)</p>
                                 </span>
 
-                                <span className="text-2xl p-1">
-                                    <p className="italic text-stone-500">
+                                <span className="text-lg md:text-2xl p-1">
+                                    <p className="italic text-stone-500 text-sm md:text-base">
                                         Try not to become a man of success but rather to become a
                                         man of value.
                                     </p>
-                                    <p>“성공한 사람보다는 가치 있는 사람이 되라.”</p>
-                                    <p className="text-lg">(알버트 아인슈타인)</p>
+                                    <p className="text-base md:text-xl">
+                                        "성공한 사람보다는 가치 있는 사람이 되라."
+                                    </p>
+                                    <p className="text-sm md:text-lg">(알버트 아인슈타인)</p>
                                 </span>
 
-                                <span className="text-2xl p-1">
-                                    <p className="italic text-stone-500">
+                                <span className="text-lg md:text-2xl p-1">
+                                    <p className="italic text-stone-500 text-sm md:text-base">
                                         Everyone thinks of changing the world, but no one thinks of
                                         changing himself.
                                     </p>
-                                    <p>
-                                        “모두가 세상을 변화시키려고 생각하지만, 정작 스스로
-                                        변하겠다고 생각하는 사람은 없다.”
+                                    <p className="text-base md:text-xl">
+                                        "모두가 세상을 변화시키려고 생각하지만, 정작 스스로
+                                        변하겠다고 생각하는 사람은 없다."
                                     </p>
-                                    <p className="text-lg">(레프 톨스토이)</p>
+                                    <p className="text-sm md:text-lg">(레프 톨스토이)</p>
                                 </span>
                             </div>
                         </div>
                     </section>
 
-                    <section className="common-section p-12 opacity-0 translate-y-8 transition-all duration-1000 ease-out">
-                        <div className="flex gap-x-12">
-                            <div className="w-2/5 flex flex-col">
-                                <div className="grid gap-y-2 text-lg">
+                    <section className="common-section p-4 md:p-12 opacity-0 translate-y-8 transition-all duration-1000 ease-out">
+                        <div className="flex flex-col md:flex-row gap-6 md:gap-x-12">
+                            <div className="w-full md:w-2/5 flex flex-col">
+                                <div className="grid gap-y-2 text-base md:text-lg">
                                     <Image
                                         src={homeProfileImage}
                                         alt="home profile personal image"
                                         width={150}
                                         height={150}
-                                        className="object-cover rounded-full w-48 h-48 m-auto mb-3"
+                                        className="object-cover rounded-full w-32 h-32 md:w-48 md:h-48 m-auto mb-3"
                                     />
                                     <Accordion
                                         key={0}
@@ -191,18 +197,18 @@ export default function ScrollContents({ pageName, effectDirection = 'y' }: Scol
                                     </div>
                                 </div>
 
-                                <div className="rounded-xl mt-auto text-center">
+                                <div className="rounded-xl mt-4 md:mt-auto text-center">
                                     <Link href="/profile">
                                         <button
                                             type="button"
-                                            className="cursor-pointer p-6 w-3/5 bg-indigo-600 font-semibold rounded-xl transition-all duration-200 ease-out hover:bg-indigo-700 hover:shadow-lg hover:scale-[1.05] active:scale-[0.95]"
+                                            className="cursor-pointer p-4 md:p-6 w-4/5 md:w-3/5 text-sm md:text-base bg-indigo-600 font-semibold rounded-xl transition-all duration-200 ease-out hover:bg-indigo-700 hover:shadow-lg hover:scale-[1.05] active:scale-[0.95]"
                                         >
                                             Profile 페이지로 이동하기
                                         </button>
                                     </Link>
                                 </div>
                             </div>
-                            <div className="w-3/5 rounded-xl overflow-hidden aspect-square">
+                            <div className="w-full md:w-3/5 rounded-xl overflow-hidden aspect-square">
                                 <Image
                                     src={profileImage}
                                     alt="home profile image"
@@ -214,35 +220,37 @@ export default function ScrollContents({ pageName, effectDirection = 'y' }: Scol
                         </div>
                     </section>
 
-                    <section className="common-section opacity-0 translate-y-8 transition-all duration-1000 ease-out">
-                        <div className="flex gap-6 p-12">
-                            <div className="w-1/2 relative p-12 border rounded-xl shadow-sm flex flex-col">
+                    <section className="common-section opacity-0 translate-y-8 transition-all duration-1000 ease-out px-4">
+                        <div className="flex flex-col md:flex-row gap-6 p-4 md:p-12">
+                            <div className="w-full md:w-1/2 relative p-6 md:p-12 border rounded-xl shadow-sm flex flex-col">
                                 <div className="grid grid-cols-2 gap-4 flex-grow">
                                     <Link
                                         href="https://www.chungjungduo.com/"
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="cursor-pointer border rounded-xl shadow-sm aspect-square flex flex-col items-center justify-center gap-3 hover:scale-105 transition-all duration-200 no-underline"
+                                        className="cursor-pointer border rounded-xl shadow-sm aspect-square flex flex-col items-center justify-center gap-2 md:gap-3 hover:scale-105 transition-all duration-200 no-underline"
                                     >
                                         <Image
                                             src={portfolioChungchungduoImage}
                                             alt="chungjungduo logo image"
                                             width={100}
                                             height={100}
-                                            className="object-cover rounded-xl"
+                                            className="object-cover rounded-xl w-16 h-16 md:w-20 md:h-20"
                                         />
-                                        <p className="text-sm">청정듀오 홈페이지</p>
+                                        <p className="text-xs md:text-sm text-center px-1">
+                                            청정듀오 홈페이지
+                                        </p>
                                     </Link>
                                     <a className="cursor-pointer border rounded-xl shadow-sm aspect-square flex flex-col items-center justify-center gap-3 hover:scale-105 transition-all duration-200 no-underline invisible"></a>
                                     <a className="cursor-pointer border rounded-xl shadow-sm aspect-square flex flex-col items-center justify-center gap-3 hover:scale-105 transition-all duration-200 no-underline invisible"></a>
                                     <a className="cursor-pointer border rounded-xl shadow-sm aspect-square flex flex-col items-center justify-center gap-3 hover:scale-105 transition-all duration-200 no-underline invisible"></a>
                                 </div>
 
-                                <div className="mt-10 text-center">
+                                <div className="mt-6 md:mt-10 text-center">
                                     <Link href="/portfolio">
                                         <button
                                             type="button"
-                                            className="cursor-pointer p-6 w-3/5 bg-indigo-600 text-sm font-semibold rounded-xl transition-all duration-200 ease-out hover:bg-indigo-700 hover:shadow-lg hover:scale-[1.05] active:scale-[0.95]"
+                                            className="cursor-pointer p-4 md:p-6 w-4/5 md:w-3/5 bg-indigo-600 text-xs md:text-sm font-semibold rounded-xl transition-all duration-200 ease-out hover:bg-indigo-700 hover:shadow-lg hover:scale-[1.05] active:scale-[0.95]"
                                         >
                                             Portfoilo 페이지로 이동하기
                                         </button>
@@ -250,7 +258,7 @@ export default function ScrollContents({ pageName, effectDirection = 'y' }: Scol
                                 </div>
                             </div>
 
-                            <div className="w-1/2 relative p-12 border rounded-xl shadow-sm flex flex-col">
+                            <div className="w-full md:w-1/2 relative p-6 md:p-12 border rounded-xl shadow-sm flex flex-col">
                                 <div className="grid grid-cols-2 gap-4 flex-grow">
                                     <Link
                                         href="/interest"
@@ -316,11 +324,11 @@ export default function ScrollContents({ pageName, effectDirection = 'y' }: Scol
                                     </Link>
                                 </div>
 
-                                <div className="mt-10 text-center">
+                                <div className="mt-6 md:mt-10 text-center">
                                     <Link href="/interest">
                                         <button
                                             type="button"
-                                            className="cursor-pointer p-6 w-3/5 bg-indigo-600 text-sm font-semibold rounded-xl transition-all duration-200 ease-out hover:bg-indigo-700 hover:shadow-lg hover:scale-[1.05] active:scale-[0.95]"
+                                            className="cursor-pointer p-4 md:p-6 w-4/5 md:w-3/5 bg-indigo-600 text-xs md:text-sm font-semibold rounded-xl transition-all duration-200 ease-out hover:bg-indigo-700 hover:shadow-lg hover:scale-[1.05] active:scale-[0.95]"
                                         >
                                             Interest 페이지로 이동하기
                                         </button>
@@ -330,10 +338,10 @@ export default function ScrollContents({ pageName, effectDirection = 'y' }: Scol
                         </div>
                     </section>
 
-                    <section className="common-section opacity-0 translate-y-8 transition-all duration-1000 ease-out">
-                        <div className="flex gap-12 p-12">
-                            <div className="w-1/2 space-y-6">
-                                <h1 className="inline-block text-3xl font-bold px-4 py-2 mb-6 bg-gradient-to-r from-cyan-400/70 to-cyan-600/70 text-white rounded-xl">
+                    <section className="common-section opacity-0 translate-y-8 transition-all duration-1000 ease-out px-4">
+                        <div className="flex flex-col lg:flex-row gap-6 lg:gap-12 p-4 md:p-12">
+                            <div className="w-full lg:w-1/2 space-y-6">
+                                <h1 className="inline-block text-xl md:text-3xl font-bold px-3 md:px-4 py-2 mb-6 bg-gradient-to-r from-cyan-400/70 to-cyan-600/70 text-white rounded-xl">
                                     언어 / 프레임워크 / 라이브러리
                                 </h1>
 
@@ -452,12 +460,12 @@ export default function ScrollContents({ pageName, effectDirection = 'y' }: Scol
                                 </div>
                             </div>
 
-                            <div className="flex items-center">
+                            <div className="hidden lg:flex items-center">
                                 <div className="w-px h-full bg-gradient-to-b from-transparent via-gray-300 to-transparent"></div>
                             </div>
 
-                            <div className="w-1/2 space-y-6">
-                                <h1 className="inline-block text-3xl font-bold px-4 py-2 mb-6 bg-gradient-to-r from-cyan-700/70 to-cyan-500/70 text-white rounded-xl shadow-md">
+                            <div className="w-full lg:w-1/2 space-y-6">
+                                <h1 className="inline-block text-xl md:text-3xl font-bold px-3 md:px-4 py-2 mb-6 bg-gradient-to-r from-cyan-700/70 to-cyan-500/70 text-white rounded-xl shadow-md">
                                     도구 / 환경
                                 </h1>
 
