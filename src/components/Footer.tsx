@@ -1,11 +1,14 @@
 import Link from 'next/link';
 import { Icon } from '@iconify/react';
+import { getVersion } from '@/lib/version';
 
-export default function Footer() {
+export default async function Footer() {
+    const version = await getVersion();
+
     return (
         <div className="w-full bg-gray-200 dark:bg-stone-900">
             <div className="max-w-6xl mx-auto p-12">
-                <div className="flex flex-col items-center mb-3">
+                {/* <div className="flex flex-col items-center mb-3">
                     <Link
                         href="/"
                         className="flex flex-col items-center hover:text-indigo-300 transition-colors"
@@ -13,7 +16,7 @@ export default function Footer() {
                         <Icon icon="ri:home-2-line" width="48" height="48" />
                         <p>Home</p>
                     </Link>
-                </div>
+                </div> */}
                 <div className="flex flex-col items-center">
                     <div className="flex gap-x-12 text-lg font-medium p-6">
                         <Link
@@ -80,7 +83,7 @@ export default function Footer() {
                 </div>
                 <div className="flex flex-col items-center text-sm">
                     <p>All rights reserved. Copyright © 2025 hyundol97.</p>
-                    <p>Version xxx.</p>
+                    <p>Version {version}.</p>
                 </div>
             </div>
         </div>
