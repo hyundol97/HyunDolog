@@ -2,8 +2,8 @@ import Link from 'next/link';
 import { Icon } from '@iconify/react';
 import { getVersion } from '@/lib/version';
 
-export default async function Footer() {
-    const version = await getVersion();
+export default function Footer() {
+    const version = getVersion();
 
     return (
         <div className="w-full bg-gray-200 dark:bg-stone-900">

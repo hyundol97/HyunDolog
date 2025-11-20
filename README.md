@@ -28,7 +28,7 @@
 
 ## 📝 배포 및 블로그
 
-배포 링크: https://hyundolog.tistory.com/
+배포 링크: https://hyundolog.vercel.app
 
 ## 💡 사용 기술
 
