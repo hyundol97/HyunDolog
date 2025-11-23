@@ -18,7 +18,7 @@ import interestTravelImage from '@/assets/images/travel_swiss4.jpg';
 import interestSportsImage from '@/assets/images/interest_sports_hike1.jpg';
 import interestReadingImage from '@/assets/images/interest_reading_book1.jpg';
 
-export default function ScrollContents() {
+export default function HomeScrollContents() {
     const careerStartDay = new Date('2021-08-09T00:00:00+09:00'); // 사회경험 시작일
     const today = new Date();
     const diffMs = today.getTime() - careerStartDay.getTime();
