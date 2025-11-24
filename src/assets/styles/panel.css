@@ -16,6 +16,15 @@ section.common-section:last-of-type {
     margin-bottom: 100px;
 }
 
+#slide-wrapper {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+}
+
+#slide-wrapper::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+
 .fade-in-y {
     opacity: 1 !important;
     transform: translateY(0) !important;

@@ -7,8 +7,8 @@ import Image from 'next/image';
 import HomeQuote from '@/components/home/HomeQuote';
 import HomeSkills from '@/components/home/HomeSkills';
 import HomeCommonLink from '@/components/home/HomeCommonLink';
-import CommonLottie from '@/components/CommonLottie';
-import Accordion from '@/components/Accordion';
+import CommonLottie from '@/components/common/CommonLottie';
+import Accordion from '@/components/common/Accordion';
 
 import homeLottie from '@/assets/images/home_lottie.json';
 import homeProfileImage from '@/assets/images/home_profile_personal.jpg';

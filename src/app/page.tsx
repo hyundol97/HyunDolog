@@ -1,4 +1,4 @@
-import HomeScrollContents from '@/components/home/HomeScrollContents';
+import HomeScrollContents from '@/components/HomeScrollContents';
 
 export default function Home() {
     return (
