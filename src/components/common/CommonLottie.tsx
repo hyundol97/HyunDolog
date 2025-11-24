@@ -9,5 +9,9 @@ interface CommonLottieProps {
 }
 
 export default function CommonLottie({ file, loop = true, play = true }: CommonLottieProps) {
-    return <Lottie loop={loop} animationData={file} play={play} />;
+    return (
+        <div className="w-full max-w-md mx-auto">
+            <Lottie loop={loop} animationData={file} play={play} />
+        </div>
+    );
 }
