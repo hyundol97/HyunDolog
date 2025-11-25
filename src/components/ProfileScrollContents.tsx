@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
+import Image from 'next/image';
 
 import ProfileHistory from '@/components/profile/ProfileHistory';
 
@@ -10,6 +11,7 @@ import MiddleSchoolImage from '@/assets/images/middleschool_soccer.jpg';
 import HighSchoolImage from '@/assets/images/highschool_graduate.jpg';
 import ArmyEntireImage from '@/assets/images/army_entire1.jpg';
 import UniversityGraduateImage from '@/assets/images/university_graduate1.jpg';
+import IdificationImage from '@/assets/images/id_picture.jpg';
 
 export default function ProfileScrollContents() {
     useEffect(() => {
@@ -22,6 +24,30 @@ export default function ProfileScrollContents() {
         const fadeSections = document.querySelectorAll('.fade-section');
 
         if (slides.length === 0) return;
+
+        const updateSlideOpacity = () => {
+            const wrapperRect = wrapper.getBoundingClientRect();
+            const wrapperCenter = wrapperRect.left + wrapperRect.width / 2;
+
+            slides.forEach(slide => {
+                const slideRect = slide.getBoundingClientRect();
+                const slideCenter = slideRect.left + slideRect.width / 2;
+                const distance = Math.abs(slideCenter - wrapperCenter);
+                const maxDistance = wrapperRect.width / 2;
+                const opacity = Math.max(0.3, 1 - distance / maxDistance);
+
+                const slideElement = slide as HTMLElement;
+                slideElement.style.transition = 'opacity 0.5s ease-out';
+                slideElement.style.opacity = opacity.toString();
+            });
+        };
+
+        const onScroll = () => {
+            updateSlideOpacity();
+        };
+
+        wrapper.addEventListener('scroll', onScroll);
+        updateSlideOpacity();
 
         const onWheel = (e: WheelEvent) => {
             if (Math.abs(e.deltaX) < Math.abs(e.deltaY)) {
@@ -88,13 +114,14 @@ export default function ProfileScrollContents() {
                 });
             },
             {
-                threshold: 0.2,
+                threshold: 0.3,
             }
         );
 
         fadeSections.forEach(section => fadeObserver.observe(section));
 
         return () => {
+            wrapper.removeEventListener('scroll', onScroll);
             wrapper.removeEventListener('wheel', onWheel);
             wrapper.removeEventListener('touchstart', onTouchStart);
             wrapper.removeEventListener('touchmove', onTouchMove);
@@ -107,7 +134,7 @@ export default function ProfileScrollContents() {
             <section className="fade-section opacity-0 translate-y-8 transition-all duration-700 ease-out">
                 <div
                     id="slide-wrapper"
-                    className="relative w-full h-[60vh] md:px-[10vw] overflow-x-auto flex snap-x snap-mandatory scroll-smooth"
+                    className="relative w-full h-[60vh] md:px-[5] overflow-x-auto flex snap-x snap-mandatory scroll-smooth"
                 >
                     <ProfileHistory
                         historyTitle="1997, 출생"
@@ -143,17 +170,139 @@ export default function ProfileScrollContents() {
             </section>
 
             <section className="fade-section opacity-0 translate-y-8 transition-all duration-700 ease-out">
-                <div className="relative w-full px-[10vw] py-20">
-                    <h2 className="text-3xl font-bold mb-6">아래로 이어지는 콘텐츠</h2>
-                    <div className="text-lg leading-relaxed">
-                        ㅇㅇㅇㅇ
-                        <br />
-                        여기에 아주 긴 콘텐츠 넣어도 fade-in/out 적용됨
-                        <br />
-                        계속 스크롤하면 자연스럽게 나타남
-                        <br />
-                        <br />
-                        ... (여기 계속 콘텐츠)
+                <div className="relative w-full px-2 md:px-[10] py-20">
+                    <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-lg p-8 bg-gray-300 dark:bg-stone-800">
+                        <h2 className="text-2xl font-bold mb-8 text-gray-800 dark:text-white">
+                            Profile
+                        </h2>
+                        <div className="flex flex-col md:flex-row gap-8 items-center">
+                            <div className="flex-shrink-0">
+                                <Image
+                                    src={IdificationImage}
+                                    alt="profile image"
+                                    width={200}
+                                    height={200}
+                                    className="object-cover w-48 h-48 rounded-full border-4 border-gray-200"
+                                />
+                            </div>
+                            <div className="flex-1 space-y-4">
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div className="bg-gray-300 dark:bg-stone-800 p-4 rounded-lg">
+                                        <span className="text-sm text-gray-600 font-medium">
+                                            이름
+                                        </span>
+                                        <p className="text-lg font-semibold">송현석</p>
+                                        <p className="text-sm">[본관] 여산송씨 원윤공파 28대손</p>
+                                    </div>
+                                    <div className="bg-gray-300 dark:bg-stone-800 p-4 rounded-lg">
+                                        <span className="text-sm text-gray-600 font-medium">
+                                            생년월일
+                                        </span>
+                                        <p className="text-lg font-semibold">
+                                            1997.08.19 (만 28세)
+                                        </p>
+                                    </div>
+                                    <div className="bg-gray-300 dark:bg-stone-800 p-4 rounded-lg">
+                                        <span className="text-sm text-gray-600 font-medium">
+                                            최종학력
+                                        </span>
+                                        <p className="text-lg font-semibold">세종대학교</p>
+                                        <p className="text-sm">(3.62 / 4.5)</p>
+                                        <p className="text-sm">[전공] 소프트웨어학</p>
+                                        <p className="text-sm">
+                                            [연계전공] 소셜미디어매니지먼트소프트웨어
+                                        </p>
+                                    </div>
+                                    <div className="bg-gray-300 dark:bg-stone-800 p-4 rounded-lg">
+                                        <span className="text-sm text-gray-600 font-medium">
+                                            병역
+                                        </span>
+                                        <p className="text-lg font-semibold">공군 병장 만기전역</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="mt-50 md:mt-30">
+                            <h2 className="text-2xl font-bold mb-8 text-gray-800 dark:text-white">
+                                Career
+                            </h2>
+                            <div className="space-y-8">
+                                <div className="bg-gray-200 dark:bg-stone-700 rounded-xl shadow-md p-6 border-l-4 border-blue-500">
+                                    <div className="flex justify-between items-start mb-4">
+                                        <h3 className="text-xl font-bold text-gray-800 dark:text-white">
+                                            DEEP:NOID (딥노이드)
+                                        </h3>
+                                        <span className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-3 py-1 rounded-full text-sm font-medium">
+                                            Career 1
+                                        </span>
+                                    </div>
+                                    <p className="text-gray-600 dark:text-gray-300 mb-4">
+                                        ~~~~ 회사이다.
+                                    </p>
+                                    <div className="bg-gray-100 dark:bg-stone-600 p-4 rounded-lg">
+                                        <h4 className="font-semibold text-gray-800 dark:text-white mb-2">
+                                            직무 : 프론트엔드 개발
+                                        </h4>
+                                        <ul className="space-y-1 text-gray-600 dark:text-gray-300">
+                                            <li>• ~~ 개발하였다.</li>
+                                            <li>• ~~ 개발하였다.</li>
+                                            <li>• ~~ 개발하였다.</li>
+                                            <li>• ~~ 개발하였다.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div className="bg-gray-200 dark:bg-stone-700 rounded-xl shadow-md p-6 border-l-4 border-green-500">
+                                    <div className="flex justify-between items-start mb-4">
+                                        <h3 className="text-xl font-bold text-gray-800 dark:text-white">
+                                            (주) 미로 (LastOrder)
+                                        </h3>
+                                        <span className="bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-3 py-1 rounded-full text-sm font-medium">
+                                            Career 2
+                                        </span>
+                                    </div>
+                                    <p className="text-gray-600 dark:text-gray-300 mb-4">
+                                        ~~~~ 회사이다.
+                                    </p>
+                                    <div className="bg-gray-100 dark:bg-stone-600 p-4 rounded-lg">
+                                        <h4 className="font-semibold text-gray-800 dark:text-white mb-2">
+                                            직무 : 프론트엔드 개발
+                                        </h4>
+                                        <ul className="space-y-1 text-gray-600 dark:text-gray-300">
+                                            <li>• ~~ 개발하였다.</li>
+                                            <li>• ~~ 개발하였다.</li>
+                                            <li>• ~~ 개발하였다.</li>
+                                            <li>• ~~ 개발하였다.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div className="bg-gray-200 dark:bg-stone-700 rounded-xl shadow-md p-6 border-l-4 border-purple-500">
+                                    <div className="flex justify-between items-start mb-4">
+                                        <h3 className="text-xl font-bold text-gray-800 dark:text-white">
+                                            주식회사본도
+                                        </h3>
+                                        <span className="bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 px-3 py-1 rounded-full text-sm font-medium">
+                                            Career 3 (Now)
+                                        </span>
+                                    </div>
+                                    <p className="text-gray-600 dark:text-gray-300 mb-4">
+                                        ~~~~ 회사이다.
+                                    </p>
+                                    <div className="bg-gray-100 dark:bg-stone-600 p-4 rounded-lg">
+                                        <h4 className="font-semibold text-gray-800 dark:text-white mb-2">
+                                            직무 : 프론트엔드 개발
+                                        </h4>
+                                        <ul className="space-y-1 text-gray-600 dark:text-gray-300">
+                                            <li>• ~~ 개발하였다.</li>
+                                            <li>• ~~ 개발하였다.</li>
+                                            <li>• ~~ 개발하였다.</li>
+                                            <li>• ~~ 개발하였다.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
