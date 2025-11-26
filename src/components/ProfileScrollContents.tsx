@@ -1,9 +1,9 @@
 'use client';
 
 import { useEffect } from 'react';
-import Image from 'next/image';
 
 import ProfileHistory from '@/components/profile/ProfileHistory';
+import ProfileCareer from '@/components/profile/ProfileCareer';
 
 import YoungAgeImage from '@/assets/images/young_age.jpg';
 import ElementarySchoolImage from '@/assets/images/elementary_school.png';
@@ -37,7 +37,7 @@ export default function ProfileScrollContents() {
                 const opacity = Math.max(0.3, 1 - distance / maxDistance);
 
                 const slideElement = slide as HTMLElement;
-                slideElement.style.transition = 'opacity 0.5s ease-out';
+                slideElement.style.transition = 'opacity 0.3s ease-out';
                 slideElement.style.opacity = opacity.toString();
             });
         };
@@ -114,7 +114,8 @@ export default function ProfileScrollContents() {
                 });
             },
             {
-                threshold: 0.3,
+                threshold: 0.1,
+                rootMargin: '50px'
             }
         );
 
@@ -131,7 +132,7 @@ export default function ProfileScrollContents() {
 
     return (
         <div className="w-full flex flex-col justify-center">
-            <section className="fade-section opacity-0 translate-y-8 transition-all duration-700 ease-out">
+            <section className="fade-section opacity-0 translate-y-8 transition-all duration-1000 ease-out">
                 <div
                     id="slide-wrapper"
                     className="relative w-full h-[60vh] md:px-[5] overflow-x-auto flex snap-x snap-mandatory scroll-smooth"
@@ -167,144 +168,13 @@ export default function ProfileScrollContents() {
                         imgAlt="university graduate image"
                     />
                 </div>
+                <div className="md:hidden text-center animate-[bounce_2s_infinite]">
+                    <p className="text-sm text-indigo-200">⬅️ 좌우로 스와이프하세요 ➡️</p>
+                </div>
             </section>
 
-            <section className="fade-section opacity-0 translate-y-8 transition-all duration-700 ease-out">
-                <div className="relative w-full px-2 md:px-[10] py-20">
-                    <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-lg p-8 bg-gray-300 dark:bg-stone-800">
-                        <h2 className="text-2xl font-bold mb-8 text-gray-800 dark:text-white">
-                            Profile
-                        </h2>
-                        <div className="flex flex-col md:flex-row gap-8 items-center">
-                            <div className="flex-shrink-0">
-                                <Image
-                                    src={IdificationImage}
-                                    alt="profile image"
-                                    width={200}
-                                    height={200}
-                                    className="object-cover w-48 h-48 rounded-full border-4 border-gray-200"
-                                />
-                            </div>
-                            <div className="flex-1 space-y-4">
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                    <div className="bg-gray-300 dark:bg-stone-800 p-4 rounded-lg">
-                                        <span className="text-sm text-gray-600 font-medium">
-                                            이름
-                                        </span>
-                                        <p className="text-lg font-semibold">송현석</p>
-                                        <p className="text-sm">[본관] 여산송씨 원윤공파 28대손</p>
-                                    </div>
-                                    <div className="bg-gray-300 dark:bg-stone-800 p-4 rounded-lg">
-                                        <span className="text-sm text-gray-600 font-medium">
-                                            생년월일
-                                        </span>
-                                        <p className="text-lg font-semibold">
-                                            1997.08.19 (만 28세)
-                                        </p>
-                                    </div>
-                                    <div className="bg-gray-300 dark:bg-stone-800 p-4 rounded-lg">
-                                        <span className="text-sm text-gray-600 font-medium">
-                                            최종학력
-                                        </span>
-                                        <p className="text-lg font-semibold">세종대학교</p>
-                                        <p className="text-sm">(3.62 / 4.5)</p>
-                                        <p className="text-sm">[전공] 소프트웨어학</p>
-                                        <p className="text-sm">
-                                            [연계전공] 소셜미디어매니지먼트소프트웨어
-                                        </p>
-                                    </div>
-                                    <div className="bg-gray-300 dark:bg-stone-800 p-4 rounded-lg">
-                                        <span className="text-sm text-gray-600 font-medium">
-                                            병역
-                                        </span>
-                                        <p className="text-lg font-semibold">공군 병장 만기전역</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="mt-50 md:mt-30">
-                            <h2 className="text-2xl font-bold mb-8 text-gray-800 dark:text-white">
-                                Career
-                            </h2>
-                            <div className="space-y-8">
-                                <div className="bg-gray-200 dark:bg-stone-700 rounded-xl shadow-md p-6 border-l-4 border-blue-500">
-                                    <div className="flex justify-between items-start mb-4">
-                                        <h3 className="text-xl font-bold text-gray-800 dark:text-white">
-                                            DEEP:NOID (딥노이드)
-                                        </h3>
-                                        <span className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-3 py-1 rounded-full text-sm font-medium">
-                                            Career 1
-                                        </span>
-                                    </div>
-                                    <p className="text-gray-600 dark:text-gray-300 mb-4">
-                                        ~~~~ 회사이다.
-                                    </p>
-                                    <div className="bg-gray-100 dark:bg-stone-600 p-4 rounded-lg">
-                                        <h4 className="font-semibold text-gray-800 dark:text-white mb-2">
-                                            직무 : 프론트엔드 개발
-                                        </h4>
-                                        <ul className="space-y-1 text-gray-600 dark:text-gray-300">
-                                            <li>• ~~ 개발하였다.</li>
-                                            <li>• ~~ 개발하였다.</li>
-                                            <li>• ~~ 개발하였다.</li>
-                                            <li>• ~~ 개발하였다.</li>
-                                        </ul>
-                                    </div>
-                                </div>
-
-                                <div className="bg-gray-200 dark:bg-stone-700 rounded-xl shadow-md p-6 border-l-4 border-green-500">
-                                    <div className="flex justify-between items-start mb-4">
-                                        <h3 className="text-xl font-bold text-gray-800 dark:text-white">
-                                            (주) 미로 (LastOrder)
-                                        </h3>
-                                        <span className="bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-3 py-1 rounded-full text-sm font-medium">
-                                            Career 2
-                                        </span>
-                                    </div>
-                                    <p className="text-gray-600 dark:text-gray-300 mb-4">
-                                        ~~~~ 회사이다.
-                                    </p>
-                                    <div className="bg-gray-100 dark:bg-stone-600 p-4 rounded-lg">
-                                        <h4 className="font-semibold text-gray-800 dark:text-white mb-2">
-                                            직무 : 프론트엔드 개발
-                                        </h4>
-                                        <ul className="space-y-1 text-gray-600 dark:text-gray-300">
-                                            <li>• ~~ 개발하였다.</li>
-                                            <li>• ~~ 개발하였다.</li>
-                                            <li>• ~~ 개발하였다.</li>
-                                            <li>• ~~ 개발하였다.</li>
-                                        </ul>
-                                    </div>
-                                </div>
-
-                                <div className="bg-gray-200 dark:bg-stone-700 rounded-xl shadow-md p-6 border-l-4 border-purple-500">
-                                    <div className="flex justify-between items-start mb-4">
-                                        <h3 className="text-xl font-bold text-gray-800 dark:text-white">
-                                            주식회사본도
-                                        </h3>
-                                        <span className="bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 px-3 py-1 rounded-full text-sm font-medium">
-                                            Career 3 (Now)
-                                        </span>
-                                    </div>
-                                    <p className="text-gray-600 dark:text-gray-300 mb-4">
-                                        ~~~~ 회사이다.
-                                    </p>
-                                    <div className="bg-gray-100 dark:bg-stone-600 p-4 rounded-lg">
-                                        <h4 className="font-semibold text-gray-800 dark:text-white mb-2">
-                                            직무 : 프론트엔드 개발
-                                        </h4>
-                                        <ul className="space-y-1 text-gray-600 dark:text-gray-300">
-                                            <li>• ~~ 개발하였다.</li>
-                                            <li>• ~~ 개발하였다.</li>
-                                            <li>• ~~ 개발하였다.</li>
-                                            <li>• ~~ 개발하였다.</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <section className="fade-section transition-all duration-1000 ease-out">
+                <ProfileCareer idImgSrc={IdificationImage} />
             </section>
         </div>
     );
