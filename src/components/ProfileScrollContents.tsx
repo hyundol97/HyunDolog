@@ -115,7 +115,7 @@ export default function ProfileScrollContents() {
             },
             {
                 threshold: 0.1,
-                rootMargin: '50px'
+                rootMargin: '50px',
             }
         );
 
@@ -130,43 +130,54 @@ export default function ProfileScrollContents() {
         };
     }, []);
 
+    const historyData = [
+        {
+            historyTitle: '1997, 출생',
+            imgSrc: YoungAgeImage,
+            imgAlt: 'my born image',
+        },
+        {
+            historyTitle: '2010, 초등학교 졸업',
+            imgSrc: ElementarySchoolImage,
+            imgAlt: 'elementary school image',
+        },
+        {
+            historyTitle: '2013, 중학교 졸업',
+            imgSrc: MiddleSchoolImage,
+            imgAlt: 'middle school image',
+        },
+        {
+            historyTitle: '2016, 고등학교 졸업',
+            imgSrc: HighSchoolImage,
+            imgAlt: 'high school image',
+        },
+        {
+            historyTitle: '2019, 공군 병장 만기전역',
+            imgSrc: ArmyEntireImage,
+            imgAlt: 'the army entire image',
+        },
+        {
+            historyTitle: '2022, 대학교 졸업',
+            imgSrc: UniversityGraduateImage,
+            imgAlt: 'university graduate image',
+        },
+    ];
+
     return (
         <div className="w-full flex flex-col justify-center">
             <section className="fade-section opacity-0 translate-y-8 transition-all duration-1000 ease-out">
                 <div
                     id="slide-wrapper"
-                    className="relative w-full h-[60vh] md:px-[5] overflow-x-auto flex snap-x snap-mandatory scroll-smooth"
+                    className="relative w-full h-[60vh] md:h-[70vh] md:px-[5] overflow-x-auto flex snap-x snap-mandatory scroll-smooth"
                 >
-                    <ProfileHistory
-                        historyTitle="1997, 출생"
-                        imgSrc={YoungAgeImage}
-                        imgAlt="my born image"
-                    />
-                    <ProfileHistory
-                        historyTitle="2010, 초등학교 졸업"
-                        imgSrc={ElementarySchoolImage}
-                        imgAlt="elementary school image"
-                    />
-                    <ProfileHistory
-                        historyTitle="2013, 중학교 졸업"
-                        imgSrc={MiddleSchoolImage}
-                        imgAlt="middle school image"
-                    />
-                    <ProfileHistory
-                        historyTitle="2016, 고등학교 졸업"
-                        imgSrc={HighSchoolImage}
-                        imgAlt="high school image"
-                    />
-                    <ProfileHistory
-                        historyTitle="2019, 공군 병장 만기전역"
-                        imgSrc={ArmyEntireImage}
-                        imgAlt="the army entire image"
-                    />
-                    <ProfileHistory
-                        historyTitle="2022, 대학교 졸업"
-                        imgSrc={UniversityGraduateImage}
-                        imgAlt="university graduate image"
-                    />
+                    {historyData.map((data, index) => (
+                        <ProfileHistory
+                            key={index}
+                            historyTitle={data.historyTitle}
+                            imgSrc={data.imgSrc}
+                            imgAlt={data.imgAlt}
+                        />
+                    ))}
                 </div>
                 <div className="md:hidden text-center animate-[bounce_2s_infinite]">
                     <p className="text-sm text-indigo-200">⬅️ 좌우로 스와이프하세요 ➡️</p>

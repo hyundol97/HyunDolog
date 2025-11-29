@@ -5,7 +5,7 @@ export default function Navbar() {
     return (
         <nav className="flex justify-center items-center bg-gray-200 dark:bg-stone-900">
             <div className="relative fixed top-0 flex flex-col items-center px-4 py-4">
-                <div className="w-32 h-32 rounded-full overflow-hidden flex items-center justify-center bg-white mb-3">
+                <div className="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden flex items-center justify-center bg-white mb-3">
                     <Link href="/">
                         <Image
                             src="/main_logo.png"
