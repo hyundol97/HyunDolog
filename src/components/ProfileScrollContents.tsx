@@ -179,7 +179,7 @@ export default function ProfileScrollContents() {
                         />
                     ))}
                 </div>
-                <div className="md:hidden text-center animate-[bounce_2s_infinite]">
+                <div className="md:hidden text-center animate-[bounce_2s_infinite] mt-4">
                     <p className="text-sm text-indigo-200">⬅️ 좌우로 스와이프하세요 ➡️</p>
                 </div>
             </section>
