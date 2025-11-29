@@ -1,11 +1,15 @@
 import Link from 'next/link';
 import Image, { StaticImageData } from 'next/image';
 
+import { getManAge } from '@/lib/util';
+
 interface ProfileHistoryProps {
     idImgSrc: string | StaticImageData;
 }
 
 export default function ProfileCareer({ idImgSrc }: ProfileHistoryProps) {
+    const manAge = getManAge('1997.08.19');
+
     return (
         <div className="relative w-full px-2 md:px-[10] py-20">
             <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-lg p-8 bg-gray-300 dark:bg-stone-800">
@@ -38,8 +42,15 @@ export default function ProfileCareer({ idImgSrc }: ProfileHistoryProps) {
                                     📅 생년월일
                                 </span>
                                 <p className="text-md md:text-xl font-semibold">
-                                    1997.08.19 (만 28세)
+                                    1997.08.19 (만 {manAge}세)
                                 </p>
+                            </div>
+                            <div className="bg-gray-300 dark:bg-stone-800 p-4 rounded-lg">
+                                <span className="text-sm md:text-lg text-gray-600 font-medium">
+                                    🏠 거주지
+                                </span>
+                                <p className="text-md md:text-xl font-semibold">서울특별시</p>
+                                <p className="text-sm md:text-md">관악구 서림동</p>
                             </div>
                             <div className="bg-gray-300 dark:bg-stone-800 p-4 rounded-lg">
                                 <span className="text-sm md:text-lg text-gray-600 font-medium">
@@ -83,6 +94,7 @@ export default function ProfileCareer({ idImgSrc }: ProfileHistoryProps) {
                                 <p>[부서] (삼성화재) UI운영팀</p>
                                 <p>[직급] Pro</p>
                                 <p>[직무] 프론트엔드 개발</p>
+                                <p>[근무형태] 프리랜서</p>
                             </div>
                             <div className="mb-4 bg-gray-100 dark:bg-stone-600 text-gray-800 dark:text-white p-4 rounded-lg">
                                 <div className="mb-6">
@@ -324,6 +336,7 @@ export default function ProfileCareer({ idImgSrc }: ProfileHistoryProps) {
                                 <p>[부서] 개발팀</p>
                                 <p>[직급] 사원</p>
                                 <p>[직무] 프론트엔드 개발</p>
+                                <p>[근무형태] 정규직</p>
                             </div>
 
                             <div className="mb-4 bg-gray-100 dark:bg-stone-600 text-gray-800 dark:text-white rounded-lg p-4">
@@ -500,6 +513,7 @@ export default function ProfileCareer({ idImgSrc }: ProfileHistoryProps) {
                                 <p>[부서] 웹영상팀</p>
                                 <p>[직급] 주임연구원</p>
                                 <p>[직무] 프론트엔드 개발</p>
+                                <p>[근무형태] 정규직</p>
                             </div>
                             <div className="bg-gray-100 dark:bg-stone-600 text-gray-800 dark:text-white p-4 rounded-lg">
                                 <div className="mb-6">

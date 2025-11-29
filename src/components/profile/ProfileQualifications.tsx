@@ -1,12 +1,16 @@
 import Image, { StaticImageData } from 'next/image';
 
-interface ProfileHistoryProps {
+interface ProfileQualificationsProps {
     historyTitle: string;
     imgSrc: string | StaticImageData;
     imgAlt: string;
 }
 
-export default function ProfileHistory({ historyTitle, imgSrc, imgAlt }: ProfileHistoryProps) {
+export default function ProfileQualifications({
+    historyTitle,
+    imgSrc,
+    imgAlt,
+}: ProfileQualificationsProps) {
     return (
         <div className="slide-item snap-center shrink-0 p-4 w-screen md:w-full h-full flex flex-col justify-center items-center transition-all duration-500 ease-out">
             <h3 className="text-2xl md:text-4xl font-bold mb-4 md:mb-8">{historyTitle}</h3>

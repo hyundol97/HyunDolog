@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 
 import ProfileHistory from '@/components/profile/ProfileHistory';
 import ProfileCareer from '@/components/profile/ProfileCareer';
+import ProfileQualifications from '@/components/profile/ProfileQualifications';
 
 import YoungAgeImage from '@/assets/images/young_age.jpg';
 import ElementarySchoolImage from '@/assets/images/elementary_school.png';
@@ -186,6 +187,17 @@ export default function ProfileScrollContents() {
 
             <section className="fade-section transition-all duration-1000 ease-out">
                 <ProfileCareer idImgSrc={IdificationImage} />
+            </section>
+
+            <section className="fade-section transition-all duration-1000 ease-out">
+                {historyData.map((data, index) => (
+                    <ProfileQualifications
+                        key={index}
+                        historyTitle={data.historyTitle}
+                        imgSrc={data.imgSrc}
+                        imgAlt={data.imgAlt}
+                    />
+                ))}
             </section>
         </div>
     );
