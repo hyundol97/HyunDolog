@@ -1,22 +1,18 @@
+'use client';
+
 import Link from 'next/link';
 import { Icon } from '@iconify/react';
 import { getVersion } from '@/lib/version';
+import { useState } from 'react';
+import ContactModal from './ContactModal';
 
 export default function Footer() {
     const version = getVersion();
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     return (
         <div className="w-full bg-gray-200 dark:bg-stone-900">
             <div className="max-w-6xl mx-auto p-12">
-                {/* <div className="flex flex-col items-center mb-3">
-                    <Link
-                        href="/"
-                        className="flex flex-col items-center hover:text-indigo-300 transition-colors"
-                    >
-                        <Icon icon="ri:home-2-line" width="48" height="48" />
-                        <p>Home</p>
-                    </Link>
-                </div> */}
                 <div className="flex flex-col items-center">
                     <div className="flex gap-x-12 text-lg font-medium p-6">
                         <Link
@@ -52,7 +48,7 @@ export default function Footer() {
                             <Icon icon="ri:instagram-line" width="24" height="24" />
                         </Link>
                         <Link
-                            href="https://www.instagram.com/hyundol_97"
+                            href="https://open.kakao.com/o/saB2Am4h"
                             target="_blank"
                             className="hover:text-indigo-300 transition-colors"
                         >
@@ -72,20 +68,20 @@ export default function Footer() {
                         >
                             <Icon icon="ri:blogger-line" width="24" height="24" />
                         </Link>
-                        <Link
-                            href="https://www.linkedin.com/in/%ED%98%84%EC%84%9D-%EC%86%A1-3311a6254"
-                            target="_blank"
-                            className="hover:text-indigo-300 transition-colors"
+                        <button
+                            onClick={() => setIsModalOpen(true)}
+                            className="cursor-pointer hover:text-indigo-300 transition-colors"
                         >
                             <Icon icon="ri:mail-add-line" width="24" height="24" />
-                        </Link>
+                        </button>
                     </div>
                 </div>
-                <div className="flex flex-col items-center text-sm">
+                <div className="flex flex-col items-center text-xs md:text-sm">
                     <p>All rights reserved. Copyright © 2025 hyundol97.</p>
                     <p>Version {version}.</p>
                 </div>
             </div>
+            <ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
         </div>
     );
 }
