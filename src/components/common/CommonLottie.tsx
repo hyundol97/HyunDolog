@@ -10,7 +10,7 @@ interface CommonLottieProps {
 
 export default function CommonLottie({ file, loop = true, play = true }: CommonLottieProps) {
     return (
-        <div className="w-full max-w-xs md:max-w-lg mx-auto aspect-square overflow-hidden">
+        <div className="w-60 h-60 md:w-125 md:h-125 overflow-hidden">
             <Lottie loop={loop} animationData={file} play={play} />
         </div>
     );

@@ -10,9 +10,9 @@ import HomeCommonLink from '@/components/home/HomeCommonLink';
 import CommonLottie from '@/components/common/CommonLottie';
 import Accordion from '@/components/common/Accordion';
 
-import homeLottie from '@/assets/images/home_lottie.json';
-import homeProfileImage from '@/assets/images/home_profile_personal.jpg';
-import profileImage from '@/assets/images/profile.jpg';
+import homeLottie from '@/assets/lotties/home_lottie.json';
+import profileLottie from '@/assets/lotties/profile_lottie.json';
+import homeProfileImage from '@/assets/images/id_picture.jpg';
 import portfolioChungchungduoImage from '@/assets/images/portfolio_chungjungduo_logo.png';
 import interestTravelImage from '@/assets/images/travel_swiss4.jpg';
 import interestSportsImage from '@/assets/images/interest_sports_hike1.jpg';
@@ -98,11 +98,9 @@ export default function HomeScrollContents() {
                 <div className="flex flex-col items-center px-4">
                     <CommonLottie file={homeLottie} />
                     <span className="mt-4 text-center subpixel-antialiased text-2xl md:text-3xl animate-[bounce_1.5s_infinite]">
-                        <p className="text-2xl md:text-3xl p-1">안녕하세요 👋</p>
-                        <p className="text-2xl md:text-3xl p-1">
-                            HyunDolog에 오신 것을 환영합니다!
-                        </p>
-                        <p className="text-base md:text-lg p-2">
+                        <p className="text-xl md:text-3xl p-1">안녕하세요 👋</p>
+                        <p className="text-xl md:text-3xl p-1">HyunDolog에 오신 것을 환영합니다!</p>
+                        <p className="text-sm md:text-lg p-2">
                             본 페이지는 Next.js로 제작되었습니다.
                         </p>
                     </span>
@@ -123,6 +121,7 @@ export default function HomeScrollContents() {
                                 width={150}
                                 height={150}
                                 className="object-cover rounded-full w-32 h-32 md:w-48 md:h-48 m-auto mb-3"
+                                style={{ objectPosition: 'center 20%' }}
                             />
                             <Accordion
                                 key={0}
@@ -160,14 +159,8 @@ export default function HomeScrollContents() {
                             </Link>
                         </div>
                     </div>
-                    <div className="w-full md:w-3/5 rounded-xl overflow-hidden aspect-square">
-                        <Image
-                            src={profileImage}
-                            alt="home profile image"
-                            width={400}
-                            height={400}
-                            className="object-cover rounded-xl w-full h-full grayscale-[0.75]"
-                        />
+                    <div className="w-full md:w-3/5 rounded-xl overflow-hidden aspect-square flex items-center justify-center">
+                        <CommonLottie file={profileLottie} />
                     </div>
                 </div>
             </section>

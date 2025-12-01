@@ -13,69 +13,72 @@ export default function ProfileCareer({ idImgSrc }: ProfileHistoryProps) {
     return (
         <div className="relative w-full px-2 md:px-[10] py-20">
             <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-lg p-8 bg-gray-300 dark:bg-stone-800">
-                <h2 className="text-2xl md:text-3xl font-bold mb-8 text-gray-800 dark:text-white">
-                    Profile
-                </h2>
-                <div className="flex flex-col md:flex-row gap-8 items-center">
-                    <div className="flex-shrink-0">
-                        <Image
-                            src={idImgSrc}
-                            alt="profile image"
-                            width={200}
-                            height={200}
-                            className="object-cover w-48 h-48 rounded-full border-4 border-gray-200"
-                        />
-                    </div>
-                    <div className="flex-1">
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                            <div className="bg-gray-300 dark:bg-stone-800 p-4 rounded-lg">
-                                <span className="text-sm md:text-lg text-gray-600 font-medium">
-                                    📗 이름
-                                </span>
-                                <p className="text-md md:text-xl font-semibold">송현석</p>
-                                <p className="text-sm md:text-md">
-                                    [본관] 여산송씨 원윤공파 28대손
-                                </p>
-                            </div>
-                            <div className="bg-gray-300 dark:bg-stone-800 p-4 rounded-lg">
-                                <span className="text-sm md:text-lg text-gray-600 font-medium">
-                                    📅 생년월일
-                                </span>
-                                <p className="text-md md:text-xl font-semibold">
-                                    1997.08.19 (만 {manAge}세)
-                                </p>
-                            </div>
-                            <div className="bg-gray-300 dark:bg-stone-800 p-4 rounded-lg">
-                                <span className="text-sm md:text-lg text-gray-600 font-medium">
-                                    🏠 거주지
-                                </span>
-                                <p className="text-md md:text-xl font-semibold">서울특별시</p>
-                                <p className="text-sm md:text-md">관악구 서림동</p>
-                            </div>
-                            <div className="bg-gray-300 dark:bg-stone-800 p-4 rounded-lg">
-                                <span className="text-sm md:text-lg text-gray-600 font-medium">
-                                    🏫 최종학력
-                                </span>
-                                <p className="text-md md:text-xl font-semibold">세종대학교</p>
-                                <p className="text-sm md:text-md">[전공] 소프트웨어학</p>
-                                <p className="text-sm md:text-md">
-                                    [연계전공] 소셜미디어매니지먼트소프트웨어
-                                </p>
-                                <p className="text-sm md:text-md">[학점] 3.62 / 4.5</p>
-                            </div>
-                            <div className="bg-gray-300 dark:bg-stone-800 p-4 rounded-lg">
-                                <span className="text-sm md:text-lg text-gray-600 font-medium">
-                                    💂🏼 병역사항
-                                </span>
-                                <p className="text-md md:text-xl font-semibold">
-                                    병역필 (병장 만기전역)
-                                </p>
-                                <p className="text-sm md:text-md">대한민국 공군 병 제778기</p>
+                <div>
+                    <h2 className="text-2xl md:text-3xl font-bold mb-8 text-gray-800 dark:text-white">
+                        Profile
+                    </h2>
+                    <div className="flex flex-col md:flex-row gap-8 items-center">
+                        <div className="flex-shrink-0">
+                            <Image
+                                src={idImgSrc}
+                                alt="profile image"
+                                width={200}
+                                height={200}
+                                className="object-cover w-48 h-48 rounded-full border-4 border-gray-200"
+                                style={{ objectPosition: 'center 20%' }}
+                            />
+                        </div>
+                        <div className="flex-1">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                                <div className="bg-gray-300 dark:bg-stone-800 p-4 rounded-lg">
+                                    <span className="text-sm md:text-lg text-gray-600 font-medium">
+                                        📗 이름
+                                    </span>
+                                    <p className="text-md md:text-xl font-semibold">송현석</p>
+                                    <p className="text-sm md:text-md">
+                                        [본관] 여산송씨 원윤공파 28대손
+                                    </p>
+                                </div>
+                                <div className="bg-gray-300 dark:bg-stone-800 p-4 rounded-lg">
+                                    <span className="text-sm md:text-lg text-gray-600 font-medium">
+                                        📅 생년월일
+                                    </span>
+                                    <p className="text-md md:text-xl font-semibold">
+                                        1997.08.19 (만 {manAge}세)
+                                    </p>
+                                </div>
+                                <div className="bg-gray-300 dark:bg-stone-800 p-4 rounded-lg">
+                                    <span className="text-sm md:text-lg text-gray-600 font-medium">
+                                        🏠 거주지
+                                    </span>
+                                    <p className="text-md md:text-xl font-semibold">서울특별시</p>
+                                    <p className="text-sm md:text-md">관악구 서림동</p>
+                                </div>
+                                <div className="bg-gray-300 dark:bg-stone-800 p-4 rounded-lg">
+                                    <span className="text-sm md:text-lg text-gray-600 font-medium">
+                                        🏫 최종학력
+                                    </span>
+                                    <p className="text-md md:text-xl font-semibold">세종대학교</p>
+                                    <p className="text-sm md:text-md">[전공] 소프트웨어학</p>
+                                    <p className="text-sm md:text-md">
+                                        [연계전공] 소셜미디어매니지먼트소프트웨어
+                                    </p>
+                                    <p className="text-sm md:text-md">[학점] 3.62 / 4.5</p>
+                                </div>
+                                <div className="bg-gray-300 dark:bg-stone-800 p-4 rounded-lg">
+                                    <span className="text-sm md:text-lg text-gray-600 font-medium">
+                                        💂🏼 병역사항
+                                    </span>
+                                    <p className="text-md md:text-xl font-semibold">
+                                        병역필 (병장 만기전역)
+                                    </p>
+                                    <p className="text-sm md:text-md">대한민국 공군 병 제778기</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div className="mt-50 md:mt-30">
+                <div className="marginTop-100">
                     <h2 className="text-2xl md:text-3xl font-bold mb-8 text-gray-800 dark:text-white">
                         Career
                     </h2>
