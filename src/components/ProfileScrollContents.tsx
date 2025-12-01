@@ -26,25 +26,42 @@ export default function ProfileScrollContents() {
 
         if (slides.length === 0) return;
 
+        // 초기 transition 설정
+        slides.forEach(slide => {
+            const slideElement = slide as HTMLElement;
+            slideElement.style.transition = 'opacity 0.2s ease-out';
+        });
+
+        let animationId: number;
+        let isAnimating = false;
+
         const updateSlideOpacity = () => {
-            const wrapperRect = wrapper.getBoundingClientRect();
-            const wrapperCenter = wrapperRect.left + wrapperRect.width / 2;
+            if (isAnimating) return;
+            
+            isAnimating = true;
+            animationId = requestAnimationFrame(() => {
+                const wrapperRect = wrapper.getBoundingClientRect();
+                const wrapperCenter = wrapperRect.left + wrapperRect.width / 2;
 
-            slides.forEach(slide => {
-                const slideRect = slide.getBoundingClientRect();
-                const slideCenter = slideRect.left + slideRect.width / 2;
-                const distance = Math.abs(slideCenter - wrapperCenter);
-                const maxDistance = wrapperRect.width / 2;
-                const opacity = Math.max(0.3, 1 - distance / maxDistance);
+                slides.forEach(slide => {
+                    const slideRect = slide.getBoundingClientRect();
+                    const slideCenter = slideRect.left + slideRect.width / 2;
+                    const distance = Math.abs(slideCenter - wrapperCenter);
+                    const maxDistance = wrapperRect.width / 2;
+                    const opacity = Math.max(0.4, 1 - distance / maxDistance);
 
-                const slideElement = slide as HTMLElement;
-                slideElement.style.transition = 'opacity 0.3s ease-out';
-                slideElement.style.opacity = opacity.toString();
+                    const slideElement = slide as HTMLElement;
+                    slideElement.style.opacity = opacity.toString();
+                });
+                
+                isAnimating = false;
             });
         };
 
+        let scrollTimeout: NodeJS.Timeout;
         const onScroll = () => {
-            updateSlideOpacity();
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(updateSlideOpacity, 10);
         };
 
         wrapper.addEventListener('scroll', onScroll);
@@ -128,6 +145,13 @@ export default function ProfileScrollContents() {
             wrapper.removeEventListener('touchstart', onTouchStart);
             wrapper.removeEventListener('touchmove', onTouchMove);
             fadeObserver.disconnect();
+            
+            if (animationId) {
+                cancelAnimationFrame(animationId);
+            }
+            if (scrollTimeout) {
+                clearTimeout(scrollTimeout);
+            }
         };
     }, []);
 
