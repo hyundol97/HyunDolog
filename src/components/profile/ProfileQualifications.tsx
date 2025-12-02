@@ -1,28 +1,35 @@
 import Image, { StaticImageData } from 'next/image';
 
 interface ProfileQualificationsProps {
-    historyTitle: string;
+    achievementTitle: string;
     imgSrc: string | StaticImageData;
     imgAlt: string;
 }
 
 export default function ProfileQualifications({
-    historyTitle,
+    achievementTitle,
     imgSrc,
     imgAlt,
 }: ProfileQualificationsProps) {
+    // university award 관련 이미지는 가로가 긴 형태임에따라, 좌측으로 90도 rotate 처리.
+    const shouldRotate = imgAlt.includes('university award');
+
     return (
         <div className="slide-item snap-center shrink-0 p-4 w-screen md:w-full h-full flex flex-col justify-center items-center transition-all duration-500 ease-out">
-            <h3 className="text-2xl md:text-4xl font-bold mb-4 md:mb-8">{historyTitle}</h3>
-            <div className="w-full max-w-sm h-90 mx-8 md:mx-0 md:w-96 md:h-96">
+            <div
+                className={`w-full mx-8 md:mx-0 mb-2 md:mb-4 ${shouldRotate ? 'max-w-xs md:max-w-sm flex justify-center' : 'max-w-sm md:max-w-md'}`}
+            >
                 <Image
                     src={imgSrc}
                     alt={imgAlt}
                     width={500}
                     height={500}
-                    className="object-cover w-full h-full rounded-xl"
+                    className={`object-contain h-auto rounded-xl ${shouldRotate ? 'w-[80%] md:w-[90%] -rotate-90' : 'w-full'}`}
                 />
             </div>
+            <p className="text-sm md:text-xl font-base">
+                {achievementTitle !== '' ? achievementTitle : ''}
+            </p>
         </div>
     );
 }

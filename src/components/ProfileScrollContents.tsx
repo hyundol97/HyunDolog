@@ -13,6 +13,16 @@ import HighSchoolImage from '@/assets/images/highschool_graduate.jpg';
 import ArmyEntireImage from '@/assets/images/army_entire1.jpg';
 import UniversityGraduateImage from '@/assets/images/university_graduate1.jpg';
 import IdificationImage from '@/assets/images/id_picture.jpg';
+import ElementaryShoolAward from '@/assets/images/scan1.jpg';
+import MiddleSchoolAward1 from '@/assets/images/scan2.jpg';
+import MiddleSchoolAward2 from '@/assets/images/scan3.jpg';
+import HighSchoolAward from '@/assets/images/scan4.jpg';
+import UniversityAward1 from '@/assets/images/scan5.jpg';
+import UniversityAward2 from '@/assets/images/scan6.jpg';
+import UniversityAward3 from '@/assets/images/scan7.jpg';
+import Certification1 from '@/assets/images/hangooksa.jpg';
+import Certification2 from '@/assets/images/kineungsa.jpg';
+import Certification3 from '@/assets/images/yutong.jpg';
 
 export default function ProfileScrollContents() {
     useEffect(() => {
@@ -37,7 +47,7 @@ export default function ProfileScrollContents() {
 
         const updateSlideOpacity = () => {
             if (isAnimating) return;
-            
+
             isAnimating = true;
             animationId = requestAnimationFrame(() => {
                 const wrapperRect = wrapper.getBoundingClientRect();
@@ -53,7 +63,7 @@ export default function ProfileScrollContents() {
                     const slideElement = slide as HTMLElement;
                     slideElement.style.opacity = opacity.toString();
                 });
-                
+
                 isAnimating = false;
             });
         };
@@ -145,7 +155,7 @@ export default function ProfileScrollContents() {
             wrapper.removeEventListener('touchstart', onTouchStart);
             wrapper.removeEventListener('touchmove', onTouchMove);
             fadeObserver.disconnect();
-            
+
             if (animationId) {
                 cancelAnimationFrame(animationId);
             }
@@ -188,6 +198,59 @@ export default function ProfileScrollContents() {
         },
     ];
 
+    const achievementData = [
+        {
+            achievementTitle: '',
+            imgSrc: ElementaryShoolAward,
+            imgAlt: 'elementary school award image',
+        },
+        {
+            achievementTitle: '',
+            imgSrc: MiddleSchoolAward1,
+            imgAlt: 'middle school award1 image',
+        },
+        {
+            achievementTitle: '',
+            imgSrc: MiddleSchoolAward2,
+            imgAlt: 'middle school award2 image',
+        },
+        {
+            achievementTitle: '',
+            imgSrc: HighSchoolAward,
+            imgAlt: 'high school award image',
+        },
+        {
+            achievementTitle: '',
+            imgSrc: UniversityAward1,
+            imgAlt: 'university award1 image',
+        },
+        {
+            achievementTitle: '',
+            imgSrc: UniversityAward2,
+            imgAlt: 'university award2 image',
+        },
+        {
+            achievementTitle: '',
+            imgSrc: UniversityAward3,
+            imgAlt: 'university award3 image',
+        },
+        {
+            achievementTitle: '한국사능력검정시험 2급',
+            imgSrc: Certification1,
+            imgAlt: 'certification image1',
+        },
+        {
+            achievementTitle: '정보처리기능사',
+            imgSrc: Certification2,
+            imgAlt: 'certification image2',
+        },
+        {
+            achievementTitle: '유통관리사 3급',
+            imgSrc: Certification3,
+            imgAlt: 'certification image3',
+        },
+    ];
+
     return (
         <div className="w-full flex flex-col justify-center">
             <section className="fade-section opacity-0 translate-y-8 transition-all duration-1000 ease-out">
@@ -214,10 +277,13 @@ export default function ProfileScrollContents() {
             </section>
 
             <section className="fade-section transition-all duration-1000 ease-out">
-                {historyData.map((data, index) => (
+                <h2 className="text-center text-2xl md:text-3xl font-bold mb-8 text-gray-800 dark:text-white">
+                    Achievements
+                </h2>
+                {achievementData.map((data, index) => (
                     <ProfileQualifications
                         key={index}
-                        historyTitle={data.historyTitle}
+                        achievementTitle={data.achievementTitle}
                         imgSrc={data.imgSrc}
                         imgAlt={data.imgAlt}
                     />
