@@ -10,13 +10,13 @@ import HomeCommonLink from '@/components/home/HomeCommonLink';
 import CommonLottie from '@/components/common/CommonLottie';
 import Accordion from '@/components/common/Accordion';
 
-import homeLottie from '@/assets/lotties/home_lottie.json';
-import profileLottie from '@/assets/lotties/profile_lottie.json';
-import homeProfileImage from '@/assets/images/id_picture.jpg';
-import portfolioChungchungduoImage from '@/assets/images/portfolio_chungjungduo_logo.png';
-import interestTravelImage from '@/assets/images/travel_swiss4.jpg';
-import interestSportsImage from '@/assets/images/interest_sports_hike1.jpg';
-import interestReadingImage from '@/assets/images/interest_reading_book1.jpg';
+import HomeLottie from '@/assets/lotties/home_lottie.json';
+import ProfileLottie from '@/assets/lotties/profile_lottie.json';
+import HomeProfileImage from '@/assets/images/id_picture.jpg';
+import PortfolioChungchungduoImage from '@/assets/images/portfolio_chungjungduo_logo.png';
+import InterestTravelImage from '@/assets/images/travel_swiss4.jpg';
+import InterestSportsImage from '@/assets/images/interest_sports_hike1.jpg';
+import InterestReadingImage from '@/assets/images/interest_reading_book1.jpg';
 
 export default function HomeScrollContents() {
     const careerStartDay = new Date('2021-08-09T00:00:00+09:00'); // 사회경험 시작일
@@ -96,7 +96,7 @@ export default function HomeScrollContents() {
         <div id="section-wrapper" className="w-full">
             <section className="common-section opacity-0 translate-y-8 transition-all duration-1000 ease-out">
                 <div className="flex flex-col items-center px-4">
-                    <CommonLottie file={homeLottie} />
+                    <CommonLottie file={HomeLottie} />
                     <span className="mt-4 text-center subpixel-antialiased text-2xl md:text-3xl animate-[bounce_1.5s_infinite]">
                         <p className="text-xl md:text-3xl p-1">안녕하세요 👋</p>
                         <p className="text-xl md:text-3xl p-1">HyunDolog에 오신 것을 환영합니다!</p>
@@ -116,7 +116,7 @@ export default function HomeScrollContents() {
                     <div className="w-full md:w-2/5 flex flex-col">
                         <div className="grid gap-y-2 text-base md:text-lg">
                             <Image
-                                src={homeProfileImage}
+                                src={HomeProfileImage}
                                 alt="home profile personal image"
                                 width={150}
                                 height={150}
@@ -160,7 +160,7 @@ export default function HomeScrollContents() {
                         </div>
                     </div>
                     <div className="w-full md:w-3/5 rounded-xl overflow-hidden aspect-square flex items-center justify-center">
-                        <CommonLottie file={profileLottie} />
+                        <CommonLottie file={ProfileLottie} />
                     </div>
                 </div>
             </section>
@@ -172,22 +172,14 @@ export default function HomeScrollContents() {
                             <HomeCommonLink
                                 type="portfolo"
                                 linkUrl="https://www.chungjungduo.com"
-                                imgSrc={portfolioChungchungduoImage}
+                                imgSrc={PortfolioChungchungduoImage}
                                 imgAlt="chungjungduo logo image"
                                 contentName="청정듀오 홈페이지"
                             />
                             <HomeCommonLink
                                 type="portfolo"
                                 linkUrl="https://www.chungjungduo.com"
-                                imgSrc={portfolioChungchungduoImage}
-                                imgAlt="chungjungduo logo image"
-                                contentName="청정듀오 홈페이지"
-                                isEmpty={true}
-                            />
-                            <HomeCommonLink
-                                type="portfolo"
-                                linkUrl="https://www.chungjungduo.com"
-                                imgSrc={portfolioChungchungduoImage}
+                                imgSrc={PortfolioChungchungduoImage}
                                 imgAlt="chungjungduo logo image"
                                 contentName="청정듀오 홈페이지"
                                 isEmpty={true}
@@ -195,7 +187,15 @@ export default function HomeScrollContents() {
                             <HomeCommonLink
                                 type="portfolo"
                                 linkUrl="https://www.chungjungduo.com"
-                                imgSrc={portfolioChungchungduoImage}
+                                imgSrc={PortfolioChungchungduoImage}
+                                imgAlt="chungjungduo logo image"
+                                contentName="청정듀오 홈페이지"
+                                isEmpty={true}
+                            />
+                            <HomeCommonLink
+                                type="portfolo"
+                                linkUrl="https://www.chungjungduo.com"
+                                imgSrc={PortfolioChungchungduoImage}
                                 imgAlt="chungjungduo logo image"
                                 contentName="청정듀오 홈페이지"
                                 isEmpty={true}
@@ -219,28 +219,28 @@ export default function HomeScrollContents() {
                             <HomeCommonLink
                                 type="interest"
                                 linkUrl="/interest"
-                                imgSrc={interestTravelImage}
+                                imgSrc={InterestTravelImage}
                                 imgAlt="interest travel image"
                                 contentName="여행"
                             />
                             <HomeCommonLink
                                 type="interest"
                                 linkUrl="/interest"
-                                imgSrc={interestSportsImage}
+                                imgSrc={InterestSportsImage}
                                 imgAlt="interest sports image"
                                 contentName="운동"
                             />
                             <HomeCommonLink
                                 type="interest"
                                 linkUrl="/interest"
-                                imgSrc={interestReadingImage}
+                                imgSrc={InterestReadingImage}
                                 imgAlt="interest reading image"
                                 contentName="독서"
                             />
                             <HomeCommonLink
                                 type="interest"
                                 linkUrl="/interest"
-                                imgSrc={interestReadingImage}
+                                imgSrc={InterestReadingImage}
                                 imgAlt="interest reading image"
                                 contentName="독서"
                                 isEmpty={true}

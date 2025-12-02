@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 
 import ProfileHistory from '@/components/profile/ProfileHistory';
 import ProfileCareer from '@/components/profile/ProfileCareer';
-import ProfileQualifications from '@/components/profile/ProfileQualifications';
+import ProfileAchievements from '@/components/profile/ProfileAchievements';
 
 import YoungAgeImage from '@/assets/images/young_age.jpg';
 import ElementarySchoolImage from '@/assets/images/elementary_school.png';
@@ -281,7 +281,7 @@ export default function ProfileScrollContents() {
                     Achievements
                 </h2>
                 {achievementData.map((data, index) => (
-                    <ProfileQualifications
+                    <ProfileAchievements
                         key={index}
                         achievementTitle={data.achievementTitle}
                         imgSrc={data.imgSrc}

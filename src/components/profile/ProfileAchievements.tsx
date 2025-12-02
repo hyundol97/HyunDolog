@@ -1,16 +1,16 @@
 import Image, { StaticImageData } from 'next/image';
 
-interface ProfileQualificationsProps {
+interface ProfileAchievementsProps {
     achievementTitle: string;
     imgSrc: string | StaticImageData;
     imgAlt: string;
 }
 
-export default function ProfileQualifications({
+export default function ProfileAchievements({
     achievementTitle,
     imgSrc,
     imgAlt,
-}: ProfileQualificationsProps) {
+}: ProfileAchievementsProps) {
     // university award 관련 이미지는 가로가 긴 형태임에따라, 좌측으로 90도 rotate 처리.
     const shouldRotate = imgAlt.includes('university award');
 
