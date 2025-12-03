@@ -78,7 +78,7 @@ export default function Footer() {
                 </div>
                 <div className="flex flex-col items-center text-xs md:text-sm">
                     <p>All rights reserved. Copyright © 2025 hyundol97.</p>
-                    <p>Version {version}.</p>
+                    <p>Version {version}</p>
                 </div>
             </div>
             <ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />

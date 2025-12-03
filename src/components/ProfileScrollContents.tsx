@@ -132,18 +132,22 @@ export default function ProfileScrollContents() {
         const fadeObserver = new IntersectionObserver(
             entries => {
                 entries.forEach(entry => {
+                    const target = entry.target as HTMLElement;
                     if (entry.isIntersecting) {
-                        entry.target.classList.add('opacity-100', 'translate-y-0');
-                        entry.target.classList.remove('opacity-0', 'translate-y-8');
-                    } else {
-                        entry.target.classList.add('opacity-0', 'translate-y-8');
-                        entry.target.classList.remove('opacity-100', 'translate-y-0');
+                        if (!target.classList.contains('opacity-100')) {
+                            target.style.willChange = 'opacity, transform';
+                            target.classList.add('opacity-100', 'translate-y-0');
+                            target.classList.remove('opacity-0', 'translate-y-8');
+                            setTimeout(() => {
+                                target.style.willChange = 'auto';
+                            }, 1000);
+                        }
                     }
                 });
             },
             {
-                threshold: 0.1,
-                rootMargin: '50px',
+                threshold: 0.2,
+                rootMargin: '100px',
             }
         );
 
@@ -280,14 +284,17 @@ export default function ProfileScrollContents() {
                 <h2 className="text-center text-2xl md:text-3xl font-bold mb-8 text-gray-800 dark:text-white">
                     Achievements
                 </h2>
-                {achievementData.map((data, index) => (
-                    <ProfileAchievements
-                        key={index}
-                        achievementTitle={data.achievementTitle}
-                        imgSrc={data.imgSrc}
-                        imgAlt={data.imgAlt}
-                    />
-                ))}
+                <div className="space-y-4">
+                    {achievementData.map((data, index) => (
+                        <div key={index} className="min-h-[200px]">
+                            <ProfileAchievements
+                                achievementTitle={data.achievementTitle}
+                                imgSrc={data.imgSrc}
+                                imgAlt={data.imgAlt}
+                            />
+                        </div>
+                    ))}
+                </div>
             </section>
         </div>
     );
