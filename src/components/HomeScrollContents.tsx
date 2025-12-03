@@ -11,6 +11,7 @@ import CommonLottie from '@/components/common/CommonLottie';
 import Accordion from '@/components/common/Accordion';
 
 import HomeLottie from '@/assets/lotties/home_lottie.json';
+import MobileHomeLottie from '@/assets/lotties/mobile_home_lottie.json';
 import ProfileLottie from '@/assets/lotties/profile_lottie.json';
 import HomeProfileImage from '@/assets/images/id_picture.jpg';
 import PortfolioChungchungduoImage from '@/assets/images/portfolio_chungjungduo_logo.png';
@@ -19,6 +20,8 @@ import InterestSportsImage from '@/assets/images/interest_sports_hike1.jpg';
 import InterestReadingImage from '@/assets/images/interest_reading_book1.jpg';
 
 export default function HomeScrollContents() {
+    const [isMobile, setIsMobile] = useState(false);
+    
     const careerStartDay = new Date('2021-08-09T00:00:00+09:00'); // 사회경험 시작일
     const today = new Date();
     const diffMs = today.getTime() - careerStartDay.getTime();
@@ -50,6 +53,14 @@ export default function HomeScrollContents() {
         if (typeof window === 'undefined') {
             return;
         }
+
+        // 모바일 화면 크기 감지
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+        
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
 
         // section 객체들을 감싸고있는 wrapper 객체를 변수에 할당
         const wrapper = document.getElementById('section-wrapper');
@@ -89,14 +100,17 @@ export default function HomeScrollContents() {
         sections.forEach(section => observer.observe(section));
 
         // 해당 컴포넌트가 소멸될때 감시하는 것을 끊음
-        return () => observer.disconnect();
+        return () => {
+            observer.disconnect();
+            window.removeEventListener('resize', checkMobile);
+        };
     }, []);
 
     return (
         <div id="section-wrapper" className="w-full">
             <section className="common-section opacity-0 translate-y-8 transition-all duration-1000 ease-out">
                 <div className="flex flex-col items-center px-4">
-                    <CommonLottie file={HomeLottie} />
+                    <CommonLottie file={isMobile ? MobileHomeLottie : HomeLottie} />
                     <span className="mt-4 text-center subpixel-antialiased text-2xl md:text-3xl animate-[bounce_1.5s_infinite]">
                         <p className="text-xl md:text-3xl p-1">안녕하세요 👋</p>
                         <p className="text-xl md:text-3xl p-1">HyunDolog에 오신 것을 환영합니다!</p>

@@ -139,37 +139,42 @@ export default function ProfileScrollContents() {
         wrapper.addEventListener('touchmove', onTouchMove, { passive: false });
 
         let observerTimeout: NodeJS.Timeout;
+        let isScrolling = false;
+        
         const fadeObserver = new IntersectionObserver(
             entries => {
+                if (isScrolling) return;
+                
                 clearTimeout(observerTimeout);
                 observerTimeout = setTimeout(() => {
                     entries.forEach(entry => {
                         const target = entry.target as HTMLElement;
-                        if (entry.isIntersecting) {
-                            if (!target.classList.contains('opacity-100')) {
-                                // 강제 리플로우 방지
-                                target.style.transform = 'translateZ(0)';
-                                target.style.willChange = 'opacity, transform';
-                                
-                                requestAnimationFrame(() => {
-                                    target.classList.add('opacity-100', 'translate-y-0');
-                                    target.classList.remove('opacity-0', 'translate-y-8');
-                                    
-                                    setTimeout(() => {
-                                        target.style.willChange = 'auto';
-                                        target.style.transform = '';
-                                    }, 1200);
-                                });
-                            }
+                        if (entry.isIntersecting && !target.classList.contains('opacity-100')) {
+                            target.style.opacity = '1';
+                            target.style.transform = 'translateY(0)';
+                            target.classList.add('opacity-100', 'translate-y-0');
+                            target.classList.remove('opacity-0', 'translate-y-8');
                         }
                     });
-                }, 50);
+                }, 100);
             },
             {
-                threshold: 0.1,
-                rootMargin: '50px 0px',
+                threshold: 0.3,
+                rootMargin: '20px 0px',
             }
         );
+        
+        // 스크롤 감지
+        let scrollTimer: NodeJS.Timeout;
+        const handleScroll = () => {
+            isScrolling = true;
+            clearTimeout(scrollTimer);
+            scrollTimer = setTimeout(() => {
+                isScrolling = false;
+            }, 150);
+        };
+        
+        window.addEventListener('scroll', handleScroll, { passive: true });
 
         fadeSections.forEach(section => fadeObserver.observe(section));
 
@@ -178,6 +183,7 @@ export default function ProfileScrollContents() {
             wrapper.removeEventListener('wheel', onWheel);
             wrapper.removeEventListener('touchstart', onTouchStart);
             wrapper.removeEventListener('touchmove', onTouchMove);
+            window.removeEventListener('scroll', handleScroll);
             fadeObserver.disconnect();
 
             if (animationId) {
@@ -185,6 +191,12 @@ export default function ProfileScrollContents() {
             }
             if (scrollTimeout) {
                 clearTimeout(scrollTimeout);
+            }
+            if (observerTimeout) {
+                clearTimeout(observerTimeout);
+            }
+            if (scrollTimer) {
+                clearTimeout(scrollTimer);
             }
         };
     }, []);
