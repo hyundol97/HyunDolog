@@ -8,9 +8,10 @@ export async function getLatestTag(): Promise<string> {
     try {
         const response = await fetch('https://api.github.com/repos/hyundol97/hyundolog/tags', {
             headers: {
-                Accept: 'application/vnd.github.v3+json',
+                Accept: 'application/vnd.github+json',
+                'X-GitHub-Api-Version': '2022-11-28',
                 ...(process.env.GITHUB_TOKEN && {
-                    Authorization: `token ${process.env.GITHUB_TOKEN}`,
+                    Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
                 }),
             },
             cache: 'no-store',
