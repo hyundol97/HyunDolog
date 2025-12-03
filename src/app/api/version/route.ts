@@ -17,14 +17,18 @@ export async function getLatestTag(): Promise<string> {
         });
 
         if (!response.ok) {
-            // GitHub API 에러 대비
+            console.error('GitHub API Error:', response.status, response.statusText);
+            const errorText = await response.text();
+            console.error('Error details:', errorText);
             return 'v0.1.0';
         }
 
         const tags = (await response.json()) as GitHubTag[];
+        console.log('GitHub API success, latest tag:', tags?.[0]?.name);
 
         return tags?.[0]?.name ?? 'v0.1.0';
-    } catch {
+    } catch (error) {
+        console.error('Fetch error:', error);
         return 'v0.1.0';
     }
 }
