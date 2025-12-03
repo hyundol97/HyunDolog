@@ -1,14 +1,21 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Icon } from '@iconify/react';
-import { getVersion } from '@/lib/version';
-import { useState } from 'react';
-import ContactModal from './ContactModal';
+
+import { fetchVersion } from '@/lib/version';
+
+import ContactModal from '@/components/common/ContactModal';
 
 export default function Footer() {
-    const version = getVersion();
+    const [version, setVersion] = useState('v0.1.0');
     const [isModalOpen, setIsModalOpen] = useState(false);
+
+    useEffect(() => {
+        // 무한루프를 돌지 않도록 1번만 실행.
+        fetchVersion().then(setVersion);
+    }, []);
 
     return (
         <div className="w-full bg-gray-200 dark:bg-stone-900">
