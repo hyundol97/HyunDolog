@@ -28,6 +28,15 @@ export default function ProfileScrollContents() {
     useEffect(() => {
         if (typeof window === 'undefined') return;
 
+        // iOS Safari 스크롤 복원 방지
+        window.history.scrollRestoration = 'manual';
+        
+        // 뷰포트 메타태그 강제 설정 (iOS 줌 방지)
+        const viewport = document.querySelector('meta[name=viewport]');
+        if (viewport) {
+            viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
+        }
+
         const wrapper = document.getElementById('slide-wrapper');
         if (!wrapper) return;
 
@@ -129,25 +138,36 @@ export default function ProfileScrollContents() {
         wrapper.addEventListener('touchstart', onTouchStart, { passive: false });
         wrapper.addEventListener('touchmove', onTouchMove, { passive: false });
 
+        let observerTimeout: NodeJS.Timeout;
         const fadeObserver = new IntersectionObserver(
             entries => {
-                entries.forEach(entry => {
-                    const target = entry.target as HTMLElement;
-                    if (entry.isIntersecting) {
-                        if (!target.classList.contains('opacity-100')) {
-                            target.style.willChange = 'opacity, transform';
-                            target.classList.add('opacity-100', 'translate-y-0');
-                            target.classList.remove('opacity-0', 'translate-y-8');
-                            setTimeout(() => {
-                                target.style.willChange = 'auto';
-                            }, 1000);
+                clearTimeout(observerTimeout);
+                observerTimeout = setTimeout(() => {
+                    entries.forEach(entry => {
+                        const target = entry.target as HTMLElement;
+                        if (entry.isIntersecting) {
+                            if (!target.classList.contains('opacity-100')) {
+                                // 강제 리플로우 방지
+                                target.style.transform = 'translateZ(0)';
+                                target.style.willChange = 'opacity, transform';
+                                
+                                requestAnimationFrame(() => {
+                                    target.classList.add('opacity-100', 'translate-y-0');
+                                    target.classList.remove('opacity-0', 'translate-y-8');
+                                    
+                                    setTimeout(() => {
+                                        target.style.willChange = 'auto';
+                                        target.style.transform = '';
+                                    }, 1200);
+                                });
+                            }
                         }
-                    }
-                });
+                    });
+                }, 50);
             },
             {
-                threshold: 0.2,
-                rootMargin: '100px',
+                threshold: 0.1,
+                rootMargin: '50px 0px',
             }
         );
 
@@ -280,13 +300,20 @@ export default function ProfileScrollContents() {
                 <ProfileCareer idImgSrc={IdificationImage} />
             </section>
 
-            <section className="fade-section transition-all duration-1000 ease-out">
+            <section className="fade-section transition-all duration-1000 ease-out" style={{ minHeight: '100vh' }}>
                 <h2 className="text-center text-2xl md:text-3xl font-bold mb-8 text-gray-800 dark:text-white">
                     Achievements
                 </h2>
-                <div className="space-y-4">
+                <div className="space-y-6">
                     {achievementData.map((data, index) => (
-                        <div key={index} className="min-h-[200px]">
+                        <div 
+                            key={index} 
+                            className="min-h-[250px] transform-gpu"
+                            style={{ 
+                                contain: 'layout style paint',
+                                willChange: index < 3 ? 'transform' : 'auto'
+                            }}
+                        >
                             <ProfileAchievements
                                 achievementTitle={data.achievementTitle}
                                 imgSrc={data.imgSrc}
