@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Image, { StaticImageData } from 'next/image';
+import { Icon } from '@iconify/react';
 
 import IFrameWrapper from '@/components/common/IFrameWrapper';
 
@@ -13,6 +14,7 @@ interface PortfolioItem {
     image: string | StaticImageData;
     description: string;
     url: string;
+    githubUrl?: string;
 }
 
 const portfolioItems: PortfolioItem[] = [
@@ -21,22 +23,23 @@ const portfolioItems: PortfolioItem[] = [
         title: '청정듀오 홈페이지',
         image: PortfolioChungchungduoImage,
         description:
-            '경기도 의정부시를 기반으로 하는 청소 전문업체 청정듀오 홈페이지 제작 및 운영.',
+            '경기도 의정부시를 기반으로 하는 청소 전문업체 청정듀오 홈페이지를 제작 및 운영하고 있습니다. 2025.05.29 부터 배포되어 현재까지 운영되고 있으며, Creative Tim의 무료 Template 기반으로 제작된 React 프로젝트 입니다. UI 프레임워크로는 Material UI가 활용되었으며, 서버 호스팅은 Firebase Hosting 서비스를 이용하였고 가비아에서 구매한 도메인에 연결하였습니다.',
         url: 'https://www.chungjungduo.com',
+        githubUrl: 'https://github.com/hyundol97/chungjungduo-home',
     },
     {
         id: 2,
-        title: '',
+        title: 'N/A',
         image: '/sub_logo.png',
         description: '',
-        url: 'https://www.chungjungduo.com',
+        url: '',
     },
     {
         id: 3,
-        title: '',
+        title: 'N/A',
         image: '/sub_logo.png',
         description: '',
-        url: 'https://www.chungjungduo.com',
+        url: '',
     },
 ];
 
@@ -52,6 +55,14 @@ export default function PortfolioCarousel() {
         setCurrentIndex(prev => (prev - 1 + portfolioItems.length) % portfolioItems.length);
     };
 
+    const openIFrame = (item: PortfolioItem) => {
+        if (item.url) {
+            setSelectedItem(item);
+        } else {
+            alert('Not Available');
+        }
+    };
+
     return (
         <div>
             {/* Carousel */}
@@ -65,7 +76,7 @@ export default function PortfolioCarousel() {
                             <div key={item.id} className="w-full flex-shrink-0">
                                 <div
                                     className="relative h-80 sm:h-[500px] cursor-pointer hover:opacity-90 transition-opacity"
-                                    onClick={() => setSelectedItem(item)}
+                                    onClick={() => openIFrame(item)}
                                 >
                                     <Image
                                         src={item.image}
@@ -84,13 +95,13 @@ export default function PortfolioCarousel() {
                     onClick={prevSlide}
                     className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75"
                 >
-                    ←
+                    <Icon icon="ri:arrow-left-s-line" width="24" height="24" />
                 </button>
                 <button
                     onClick={nextSlide}
                     className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75"
                 >
-                    →
+                    <Icon icon="ri:arrow-right-s-line" width="24" height="24" />
                 </button>
 
                 {/* Dots indicator */}
@@ -108,22 +119,23 @@ export default function PortfolioCarousel() {
             </div>
 
             {/* Description */}
-            {portfolioItems[currentIndex].description && (
-                <div className="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg mb-8 w-[90%] mx-auto">
-                    <h2 className="text-lg md:text-2xl font-bold mb-4">
-                        {portfolioItems[currentIndex].title}
-                    </h2>
-                    <p className="text-md md:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-                        {portfolioItems[currentIndex].description}
-                    </p>
-                </div>
-            )}
+            <div className="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg mb-8 w-[90%] mx-auto">
+                <h2 className="text-lg md:text-2xl font-bold mb-4">
+                    {portfolioItems[currentIndex].title}
+                </h2>
+                <p className="text-sm md:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                    {portfolioItems[currentIndex].description !== ''
+                        ? portfolioItems[currentIndex].description
+                        : 'N/A'}
+                </p>
+            </div>
 
             <IFrameWrapper
                 isOpen={!!selectedItem}
                 onClose={() => setSelectedItem(null)}
                 projectUrl={selectedItem?.url || ''}
                 projectTitle={selectedItem?.title || ''}
+                githubUrl={selectedItem?.githubUrl}
             />
         </div>
     );

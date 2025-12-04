@@ -17,39 +17,39 @@ export default function HomeSkills() {
                         <h3 className="text-lg font-medium">능숙하게 사용 가능해요.</h3>
 
                         <div className="flex flex-wrap gap-3">
-                            <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-stone-800 dark:text-white">
+                            <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-white">
                                 <Icon icon="logos:javascript" width="16" height="16" />
                                 JavaScript
                             </span>
-                            <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-stone-800 dark:text-white">
+                            <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-white">
                                 <Icon icon="logos:typescript-icon" width="16" height="16" />
                                 TypeScript
                             </span>
-                            <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-stone-800 dark:text-white">
+                            <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-white">
                                 <Icon icon="logos:jquery" width="32" height="24" />
                                 jQuery
                             </span>
-                            <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-stone-800 dark:text-white">
+                            <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-white">
                                 <Icon icon="logos:vue" width="16" height="16" />
                                 Vue.js
                             </span>
-                            <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-stone-800 dark:text-white">
+                            <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-white">
                                 <Icon icon="logos:react" width="16" height="16" />
                                 React
                             </span>
-                            <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-stone-800 dark:text-white">
+                            <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-white">
                                 <Icon icon="logos:html-5" width="16" height="16" />
                                 HTML5
                             </span>
-                            <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-stone-800 dark:text-white">
+                            <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-white">
                                 <Icon icon="logos:css-3" width="16" height="16" />
                                 CSS3
                             </span>
-                            <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-stone-800 dark:text-white">
+                            <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-white">
                                 <Icon icon="logos:element" width="16" height="16" />
                                 Element Plus
                             </span>
-                            <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-stone-800 dark:text-white">
+                            <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-white">
                                 <Icon icon="logos:material-ui" width="16" height="16" />
                                 Material UI
                             </span>
@@ -60,11 +60,11 @@ export default function HomeSkills() {
                         <h3 className="text-lg font-medium">사용할 줄 알아요.</h3>
 
                         <div className="flex flex-wrap gap-3">
-                            <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-stone-800 dark:text-white">
+                            <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-white">
                                 <Icon icon="logos:mysql-icon" width="16" height="16" />
                                 MySQL
                             </span>
-                            <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-stone-800 dark:text-white">
+                            <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-white">
                                 <Icon icon="logos:tailwindcss-icon" width="16" height="16" />
                                 TailwindCSS
                             </span>
@@ -78,22 +78,22 @@ export default function HomeSkills() {
                     </h2>
 
                     <div className="flex flex-wrap gap-3">
-                        <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-stone-800 dark:text-white">
+                        <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-white">
                             <Icon icon="logos:nextjs-icon" width="16" height="16" />
                             Next.js
                         </span>
-                        <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-stone-800 dark:text-white">
+                        <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-white">
                             <Icon icon="logos:c" width="16" height="16" />C
                         </span>
-                        <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-stone-800 dark:text-white">
+                        <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-white">
                             <Icon icon="logos:unity" width="16" height="16" />
                             Unity
                         </span>
-                        <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-stone-800 dark:text-white">
+                        <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-white">
                             <Icon icon="logos:react" width="16" height="16" />
                             React Native
                         </span>
-                        <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-stone-800 dark:text-white">
+                        <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-white">
                             <Icon icon="logos:flutter" width="16" height="16" />
                             Flutter
                         </span>
@@ -119,19 +119,19 @@ export default function HomeSkills() {
                         <h3 className="text-lg font-medium">능숙하게 사용 가능해요.</h3>
 
                         <div className="flex flex-wrap gap-3">
-                            <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-stone-800 dark:text-white">
+                            <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-white">
                                 <Icon icon="logos:visual-studio-code" width="16" height="16" />
                                 vscode
                             </span>
-                            <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-stone-800 dark:text-white">
+                            <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-white">
                                 <Icon icon="logos:cypress-icon" width="16" height="16" />
                                 Cypress
                             </span>
-                            <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-stone-800 dark:text-white">
+                            <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-white">
                                 <Icon icon="logos:github-icon" width="16" height="16" />
                                 GitHub
                             </span>
-                            <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-stone-800 dark:text-white">
+                            <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-white">
                                 <Icon icon="logos:bitbucket" width="16" height="16" />
                                 Bitbucket
                             </span>
@@ -142,23 +142,23 @@ export default function HomeSkills() {
                         <h3 className="text-lg font-medium">사용할 줄 알아요.</h3>
 
                         <div className="flex flex-wrap gap-3">
-                            <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-stone-800 dark:text-white">
+                            <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-white">
                                 <Icon icon="logos:eclipse-icon" width="16" height="16" />
                                 eclipse
                             </span>
-                            <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-stone-800 dark:text-white">
+                            <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-white">
                                 <Icon icon="logos:aws" width="24" height="16" />
                                 AWS
                             </span>
-                            <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-stone-800 dark:text-white">
+                            <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-white">
                                 <Icon icon="logos:storyblocks-icon" width="16" height="16" />
                                 Storybook
                             </span>
-                            <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-stone-800 dark:text-white">
+                            <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-white">
                                 <Icon icon="logos:docker-icon" width="16" height="16" />
                                 Docker
                             </span>
-                            <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-stone-800 dark:text-white">
+                            <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-white">
                                 <Icon icon="logos:gitlab-icon" width="16" height="16" />
                                 Gitlab
                             </span>
@@ -172,11 +172,11 @@ export default function HomeSkills() {
                     </h2>
 
                     <div className="flex flex-wrap gap-3">
-                        <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-stone-800 dark:text-white">
+                        <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-white">
                             <Icon icon="logos:firebase-icon" width="16" height="16" />
                             Firebase
                         </span>
-                        <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-stone-800 dark:text-white">
+                        <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-white">
                             <Icon icon="logos:vercel-icon" width="16" height="16" />
                             Vercel
                         </span>

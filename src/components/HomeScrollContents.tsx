@@ -21,7 +21,7 @@ import InterestReadingImage from '@/assets/images/interest_reading_book1.jpg';
 
 export default function HomeScrollContents() {
     const [isMobile, setIsMobile] = useState(false);
-    
+
     const careerStartDay = new Date('2021-08-09T00:00:00+09:00'); // 사회경험 시작일
     const today = new Date();
     const diffMs = today.getTime() - careerStartDay.getTime();
@@ -58,7 +58,7 @@ export default function HomeScrollContents() {
         const checkMobile = () => {
             setIsMobile(window.innerWidth < 768);
         };
-        
+
         checkMobile();
         window.addEventListener('resize', checkMobile);
 
@@ -166,7 +166,7 @@ export default function HomeScrollContents() {
                             <Link href="/profile">
                                 <button
                                     type="button"
-                                    className="cursor-pointer p-4 md:p-6 w-4/5 md:w-3/5 text-sm md:text-base bg-indigo-600 font-semibold rounded-xl transition-all duration-200 ease-out hover:bg-indigo-700 hover:shadow-lg hover:scale-[1.05] active:scale-[0.95]"
+                                    className="cursor-pointer p-4 md:p-6 w-4/5 md:w-3/5 text-sm md:text-base font-semibold text-white bg-indigo-600 rounded-xl transition-all duration-200 ease-out hover:bg-indigo-700 hover:shadow-lg hover:scale-[1.05] active:scale-[0.95]"
                                 >
                                     Profile 페이지로 이동하기
                                 </button>
@@ -220,7 +220,7 @@ export default function HomeScrollContents() {
                             <Link href="/portfolio">
                                 <button
                                     type="button"
-                                    className="cursor-pointer p-4 md:p-6 w-4/5 md:w-3/5 bg-indigo-600 text-xs md:text-sm font-semibold rounded-xl transition-all duration-200 ease-out hover:bg-indigo-700 hover:shadow-lg hover:scale-[1.05] active:scale-[0.95]"
+                                    className="cursor-pointer p-4 md:p-6 w-4/5 md:w-3/5 bg-indigo-600 text-xs md:text-sm text-white font-semibold rounded-xl transition-all duration-200 ease-out hover:bg-indigo-700 hover:shadow-lg hover:scale-[1.05] active:scale-[0.95]"
                                 >
                                     Portfoilo 페이지로 이동하기
                                 </button>
@@ -265,7 +265,7 @@ export default function HomeScrollContents() {
                             <Link href="/interest">
                                 <button
                                     type="button"
-                                    className="cursor-pointer p-4 md:p-6 w-4/5 md:w-3/5 bg-indigo-600 text-xs md:text-sm font-semibold rounded-xl transition-all duration-200 ease-out hover:bg-indigo-700 hover:shadow-lg hover:scale-[1.05] active:scale-[0.95]"
+                                    className="cursor-pointer p-4 md:p-6 w-4/5 md:w-3/5 bg-indigo-600 text-xs md:text-sm font-semibold text-white rounded-xl transition-all duration-200 ease-out hover:bg-indigo-700 hover:shadow-lg hover:scale-[1.05] active:scale-[0.95]"
                                 >
                                     Interest 페이지로 이동하기
                                 </button>

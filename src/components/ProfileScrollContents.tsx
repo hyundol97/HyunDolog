@@ -30,11 +30,14 @@ export default function ProfileScrollContents() {
 
         // iOS Safari 스크롤 복원 방지
         window.history.scrollRestoration = 'manual';
-        
+
         // 뷰포트 메타태그 강제 설정 (iOS 줌 방지)
         const viewport = document.querySelector('meta[name=viewport]');
         if (viewport) {
-            viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
+            viewport.setAttribute(
+                'content',
+                'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'
+            );
         }
 
         const wrapper = document.getElementById('slide-wrapper');
@@ -140,11 +143,11 @@ export default function ProfileScrollContents() {
 
         let observerTimeout: NodeJS.Timeout;
         let isScrolling = false;
-        
+
         const fadeObserver = new IntersectionObserver(
             entries => {
                 if (isScrolling) return;
-                
+
                 clearTimeout(observerTimeout);
                 observerTimeout = setTimeout(() => {
                     entries.forEach(entry => {
@@ -163,7 +166,7 @@ export default function ProfileScrollContents() {
                 rootMargin: '20px 0px',
             }
         );
-        
+
         // 스크롤 감지
         let scrollTimer: NodeJS.Timeout;
         const handleScroll = () => {
@@ -173,7 +176,7 @@ export default function ProfileScrollContents() {
                 isScrolling = false;
             }, 150);
         };
-        
+
         window.addEventListener('scroll', handleScroll, { passive: true });
 
         fadeSections.forEach(section => fadeObserver.observe(section));
@@ -312,18 +315,18 @@ export default function ProfileScrollContents() {
                 <ProfileCareer idImgSrc={IdificationImage} />
             </section>
 
-            <section className="fade-section transition-all duration-1000 ease-out" style={{ minHeight: '100vh' }}>
+            <section style={{ minHeight: '100vh' }}>
                 <h2 className="text-center text-2xl md:text-3xl font-bold mb-8 text-gray-800 dark:text-white">
                     Achievements
                 </h2>
                 <div className="space-y-6">
                     {achievementData.map((data, index) => (
-                        <div 
-                            key={index} 
+                        <div
+                            key={index}
                             className="min-h-[250px] transform-gpu"
-                            style={{ 
+                            style={{
                                 contain: 'layout style paint',
-                                willChange: index < 3 ? 'transform' : 'auto'
+                                willChange: index < 3 ? 'transform' : 'auto',
                             }}
                         >
                             <ProfileAchievements

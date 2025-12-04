@@ -2,12 +2,14 @@
 
 import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
+import { Icon } from '@iconify/react';
 
 interface IFrameWrapperProps {
     isOpen: boolean;
     onClose: () => void;
     projectUrl: string;
     projectTitle: string;
+    githubUrl?: string;
 }
 
 export default function IFrameWrapper({
@@ -15,6 +17,7 @@ export default function IFrameWrapper({
     onClose,
     projectUrl,
     projectTitle,
+    githubUrl,
 }: IFrameWrapperProps) {
     const [show, setShow] = useState(false);
 
@@ -47,13 +50,25 @@ export default function IFrameWrapper({
                 onClick={e => e.stopPropagation()}
             >
                 <div className="flex justify-between items-center p-3 sm:p-4 border-b dark:border-stone-700">
-                    <h2 className="text-base sm:text-lg font-semibold">{projectTitle}</h2>
+                    <div className="flex items-center gap-2">
+                        <h2 className="text-base sm:text-lg font-semibold">{projectTitle}</h2>
+                        {githubUrl && (
+                            <a
+                                href={githubUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:opacity-70 transition-opacity"
+                            >
+                                <Icon icon="mdi:github" width="24" height="24" color="#fff" />
+                            </a>
+                        )}
+                    </div>
 
                     <button
                         onClick={onClose}
                         className="text-xl sm:text-2xl hover:text-indigo-300 transition-colors"
                     >
-                        ×
+                        X
                     </button>
                 </div>
 
