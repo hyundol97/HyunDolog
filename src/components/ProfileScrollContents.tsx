@@ -44,7 +44,6 @@ export default function ProfileScrollContents() {
         if (!wrapper) return;
 
         const slides = wrapper.querySelectorAll('.slide-item');
-        const fadeSections = document.querySelectorAll('.fade-section');
 
         if (slides.length === 0) return;
 
@@ -141,65 +140,17 @@ export default function ProfileScrollContents() {
         wrapper.addEventListener('touchstart', onTouchStart, { passive: false });
         wrapper.addEventListener('touchmove', onTouchMove, { passive: false });
 
-        let observerTimeout: NodeJS.Timeout;
-        let isScrolling = false;
-
-        const fadeObserver = new IntersectionObserver(
-            entries => {
-                if (isScrolling) return;
-
-                clearTimeout(observerTimeout);
-                observerTimeout = setTimeout(() => {
-                    entries.forEach(entry => {
-                        const target = entry.target as HTMLElement;
-                        if (entry.isIntersecting && !target.classList.contains('opacity-100')) {
-                            target.style.opacity = '1';
-                            target.style.transform = 'translateY(0)';
-                            target.classList.add('opacity-100', 'translate-y-0');
-                            target.classList.remove('opacity-0', 'translate-y-8');
-                        }
-                    });
-                }, 100);
-            },
-            {
-                threshold: 0.3,
-                rootMargin: '20px 0px',
-            }
-        );
-
-        // 스크롤 감지
-        let scrollTimer: NodeJS.Timeout;
-        const handleScroll = () => {
-            isScrolling = true;
-            clearTimeout(scrollTimer);
-            scrollTimer = setTimeout(() => {
-                isScrolling = false;
-            }, 150);
-        };
-
-        window.addEventListener('scroll', handleScroll, { passive: true });
-
-        fadeSections.forEach(section => fadeObserver.observe(section));
-
         return () => {
             wrapper.removeEventListener('scroll', onScroll);
             wrapper.removeEventListener('wheel', onWheel);
             wrapper.removeEventListener('touchstart', onTouchStart);
             wrapper.removeEventListener('touchmove', onTouchMove);
-            window.removeEventListener('scroll', handleScroll);
-            fadeObserver.disconnect();
 
             if (animationId) {
                 cancelAnimationFrame(animationId);
             }
             if (scrollTimeout) {
                 clearTimeout(scrollTimeout);
-            }
-            if (observerTimeout) {
-                clearTimeout(observerTimeout);
-            }
-            if (scrollTimer) {
-                clearTimeout(scrollTimer);
             }
         };
     }, []);
@@ -292,7 +243,7 @@ export default function ProfileScrollContents() {
 
     return (
         <div className="w-full flex flex-col justify-center">
-            <section className="fade-section opacity-0 translate-y-8 transition-all duration-1000 ease-out">
+            <section>
                 <div
                     id="slide-wrapper"
                     className="relative w-full h-[60vh] md:h-[70vh] md:px-[5] overflow-x-auto flex snap-x snap-mandatory scroll-smooth"
@@ -311,7 +262,7 @@ export default function ProfileScrollContents() {
                 </div>
             </section>
 
-            <section className="fade-section transition-all duration-1000 ease-out">
+            <section>
                 <ProfileCareer idImgSrc={IdificationImage} />
             </section>
 
@@ -321,20 +272,12 @@ export default function ProfileScrollContents() {
                 </h2>
                 <div className="space-y-6">
                     {achievementData.map((data, index) => (
-                        <div
+                        <ProfileAchievements
                             key={index}
-                            className="min-h-[250px] transform-gpu"
-                            style={{
-                                contain: 'layout style paint',
-                                willChange: index < 3 ? 'transform' : 'auto',
-                            }}
-                        >
-                            <ProfileAchievements
-                                achievementTitle={data.achievementTitle}
-                                imgSrc={data.imgSrc}
-                                imgAlt={data.imgAlt}
-                            />
-                        </div>
+                            achievementTitle={data.achievementTitle}
+                            imgSrc={data.imgSrc}
+                            imgAlt={data.imgAlt}
+                        />
                     ))}
                 </div>
             </section>

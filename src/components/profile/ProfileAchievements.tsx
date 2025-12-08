@@ -24,6 +24,9 @@ export default function ProfileAchievements({
                     alt={imgAlt}
                     width={500}
                     height={500}
+                    quality={75}
+                    loading="lazy"
+                    placeholder="blur"
                     className={`object-contain h-auto rounded-xl ${shouldRotate ? 'w-[80%] md:w-[90%] -rotate-90' : 'w-full'}`}
                 />
             </div>
