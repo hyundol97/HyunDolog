@@ -1,11 +1,9 @@
-import Image from 'next/image';
+import InterestMasonry from '@/components/interest/InterestMasonry';
 
 export default function Interest() {
     return (
-        <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-            <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-                취미 페이지 입니다.
-            </main>
+        <div className="w-full max-w-6xl py-4 md:px-8">
+            <InterestMasonry />
         </div>
     );
 }
