@@ -72,7 +72,12 @@ export default function IFrameWrapper({
                     </button>
                 </div>
 
-                <iframe src={projectUrl} className="w-full h-full border-0" title={projectTitle} />
+                <iframe 
+                    src={projectUrl} 
+                    className="w-full h-full border-0" 
+                    title={projectTitle}
+                    sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox"
+                />
             </div>
         </div>,
         document.body

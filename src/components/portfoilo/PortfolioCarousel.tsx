@@ -84,6 +84,13 @@ export default function PortfolioCarousel() {
                                         fill
                                         className="object-contain"
                                     />
+                                    {item.url && (
+                                        <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 text-center animate-[bounce_2s_infinite]">
+                                            <p className="text-xs md:text-sm text-blue-500 dark:text-blue-400 font-semibold bg-white dark:bg-gray-800/80 px-4 py-2 rounded-full shadow-lg">
+                                                👆 클릭하면 사이트가 열립니다!
+                                            </p>
+                                        </div>
+                                    )}
                                 </div>
                             </div>
                         ))}
