@@ -24,7 +24,6 @@ export default function ProfileAchievements({
                     alt={imgAlt}
                     width={500}
                     height={500}
-                    quality={50}
                     loading="lazy"
                     placeholder="blur"
                     sizes="(max-width: 768px) 80vw, 500px"
