@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Image, { StaticImageData } from 'next/image';
+import Masonry from 'react-masonry-css';
 
 import TravelFrance1 from '@/assets/images/travel_france1.jpg';
 import TravelFrance2 from '@/assets/images/travel_france2.jpg';
@@ -61,29 +62,35 @@ const interestItems: InterestItem[] = [
 
 export default function InterestMasonry() {
     const [selectedCategory, setSelectedCategory] = useState<Category>('전체');
+    const [filteredItems, setFilteredItems] = useState<InterestItem[]>(interestItems);
     const [selectedItem, setSelectedItem] = useState<InterestItem | null>(null);
 
     const categories: Category[] = ['전체', '여행', '운동', '독서'];
 
     useEffect(() => {
-        if (selectedItem) {
-            document.body.style.overflow = 'hidden';
+        if (selectedCategory === '전체') {
+            setFilteredItems(interestItems);
         } else {
-            document.body.style.overflow = 'unset';
+            setFilteredItems(interestItems.filter(item => item.category === selectedCategory));
         }
+    }, [selectedCategory]);
+
+    useEffect(() => {
+        document.body.style.overflow = selectedItem ? 'hidden' : 'unset';
         return () => {
             document.body.style.overflow = 'unset';
         };
     }, [selectedItem]);
 
-    const filteredItems =
-        selectedCategory === '전체'
-            ? interestItems
-            : interestItems.filter(item => item.category === selectedCategory);
+    const breakpointColumns = {
+        default: 3,
+        1024: 2,
+        640: 1,
+    };
 
     return (
         <div>
-            {/* 카테고리 필터 */}
+            {/* Category filter */}
             <div className="flex justify-center gap-4 mb-8 flex-wrap">
                 {categories.map(category => (
                     <button
@@ -101,14 +108,15 @@ export default function InterestMasonry() {
             </div>
 
             {/* Masonry Grid */}
-            <div
-                key={selectedCategory}
-                className="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4"
+            <Masonry
+                breakpointCols={breakpointColumns}
+                className="flex gap-4"
+                columnClassName="masonry-column"
             >
                 {filteredItems.map((item, index) => (
                     <div
                         key={item.id}
-                        className="break-inside-avoid cursor-pointer group animate-fadeIn"
+                        className="mb-4 break-inside-avoid cursor-pointer group animate-fadeIn"
                         style={{ animationDelay: `${index * 0.05}s` }}
                         onClick={() => setSelectedItem(item)}
                     >
@@ -130,9 +138,9 @@ export default function InterestMasonry() {
                         </div>
                     </div>
                 ))}
-            </div>
+            </Masonry>
 
-            {/* 모달 */}
+            {/* Modal */}
             {selectedItem && (
                 <div
                     className="fixed inset-0 bg-black bg-opacity-95 z-50 flex items-center justify-center overflow-hidden"
