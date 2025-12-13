@@ -1,9 +1,14 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import WeatherWidget from '@/components/common/WeatherWidget';
 
 export default function Navbar() {
     return (
         <nav className="flex justify-center items-center bg-gray-200 dark:bg-stone-900">
+            <div className="absolute top-4 right-4 z-10">
+                <WeatherWidget />
+            </div>
+
             <div className="relative fixed top-0 flex flex-col items-center px-4 py-4">
                 <div className="w-20 h-20 md:w-32 md:h-32 rounded-full overflow-hidden flex items-center justify-center bg-white mb-3">
                     <Link href="/">
