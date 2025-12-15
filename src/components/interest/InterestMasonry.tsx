@@ -99,12 +99,17 @@ export default function InterestMasonry() {
                     >
                         ✕
                     </button>
-                    <Image
-                        src={selectedItem.image}
-                        alt={selectedItem.title}
-                        fill
-                        className="object-contain p-4"
-                    />
+                    <div className="relative w-full h-full flex flex-col items-center justify-center p-4">
+                        <Image
+                            src={selectedItem.image}
+                            alt={selectedItem.title}
+                            fill
+                            className="object-contain"
+                        />
+                        <div className="absolute top-8 left-1/2 transform -translate-x-1/2 text-white text-center z-10">
+                            <h2 className="text-2xl font-bold">{selectedItem.title}</h2>
+                        </div>
+                    </div>
                 </div>
             )}
         </div>
