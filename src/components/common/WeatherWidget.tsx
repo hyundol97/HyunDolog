@@ -16,15 +16,24 @@ export default function WeatherWidget() {
     useEffect(() => {
         const getWeather = async () => {
             try {
+                // 브라우저 환경 체크
+                if (typeof window === 'undefined' || !navigator.geolocation) {
+                    throw new Error('위치 서비스를 사용할 수 없습니다');
+                }
+
                 const position = await new Promise<GeolocationPosition>((resolve, reject) => {
-                    navigator.geolocation.getCurrentPosition(resolve, reject);
+                    navigator.geolocation.getCurrentPosition(resolve, reject, {
+                        timeout: 10000,
+                        enableHighAccuracy: false,
+                    });
                 });
 
                 const { latitude, longitude } = position.coords;
                 const response = await fetch(`/api/weather?lat=${latitude}&lon=${longitude}`);
 
                 if (!response.ok) {
-                    throw new Error('날씨 정보를 가져올 수 없습니다');
+                    const errorData = await response.json();
+                    throw new Error(errorData.error || '날씨 정보를 가져올 수 없습니다');
                 }
 
                 const weatherData = await response.json();
