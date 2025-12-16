@@ -10,10 +10,10 @@ export async function GET(request: Request) {
     }
 
     try {
-        const API_KEY = process.env.WEATHER_API_KEY;
+        const API_KEY = process.env.NEXT_PUBLIC_WEATHER_API_KEY;
 
         if (!API_KEY) {
-            console.error('WEATHER_API_KEY가 설정되지 않았습니다');
+            console.error('NEXT_PUBLIC_WEATHER_API_KEY가 설정되지 않았습니다');
             return NextResponse.json({ error: 'API 키가 설정되지 않았습니다' }, { status: 500 });
         }
 
@@ -33,7 +33,7 @@ export async function GET(request: Request) {
         }
 
         const data = await response.json();
-        
+
         // 더 정확한 위치 정보를 위해 Reverse Geocoding 시도
         let locationName = data.name;
         try {
