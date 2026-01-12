@@ -49,7 +49,7 @@ export default function HomeCommonLink({
                 height={100}
                 className="object-cover rounded-xl w-16 h-16 md:w-20 md:h-20"
             />
-            <p className="text-xs md:text-sm text-center px-1">{contentName}</p>
+            <p className="text-[0.6rem] md:text-sm text-center px-1">{contentName}</p>
         </Link>
     );
 }
