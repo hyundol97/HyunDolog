@@ -7,6 +7,7 @@ import { Icon } from '@iconify/react';
 import IFrameWrapper from '@/components/common/IFrameWrapper';
 
 import PortfolioChungchungduoImage from '@/assets/images/portfolio_chungjungduo_logo.png';
+import PortfolioGaGyeVueImage from '@/assets/images/portfolio_gagyevue_logo.png';
 
 interface PortfolioItem {
     id: number;
@@ -23,16 +24,18 @@ const portfolioItems: PortfolioItem[] = [
         title: '청정듀오 홈페이지',
         image: PortfolioChungchungduoImage,
         description:
-            '경기도 의정부시를 기반으로 하는 청소 전문업체 청정듀오 홈페이지를 제작 및 운영하고 있습니다. 2025.05.29 부터 배포되어 현재까지 운영되고 있으며, Creative Tim의 무료 Template 기반으로 제작된 React 프로젝트 입니다. UI 프레임워크로는 Material UI가 활용되었으며, 서버 호스팅은 Firebase Hosting 서비스를 이용하였고 가비아에서 구매한 도메인에 연결하였습니다.',
+            '경기도 의정부시를 기반으로 하는 청소 전문업체 청정듀오 홈페이지를 제작 및 운영하고 있습니다. 2025.05.29 부터 배포되어 현재까지 운영되고 있으며, Creative Tim의 무료 Template 기반으로 제작된 React 프로젝트 입니다. UI 프레임워크로는 Material UI를 활용하였으며, 서버 호스팅은 Firebase Hosting 서비스를 이용하였고 가비아에서 구매한 도메인에 연결하였습니다.',
         url: 'https://www.chungjungduo.com',
         githubUrl: 'https://github.com/hyundol97/chungjungduo-home',
     },
     {
         id: 2,
-        title: 'N/A',
-        image: '/sub_logo.png',
-        description: '',
-        url: '',
+        title: '나만의 소비기록, 가계뷰',
+        image: PortfolioGaGyeVueImage,
+        description:
+            '2026년도부터 스스로의 소비 기록을 쌓아갈 사이트인 가계뷰(GaGyeVue)를 제작 및 운영하고 있습니다. 2025.12.31 부터 배포되어 현재까지 운영되고 있으며, Vite로 생성한 Vue.js 프로젝트 입니다. 데이터베이스는 Supabase를 활용하였으며, 서버 호스팅은 AWS의 S3와 CloudFront 서비스를 이용하였습니다.',
+        url: 'https://d366ozl1lmybii.cloudfront.net/',
+        githubUrl: 'https://github.com/hyundol97/GaGyeVue',
     },
     {
         id: 3,

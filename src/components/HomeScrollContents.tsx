@@ -15,6 +15,7 @@ import MobileHomeLottie from '@/assets/lotties/mobile_home_lottie.json';
 import ProfileLottie from '@/assets/lotties/profile_lottie.json';
 import HomeProfileImage from '@/assets/images/id_picture.jpg';
 import PortfolioChungchungduoImage from '@/assets/images/portfolio_chungjungduo_logo.png';
+import PortfolioGaGyeVueImage from '@/assets/images/portfolio_gagyevue_logo.png';
 import InterestTravelImage from '@/assets/images/interest/travel_swiss4.jpg';
 import InterestSportsImage from '@/assets/images/interest/sports_hike1.jpg';
 import InterestReadingImage from '@/assets/images/interest/reading_book1.jpg';
@@ -192,11 +193,10 @@ export default function HomeScrollContents() {
                             />
                             <HomeCommonLink
                                 type="portfolo"
-                                linkUrl="https://www.chungjungduo.com"
-                                imgSrc={PortfolioChungchungduoImage}
-                                imgAlt="chungjungduo logo image"
-                                contentName="청정듀오 홈페이지"
-                                isEmpty={true}
+                                linkUrl="https://d366ozl1lmybii.cloudfront.net"
+                                imgSrc={PortfolioGaGyeVueImage}
+                                imgAlt="gagyevue logo image"
+                                contentName="나만의 소비기록, 가계뷰"
                             />
                             <HomeCommonLink
                                 type="portfolo"
