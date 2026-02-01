@@ -51,8 +51,10 @@ export default function ProfileCareer({ idImgSrc }: ProfileHistoryProps) {
                                     <span className="text-sm md:text-lg text-gray-600 font-medium">
                                         🏠 거주지
                                     </span>
-                                    <p className="text-md md:text-xl font-semibold">서울특별시</p>
-                                    <p className="text-sm md:text-md">관악구 서림동</p>
+                                    <p className="text-md md:text-xl font-semibold">
+                                        서울특별시 관악구
+                                    </p>
+                                    <p className="text-sm md:text-md">[출신지] 경기도 의정부시</p>
                                 </div>
                                 <div className="bg-gray-300 dark:bg-stone-800 p-4 rounded-lg">
                                     <span className="text-sm md:text-lg text-gray-600 font-medium">

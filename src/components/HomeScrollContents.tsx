@@ -141,7 +141,7 @@ export default function HomeScrollContents() {
                             <Accordion
                                 key={0}
                                 title="🏠 거주지"
-                                context="서울특별시 관악구 서림동"
+                                context="서울특별시 관악구"
                                 onToggle={() => handleToggle(0)}
                                 isOpen={isOpenAccordion === 0}
                             />

@@ -14,9 +14,6 @@ import ArmyEntireImage from '@/assets/images/army_entire1.jpg';
 import UniversityGraduateImage from '@/assets/images/university_graduate1.jpg';
 import IdificationImage from '@/assets/images/id_picture.jpg';
 import ElementaryShoolAward from '@/assets/images/scan1.jpg';
-import MiddleSchoolAward1 from '@/assets/images/scan2.jpg';
-import MiddleSchoolAward2 from '@/assets/images/scan3.jpg';
-import HighSchoolAward from '@/assets/images/scan4.jpg';
 import UniversityAward1 from '@/assets/images/scan5.jpg';
 import UniversityAward2 from '@/assets/images/scan6.jpg';
 import UniversityAward3 from '@/assets/images/scan7.jpg';
@@ -193,21 +190,6 @@ export default function ProfileScrollContents() {
             achievementTitle: '',
             imgSrc: ElementaryShoolAward,
             imgAlt: 'elementary school award image',
-        },
-        {
-            achievementTitle: '',
-            imgSrc: MiddleSchoolAward1,
-            imgAlt: 'middle school award1 image',
-        },
-        {
-            achievementTitle: '',
-            imgSrc: MiddleSchoolAward2,
-            imgAlt: 'middle school award2 image',
-        },
-        {
-            achievementTitle: '',
-            imgSrc: HighSchoolAward,
-            imgAlt: 'high school award image',
         },
         {
             achievementTitle: '',
