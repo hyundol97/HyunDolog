@@ -1,5 +1,8 @@
+'use client';
+
 import Link from 'next/link';
 import Image, { StaticImageData } from 'next/image';
+import { useSearchParams } from 'next/navigation';
 
 import { getManAge } from '@/lib/util';
 
@@ -9,6 +12,8 @@ interface ProfileHistoryProps {
 
 export default function ProfileCareer({ idImgSrc }: ProfileHistoryProps) {
     const manAge = getManAge('1997.08.19');
+    const params = useSearchParams();
+    const isAdmin = params.get('isAdmin');
 
     return (
         <div className="relative w-full px-2 md:px-[10] py-20">
@@ -35,9 +40,11 @@ export default function ProfileCareer({ idImgSrc }: ProfileHistoryProps) {
                                         📗 이름
                                     </span>
                                     <p className="text-md md:text-xl font-semibold">송현석</p>
-                                    <p className="text-sm md:text-md">
-                                        [본관] 여산송씨 원윤공파 28대손
-                                    </p>
+                                    {isAdmin && (
+                                        <p className="text-sm md:text-md">
+                                            [본관] 여산송씨 원윤공파 28대손
+                                        </p>
+                                    )}
                                 </div>
                                 <div className="bg-gray-300 dark:bg-stone-800 p-4 rounded-lg">
                                     <span className="text-sm md:text-lg text-gray-600 font-medium">
@@ -54,7 +61,11 @@ export default function ProfileCareer({ idImgSrc }: ProfileHistoryProps) {
                                     <p className="text-md md:text-xl font-semibold">
                                         서울특별시 관악구
                                     </p>
-                                    <p className="text-sm md:text-md">[출신지] 경기도 의정부시</p>
+                                    {isAdmin && (
+                                        <p className="text-sm md:text-md">
+                                            [출신지] 경기도 의정부시
+                                        </p>
+                                    )}
                                 </div>
                                 <div className="bg-gray-300 dark:bg-stone-800 p-4 rounded-lg">
                                     <span className="text-sm md:text-lg text-gray-600 font-medium">
@@ -142,7 +153,7 @@ export default function ProfileCareer({ idImgSrc }: ProfileHistoryProps) {
                                                 • 백엔드 개발 파트와 협업하여 데이터 CRUD 현황 관리
                                             </li>
                                             <li>
-                                                • 2025년도 (2026년 상반기 오픈 예정) 서비스 리뉴얼
+                                                • 2025년도 (2026년 상반기 오픈) 서비스 리뉴얼
                                                 프로젝트 참여
                                             </li>
                                         </ul>

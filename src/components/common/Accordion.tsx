@@ -16,7 +16,7 @@ export default function Accordion({ title, context, onToggle, isOpen }: Accordio
                 <span className="font-semibold text-base">{title}</span>
 
                 <span
-                    className={`transition-transform duration-200 ${isOpen ? 'rotate-180' : 'rotate-0'}`}
+                    className={`transition-transform duration-100 ${isOpen ? 'rotate-180' : 'rotate-0'}`}
                 >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -36,7 +36,7 @@ export default function Accordion({ title, context, onToggle, isOpen }: Accordio
             </button>
 
             <div
-                className={`overflow-hidden transition-all duration-200 ${isOpen ? 'max-h-[500px] mt-2' : 'max-h-0'}`}
+                className={`overflow-hidden transition-all duration-100 ${isOpen ? 'max-h-[500px] mt-2' : 'max-h-0'}`}
             >
                 {typeof context === 'string' ? (
                     <>

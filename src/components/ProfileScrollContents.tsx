@@ -211,16 +211,16 @@ export default function ProfileScrollContents() {
             imgSrc: Certification1,
             imgAlt: 'certification image1',
         },
-        {
-            achievementTitle: '정보처리기능사',
-            imgSrc: Certification2,
-            imgAlt: 'certification image2',
-        },
-        {
-            achievementTitle: '유통관리사 3급',
-            imgSrc: Certification3,
-            imgAlt: 'certification image3',
-        },
+        // {
+        //     achievementTitle: '정보처리기능사',
+        //     imgSrc: Certification2,
+        //     imgAlt: 'certification image2',
+        // },
+        // {
+        //     achievementTitle: '유통관리사 3급',
+        //     imgSrc: Certification3,
+        //     imgAlt: 'certification image3',
+        // },
     ];
 
     return (
