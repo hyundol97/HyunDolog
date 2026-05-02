@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, Suspense } from 'react';
 
 import ProfileHistory from '@/components/profile/ProfileHistory';
 import ProfileCareer from '@/components/profile/ProfileCareer';
@@ -245,7 +245,9 @@ export default function ProfileScrollContents() {
             </section>
 
             <section>
-                <ProfileCareer idImgSrc={IdificationImage} />
+                <Suspense>
+                    <ProfileCareer idImgSrc={IdificationImage} />
+                </Suspense>
             </section>
 
             <section style={{ minHeight: '100vh' }}>
