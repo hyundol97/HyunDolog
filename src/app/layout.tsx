@@ -39,7 +39,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 </header>
 
                 <main className="min-h-screen w-full bg-white dark:bg-black flex justify-center">
-                    {children}
+                    <div className="w-full max-w-4xl px-6">
+                        {children}
+                    </div>
                 </main>
 
                 <footer>

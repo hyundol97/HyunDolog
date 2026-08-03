@@ -228,7 +228,7 @@ export default function ProfileScrollContents() {
             <section>
                 <div
                     id="slide-wrapper"
-                    className="relative w-full h-[60vh] md:h-[70vh] md:px-[5] overflow-x-auto flex snap-x snap-mandatory scroll-smooth"
+                    className="relative w-full h-[45vh] md:h-[70vh] md:px-[5] overflow-x-auto flex snap-x snap-mandatory scroll-smooth"
                 >
                     {historyData.map((data, index) => (
                         <ProfileHistory
