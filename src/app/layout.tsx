@@ -38,7 +38,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     <Navbar />
                 </header>
 
-                <main className="min-h-screen w-full bg-white dark:bg-black flex justify-center">
+                <main className="w-full bg-white dark:bg-black flex justify-center">
                     <div className="w-full max-w-4xl px-6">
                         {children}
                     </div>

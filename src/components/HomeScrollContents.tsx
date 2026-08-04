@@ -92,7 +92,7 @@ export default function HomeScrollContents() {
                 });
             },
             {
-                root: null,
+                root: wrapper,
                 rootMargin: '-15% 0px -15% 0px',
                 threshold: window.innerWidth < 768 ? 0.25 : 0.5,
             }
@@ -108,7 +108,7 @@ export default function HomeScrollContents() {
     }, []);
 
     return (
-        <div id="section-wrapper" className="w-full">
+        <div id="section-wrapper" className="w-full h-[calc(100vh-120px)] md:h-[calc(100vh-88px)] overflow-y-scroll [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
             <section className="common-section opacity-0 translate-y-8 transition-all duration-1000 ease-out">
                 <div className="flex flex-col items-center px-4">
                     <CommonLottie file={isMobile ? MobileHomeLottie : HomeLottie} />
