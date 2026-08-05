@@ -57,7 +57,7 @@ export default function WeatherWidget() {
     }
 
     return (
-        <div className="text-sm text-gray-700 dark:text-gray-300 text-right">
+        <div className="fixed top-4 right-4 z-50 text-sm text-gray-700 dark:text-gray-300 text-right bg-gray-200/80 dark:bg-stone-900/80 backdrop-blur-sm rounded-xl px-3 py-2">
             <div className="font-medium">{weather.location}</div>
             <div className="flex items-center justify-end gap-1">
                 <span>

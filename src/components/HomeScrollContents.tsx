@@ -4,14 +4,11 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
-import HomeQuote from '@/components/home/HomeQuote';
 import HomeSkills from '@/components/home/HomeSkills';
 import HomeCommonLink from '@/components/home/HomeCommonLink';
 import CommonLottie from '@/components/common/CommonLottie';
 import Accordion from '@/components/common/Accordion';
 
-import HomeLottie from '@/assets/lotties/home_lottie.json';
-import MobileHomeLottie from '@/assets/lotties/mobile_home_lottie.json';
 import ProfileLottie from '@/assets/lotties/profile_lottie.json';
 import HomeProfileImage from '@/assets/images/id_picture.jpg';
 import PortfolioChungchungduoImage from '@/assets/images/portfolio_chungjungduo_logo.png';
@@ -108,24 +105,10 @@ export default function HomeScrollContents() {
     }, []);
 
     return (
-        <div id="section-wrapper" className="w-full h-[calc(100vh-120px)] md:h-[calc(100vh-88px)] overflow-y-scroll [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
-            <section className="common-section opacity-0 translate-y-8 transition-all duration-1000 ease-out">
-                <div className="flex flex-col items-center px-4">
-                    <CommonLottie file={isMobile ? MobileHomeLottie : HomeLottie} />
-                    <span className="mt-4 text-center subpixel-antialiased text-2xl md:text-3xl animate-[bounce_1.5s_infinite]">
-                        <p className="text-xl md:text-3xl p-1">안녕하세요 👋</p>
-                        <p className="text-xl md:text-3xl p-1">HyunDolog에 오신 것을 환영합니다!</p>
-                        <p className="text-sm md:text-lg p-2">
-                            본 페이지는 Next.js로 제작되었습니다.
-                        </p>
-                    </span>
-                </div>
-            </section>
-
-            <section className="text-section opacity-0 translate-y-8 transition-all duration-1000 ease-out px-4">
-                <HomeQuote />
-            </section>
-
+        <div
+            id="section-wrapper"
+            className="w-full h-[calc(100vh-120px)] md:h-[calc(100vh-88px)] overflow-y-scroll [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] animate-fadeIn"
+        >
             <section className="common-section p-4 md:p-12 opacity-0 translate-y-8 transition-all duration-1000 ease-out">
                 <div className="flex flex-col md:flex-row gap-6 md:gap-x-12">
                     <div className="w-full md:w-2/5 flex flex-col">

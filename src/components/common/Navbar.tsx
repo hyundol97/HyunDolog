@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import WeatherWidget from '@/components/common/WeatherWidget';
 
 export default function Navbar() {
     return (
@@ -31,7 +30,6 @@ export default function Navbar() {
                         Interest
                     </Link>
                 </div>
-                <WeatherWidget />
             </div>
         </div>
         </nav>
