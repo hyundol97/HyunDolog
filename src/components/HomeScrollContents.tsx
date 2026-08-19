@@ -13,9 +13,8 @@ import ProfileLottie from '@/assets/lotties/profile_lottie.json';
 import HomeProfileImage from '@/assets/images/id_picture.jpg';
 import PortfolioChungchungduoImage from '@/assets/images/portfolio_chungjungduo_logo.png';
 import PortfolioGaGyeVueImage from '@/assets/images/portfolio_gagyevue_logo.png';
-import InterestTravelImage from '@/assets/images/interest/travel_swiss4.jpg';
-import InterestSportsImage from '@/assets/images/interest/sports_hike1.jpg';
-import InterestReadingImage from '@/assets/images/interest/reading_book1.jpg';
+
+const CDN = 'https://d3pm7uvxl6riza.cloudfront.net/interest';
 
 export default function HomeScrollContents() {
     const [isMobile, setIsMobile] = useState(false);
@@ -216,32 +215,32 @@ export default function HomeScrollContents() {
                             <HomeCommonLink
                                 type="interest"
                                 linkUrl="/interest"
-                                imgSrc={InterestTravelImage}
+                                imgSrc={`${CDN}/travel_swiss4.jpg`}
                                 imgAlt="interest travel image"
                                 contentName="여행"
                             />
                             <HomeCommonLink
                                 type="interest"
                                 linkUrl="/interest"
-                                imgSrc={InterestSportsImage}
+                                imgSrc={`${CDN}/sports_hike1.jpg`}
                                 imgAlt="interest sports image"
                                 contentName="운동"
                             />
                             <HomeCommonLink
                                 type="interest"
                                 linkUrl="/interest"
-                                imgSrc={InterestReadingImage}
+                                imgSrc={`${CDN}/reading_book1.jpg`}
                                 imgAlt="interest reading image"
                                 contentName="독서"
                             />
-                            <HomeCommonLink
+                            {/* <HomeCommonLink
                                 type="interest"
                                 linkUrl="/interest"
                                 imgSrc={InterestReadingImage}
                                 imgAlt="interest reading image"
                                 contentName="독서"
                                 isEmpty={true}
-                            />
+                            /> */}
                         </div>
 
                         <div className="mt-6 md:mt-10 text-center">
