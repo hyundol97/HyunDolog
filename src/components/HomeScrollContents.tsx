@@ -9,10 +9,18 @@ import HomeCommonLink from '@/components/home/HomeCommonLink';
 import PortfolioChungchungduoImage from '@/assets/images/portfolio_chungjungduo_logo.png';
 import PortfolioGaGyeVueImage from '@/assets/images/portfolio_gagyevue_logo.png';
 
-const awsCDN = 'https://d3pm7uvxl6riza.cloudfront.net/interest';
+const imageCDN = 'https://d3pm7uvxl6riza.cloudfront.net/interest';
+const videoCDN = 'https://d3pm7uvxl6riza.cloudfront.net/video';
+const videos = [
+    `${videoCDN}/video_camping.mp4`,
+    `${videoCDN}/video_jeju.mp4`,
+    `${videoCDN}/video_swiss.mp4`,
+    `${videoCDN}/video_paris.mp4`,
+];
 
 export default function HomeScrollContents() {
     const [isMobile, setIsMobile] = useState(false);
+    const [videoIndex, setVideoIndex] = useState(0);
 
     const careerStartDay = new Date('2021-08-09T00:00:00+09:00'); // 사회경험 시작일
     const today = new Date();
@@ -32,14 +40,6 @@ export default function HomeScrollContents() {
         months += 12;
         years -= 1;
     }
-
-    // 아코디언이 1개만 열릴 수 있도록 idx 형태의 key를 각각 부여
-    const [isOpenAccordion, setIsOpenAccordion] = useState<number | null>(null);
-
-    // 아코디언 컴포넌트에 props로 넘겨줄 토글 이벤트
-    const handleToggle = (idx: number) => {
-        setIsOpenAccordion(prev => (prev === idx ? null : idx));
-    };
 
     useEffect(() => {
         if (typeof window === 'undefined') {
@@ -104,27 +104,41 @@ export default function HomeScrollContents() {
             className="w-full h-[calc(100vh-120px)] md:h-[calc(100vh-88px)] overflow-y-scroll [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] animate-fadeIn"
         >
             <section className="common-section p-4 md:p-12 opacity-0 translate-y-8 transition-all duration-1000 ease-out">
-                <div className="flex flex-col md:flex-row gap-6 md:gap-x-12">
-                    <div className="w-full flex flex-col">
-                        <div className="grid gap-y-2 text-base md:text-lg">
-                            <div className="flex rounded-xl p-3 bg-gray-300 dark:bg-stone-800">
-                                <p className="font-semibold text-base">💼 사회경험</p>
-                                <p className="text-sm pl-2 content-center">
-                                    +{diffDays}일 ({years}년 {months}개월)
-                                </p>
+                <div className="relative w-full rounded-xl overflow-hidden">
+                    <video
+                        key={`${videoIndex}-${videos[videoIndex]}`}
+                        src={videos[videoIndex]}
+                        autoPlay
+                        muted
+                        playsInline
+                        className="w-full h-96 md:h-[40rem] object-cover"
+                        onEnded={() => setVideoIndex(i => (i + 1) % videos.length)}
+                    />
+                    <div className="absolute inset-0 bg-black/40 flex flex-col items-center justify-center gap-6 p-6 md:p-10">
+                        <div className="flex flex-col items-center gap-3 text-center">
+                            <span className="text-white/70 text-xs md:text-sm font-medium tracking-widest uppercase">
+                                About Me
+                            </span>
+                            <h2 className="text-white text-2xl md:text-4xl font-bold drop-shadow-lg">
+                                Welcome to Hyundolog!
+                            </h2>
+                            <div className="flex items-center gap-2 px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full">
+                                <span className="text-white text-sm md:text-base font-semibold">
+                                    💼 사회경험
+                                </span>
+                                <span className="text-white/80 text-xs md:text-sm">
+                                    {years}년 {months}개월 ({diffDays}일)
+                                </span>
                             </div>
                         </div>
-
-                        <div className="rounded-xl mt-4 md:mt-auto text-center">
-                            <Link href="/profile">
-                                <button
-                                    type="button"
-                                    className="cursor-pointer p-4 md:p-6 w-4/5 md:w-3/5 text-sm md:text-base font-semibold text-white bg-indigo-600 rounded-xl transition-all duration-200 ease-out hover:bg-indigo-700 hover:shadow-lg hover:scale-[1.05] active:scale-[0.95]"
-                                >
-                                    Profile 페이지로 이동하기
-                                </button>
-                            </Link>
-                        </div>
+                        <Link href="/profile">
+                            <button
+                                type="button"
+                                className="cursor-pointer px-8 py-3 text-sm md:text-base font-semibold text-white border-2 border-white/60 rounded-full backdrop-blur-sm transition-all duration-200 ease-out hover:bg-white hover:text-indigo-600 hover:border-white hover:shadow-lg hover:scale-[1.05] active:scale-[0.95]"
+                            >
+                                Profile →
+                            </button>
+                        </Link>
                     </div>
                 </div>
             </section>
@@ -164,25 +178,25 @@ export default function HomeScrollContents() {
 
                     <div className="w-full relative p-6 md:p-12 border rounded-xl shadow-sm">
                         <div className="flex flex-col md:flex-row items-center gap-6">
-                            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 flex-grow">
+                            <div className="grid grid-cols-3 gap-6 flex-grow">
                                 <HomeCommonLink
                                     type="interest"
                                     linkUrl="/interest"
-                                    imgSrc={`${awsCDN}/travel_swiss4.jpg`}
+                                    imgSrc={`${imageCDN}/travel_swiss4.jpg`}
                                     imgAlt="interest travel image"
                                     contentName="여행"
                                 />
                                 <HomeCommonLink
                                     type="interest"
                                     linkUrl="/interest"
-                                    imgSrc={`${awsCDN}/sports_hike1.jpg`}
+                                    imgSrc={`${imageCDN}/sports_hike1.jpg`}
                                     imgAlt="interest sports image"
                                     contentName="운동"
                                 />
                                 <HomeCommonLink
                                     type="interest"
                                     linkUrl="/interest"
-                                    imgSrc={`${awsCDN}/reading_book1.jpg`}
+                                    imgSrc={`${imageCDN}/reading_book1.jpg`}
                                     imgAlt="interest reading image"
                                     contentName="독서"
                                 />

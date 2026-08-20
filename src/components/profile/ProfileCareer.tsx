@@ -17,7 +17,7 @@ export default function ProfileCareer({ idImgSrc }: ProfileHistoryProps) {
 
     return (
         <div className="relative w-full px-2 md:px-[10] py-20">
-            <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-lg p-8 bg-gray-300 dark:bg-stone-800">
+            <div className="max-w-6xl mx-auto bg-white rounded-2xl shadow-lg p-8 bg-gray-300 dark:bg-stone-800">
                 <div>
                     <h2 className="text-2xl md:text-3xl font-bold mb-8 text-gray-800 dark:text-white">
                         Profile

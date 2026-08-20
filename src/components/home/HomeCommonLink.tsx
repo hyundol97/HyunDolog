@@ -36,7 +36,7 @@ export default function HomeCommonLink({
     return type === 'interest' ? (
         <Link
             href={linkUrl}
-            className={`relative cursor-pointer rounded-xl shadow-sm aspect-square overflow-hidden group ${isEmpty ? 'invisible' : ''}`}
+            className={`relative cursor-pointer rounded-xl shadow-sm h-40 md:h-52 overflow-hidden group ${isEmpty ? 'invisible' : ''}`}
         >
             <Image
                 src={imgSrc}
