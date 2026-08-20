@@ -2,19 +2,14 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 
 import HomeSkills from '@/components/home/HomeSkills';
 import HomeCommonLink from '@/components/home/HomeCommonLink';
-import CommonLottie from '@/components/common/CommonLottie';
-import Accordion from '@/components/common/Accordion';
 
-import ProfileLottie from '@/assets/lotties/profile_lottie.json';
-import HomeProfileImage from '@/assets/images/id_picture.jpg';
 import PortfolioChungchungduoImage from '@/assets/images/portfolio_chungjungduo_logo.png';
 import PortfolioGaGyeVueImage from '@/assets/images/portfolio_gagyevue_logo.png';
 
-const CDN = 'https://d3pm7uvxl6riza.cloudfront.net/interest';
+const awsCDN = 'https://d3pm7uvxl6riza.cloudfront.net/interest';
 
 export default function HomeScrollContents() {
     const [isMobile, setIsMobile] = useState(false);
@@ -90,7 +85,7 @@ export default function HomeScrollContents() {
             {
                 root: wrapper,
                 rootMargin: '-15% 0px -15% 0px',
-                threshold: window.innerWidth < 768 ? 0.25 : 0.5,
+                threshold: window.innerWidth < 768 ? 0 : 0.2,
             }
         );
 
@@ -110,33 +105,8 @@ export default function HomeScrollContents() {
         >
             <section className="common-section p-4 md:p-12 opacity-0 translate-y-8 transition-all duration-1000 ease-out">
                 <div className="flex flex-col md:flex-row gap-6 md:gap-x-12">
-                    <div className="w-full md:w-2/5 flex flex-col">
+                    <div className="w-full flex flex-col">
                         <div className="grid gap-y-2 text-base md:text-lg">
-                            <Image
-                                src={HomeProfileImage}
-                                alt="home profile personal image"
-                                width={150}
-                                height={150}
-                                className="object-cover rounded-full w-32 h-32 md:w-48 md:h-48 m-auto mb-3"
-                                style={{ objectPosition: 'center 20%' }}
-                            />
-                            <Accordion
-                                key={0}
-                                title="🏠 거주지"
-                                context="서울특별시 관악구"
-                                onToggle={() => handleToggle(0)}
-                                isOpen={isOpenAccordion === 0}
-                            />
-                            <Accordion
-                                key={1}
-                                title="🏫 최종학력"
-                                context={[
-                                    '소프트웨어학(공학사)',
-                                    '소셜미디어매니지먼트소프프트웨어(융합 학사)',
-                                ]}
-                                onToggle={() => handleToggle(1)}
-                                isOpen={isOpenAccordion === 1}
-                            />
                             <div className="flex rounded-xl p-3 bg-gray-300 dark:bg-stone-800">
                                 <p className="font-semibold text-base">💼 사회경험</p>
                                 <p className="text-sm pl-2 content-center">
@@ -156,100 +126,73 @@ export default function HomeScrollContents() {
                             </Link>
                         </div>
                     </div>
-                    <div className="w-full md:w-3/5 rounded-xl overflow-hidden aspect-square flex items-center justify-center">
-                        <CommonLottie file={ProfileLottie} />
-                    </div>
                 </div>
             </section>
 
             <section className="common-section opacity-0 translate-y-8 transition-all duration-1000 ease-out px-4">
-                <div className="flex flex-col md:flex-row gap-6 p-4 md:p-12">
-                    <div className="w-full md:w-1/2 relative p-6 md:p-12 border rounded-xl shadow-sm flex flex-col">
-                        <div className="grid grid-cols-2 gap-4 flex-grow">
-                            <HomeCommonLink
-                                type="portfolo"
-                                linkUrl="https://www.chungjungduo.com"
-                                imgSrc={PortfolioChungchungduoImage}
-                                imgAlt="chungjungduo logo image"
-                                contentName="청정듀오 홈페이지"
-                            />
-                            <HomeCommonLink
-                                type="portfolo"
-                                linkUrl="https://d366ozl1lmybii.cloudfront.net"
-                                imgSrc={PortfolioGaGyeVueImage}
-                                imgAlt="gagyevue logo image"
-                                contentName="나만의 소비기록, 가계뷰"
-                            />
-                            <HomeCommonLink
-                                type="portfolo"
-                                linkUrl="https://www.chungjungduo.com"
-                                imgSrc={PortfolioChungchungduoImage}
-                                imgAlt="chungjungduo logo image"
-                                contentName="청정듀오 홈페이지"
-                                isEmpty={true}
-                            />
-                            <HomeCommonLink
-                                type="portfolo"
-                                linkUrl="https://www.chungjungduo.com"
-                                imgSrc={PortfolioChungchungduoImage}
-                                imgAlt="chungjungduo logo image"
-                                contentName="청정듀오 홈페이지"
-                                isEmpty={true}
-                            />
-                        </div>
-
-                        <div className="mt-6 md:mt-10 text-center">
-                            <Link href="/portfolio">
+                <div className="flex flex-col gap-6 p-4 md:p-12">
+                    <div className="w-full relative p-6 md:p-12 border rounded-xl shadow-sm">
+                        <div className="flex flex-col md:flex-row items-center gap-6">
+                            <div className="grid grid-cols-3 gap-6 flex-grow">
+                                <HomeCommonLink
+                                    type="portfolo"
+                                    linkUrl="https://www.chungjungduo.com"
+                                    imgSrc={PortfolioChungchungduoImage}
+                                    imgAlt="chungjungduo logo image"
+                                    contentName="청정듀오 홈페이지"
+                                    isTerminated={true}
+                                    terminatedUrl="https://chungjungduo.web.app/"
+                                />
+                                <HomeCommonLink
+                                    type="portfolo"
+                                    linkUrl="https://d366ozl1lmybii.cloudfront.net"
+                                    imgSrc={PortfolioGaGyeVueImage}
+                                    imgAlt="gagyevue logo image"
+                                    contentName="나만의 소비기록, 가계뷰"
+                                />
+                            </div>
+                            <Link href="/portfolio" className="shrink-0">
                                 <button
                                     type="button"
-                                    className="cursor-pointer p-4 md:p-6 w-4/5 md:w-3/5 bg-indigo-600 text-xs md:text-sm text-white font-semibold rounded-xl transition-all duration-200 ease-out hover:bg-indigo-700 hover:shadow-lg hover:scale-[1.05] active:scale-[0.95]"
+                                    className="cursor-pointer px-4 py-3 bg-indigo-600 text-xs md:text-sm text-white font-semibold rounded-xl transition-all duration-200 ease-out hover:bg-indigo-700 hover:shadow-lg hover:scale-[1.05] active:scale-[0.95]"
                                 >
-                                    Portfoilo 페이지로 이동하기
+                                    Portfolio →
                                 </button>
                             </Link>
                         </div>
                     </div>
 
-                    <div className="w-full md:w-1/2 relative p-6 md:p-12 border rounded-xl shadow-sm flex flex-col">
-                        <div className="grid grid-cols-2 gap-4 flex-grow">
-                            <HomeCommonLink
-                                type="interest"
-                                linkUrl="/interest"
-                                imgSrc={`${CDN}/travel_swiss4.jpg`}
-                                imgAlt="interest travel image"
-                                contentName="여행"
-                            />
-                            <HomeCommonLink
-                                type="interest"
-                                linkUrl="/interest"
-                                imgSrc={`${CDN}/sports_hike1.jpg`}
-                                imgAlt="interest sports image"
-                                contentName="운동"
-                            />
-                            <HomeCommonLink
-                                type="interest"
-                                linkUrl="/interest"
-                                imgSrc={`${CDN}/reading_book1.jpg`}
-                                imgAlt="interest reading image"
-                                contentName="독서"
-                            />
-                            {/* <HomeCommonLink
-                                type="interest"
-                                linkUrl="/interest"
-                                imgSrc={InterestReadingImage}
-                                imgAlt="interest reading image"
-                                contentName="독서"
-                                isEmpty={true}
-                            /> */}
-                        </div>
-
-                        <div className="mt-6 md:mt-10 text-center">
-                            <Link href="/interest">
+                    <div className="w-full relative p-6 md:p-12 border rounded-xl shadow-sm">
+                        <div className="flex flex-col md:flex-row items-center gap-6">
+                            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 flex-grow">
+                                <HomeCommonLink
+                                    type="interest"
+                                    linkUrl="/interest"
+                                    imgSrc={`${awsCDN}/travel_swiss4.jpg`}
+                                    imgAlt="interest travel image"
+                                    contentName="여행"
+                                />
+                                <HomeCommonLink
+                                    type="interest"
+                                    linkUrl="/interest"
+                                    imgSrc={`${awsCDN}/sports_hike1.jpg`}
+                                    imgAlt="interest sports image"
+                                    contentName="운동"
+                                />
+                                <HomeCommonLink
+                                    type="interest"
+                                    linkUrl="/interest"
+                                    imgSrc={`${awsCDN}/reading_book1.jpg`}
+                                    imgAlt="interest reading image"
+                                    contentName="독서"
+                                />
+                            </div>
+                            <Link href="/interest" className="shrink-0">
                                 <button
                                     type="button"
-                                    className="cursor-pointer p-4 md:p-6 w-4/5 md:w-3/5 bg-indigo-600 text-xs md:text-sm font-semibold text-white rounded-xl transition-all duration-200 ease-out hover:bg-indigo-700 hover:shadow-lg hover:scale-[1.05] active:scale-[0.95]"
+                                    className="cursor-pointer px-4 py-3 bg-indigo-600 text-xs md:text-sm font-semibold text-white rounded-xl transition-all duration-200 ease-out hover:bg-indigo-700 hover:shadow-lg hover:scale-[1.05] active:scale-[0.95]"
                                 >
-                                    Interest 페이지로 이동하기
+                                    Interest →
                                 </button>
                             </Link>
                         </div>

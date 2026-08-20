@@ -1,3 +1,5 @@
+'use client';
+
 import Link from 'next/link';
 import Image, { StaticImageData } from 'next/image';
 
@@ -8,6 +10,8 @@ interface HomeCommonLinkProps {
     imgAlt: string;
     contentName: string;
     isEmpty?: boolean;
+    isTerminated?: boolean;
+    terminatedUrl?: string;
 }
 
 export default function HomeCommonLink({
@@ -17,7 +21,18 @@ export default function HomeCommonLink({
     imgAlt,
     contentName,
     isEmpty = false,
+    isTerminated = false,
+    terminatedUrl,
 }: HomeCommonLinkProps) {
+    const handleClick = (e: React.MouseEvent) => {
+        if (!isTerminated) return;
+        e.preventDefault();
+        const confirmed = confirm(
+            '서비스가 종료되어 테스트 환경으로 연결됩니다.\n 계속하시겠습니까?'
+        );
+        if (confirmed) window.open(terminatedUrl, '_blank');
+    };
+
     return type === 'interest' ? (
         <Link
             href={linkUrl}
@@ -40,16 +55,17 @@ export default function HomeCommonLink({
             href={linkUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className={`cursor-pointer border rounded-xl shadow-sm aspect-square flex flex-col items-center justify-center gap-2 md:gap-3 hover:scale-105 transition-all duration-200 no-underline ${isEmpty ? 'invisible' : ''}`}
+            onClick={handleClick}
+            className={`cursor-pointer border rounded-xl shadow-sm flex flex-col items-center justify-center gap-2 md:gap-3 hover:scale-105 transition-all duration-200 no-underline p-2 md:min-h-52 ${isEmpty ? 'invisible' : ''}`}
         >
             <Image
                 src={imgSrc}
                 alt={imgAlt}
-                width={100}
-                height={100}
-                className="object-cover rounded-xl w-16 h-16 md:w-20 md:h-20"
+                width={300}
+                height={300}
+                className="object-contain rounded-xl w-24 h-24 md:w-40 md:h-40"
             />
-            <p className="text-[0.6rem] md:text-sm text-center px-1">{contentName}</p>
+            <p className="text-[10px] md:text-xs text-center px-1">{contentName}</p>
         </Link>
     );
 }

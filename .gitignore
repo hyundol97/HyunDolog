@@ -24,6 +24,9 @@
 .DS_Store
 *.pem
 
+# assets backup
+/src/assets/images/backup/
+
 # debug
 npm-debug.log*
 yarn-debug.log*
