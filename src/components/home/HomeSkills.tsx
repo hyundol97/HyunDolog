@@ -4,7 +4,7 @@ export default function HomeSkills() {
     return (
         <div className="flex flex-col lg:flex-row gap-6 lg:gap-12 p-4 md:p-12">
             <div className="w-full lg:w-1/2 space-y-6">
-                <h1 className="inline-block text-xl md:text-3xl font-bold px-3 md:px-4 py-2 mb-6 bg-gradient-to-r from-cyan-400/70 to-cyan-600/70 text-white rounded-xl">
+                <h1 className="inline-block text-xl md:text-2xl font-bold px-3 md:px-4 py-2 mb-6 bg-gradient-to-r from-cyan-400/70 to-cyan-600/70 text-white rounded-xl">
                     언어 / 프레임워크 / 라이브러리
                 </h1>
 
@@ -106,7 +106,7 @@ export default function HomeSkills() {
             </div>
 
             <div className="w-full lg:w-1/2 space-y-6">
-                <h1 className="inline-block text-xl md:text-3xl font-bold px-3 md:px-4 py-2 mb-6 bg-gradient-to-r from-cyan-700/70 to-cyan-500/70 text-white rounded-xl shadow-md">
+                <h1 className="inline-block text-xl md:text-2xl font-bold px-3 md:px-4 py-2 mb-6 bg-gradient-to-r from-cyan-700/70 to-cyan-500/70 text-white rounded-xl shadow-md">
                     도구 / 환경
                 </h1>
 

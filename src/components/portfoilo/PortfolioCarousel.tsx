@@ -16,6 +16,8 @@ interface PortfolioItem {
     description: string;
     url: string;
     githubUrl?: string;
+    isTerminated?: boolean;
+    terminatedUrl?: string;
 }
 
 const portfolioItems: PortfolioItem[] = [
@@ -27,6 +29,8 @@ const portfolioItems: PortfolioItem[] = [
             '경기도 의정부시를 기반으로 하는 청소 전문업체 청정듀오 홈페이지를 제작 및 운영하고 있습니다. 2025.05.29 부터 배포되어 현재까지 운영되고 있으며, Creative Tim의 무료 Template 기반으로 제작된 React 프로젝트 입니다. UI 프레임워크로는 Material UI를 활용하였으며, 서버 호스팅은 Firebase Hosting 서비스를 이용하였고 가비아에서 구매한 도메인에 연결하였습니다.',
         url: 'https://www.chungjungduo.com',
         githubUrl: 'https://github.com/hyundol97/chungjungduo-home',
+        isTerminated: true,
+        terminatedUrl: 'https://chungjungduo.web.app/',
     },
     {
         id: 2,
@@ -59,6 +63,19 @@ export default function PortfolioCarousel() {
     };
 
     const openIFrame = (item: PortfolioItem) => {
+        if (item.isTerminated) {
+            const confirmed = confirm(
+                '서비스가 종료되어 테스트 환경으로 연결됩니다.\n 계속하시겠습니까?'
+            );
+            if (confirmed) {
+                setSelectedItem({
+                    ...item,
+                    url: item.terminatedUrl ?? item.url,
+                });
+            }
+            return;
+        }
+
         if (item.url) {
             setSelectedItem(item);
         } else {
