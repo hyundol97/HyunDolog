@@ -19,7 +19,7 @@ export default function HomeOverlay() {
 
     return (
         <div
-            className={`fixed inset-0 z-50 bg-white dark:bg-black transition-opacity duration-700 ${
+            className={`fixed inset-0 z-50 bg-black transition-opacity duration-700 ${
                 fading ? 'opacity-0' : 'opacity-100'
             }`}
         />
