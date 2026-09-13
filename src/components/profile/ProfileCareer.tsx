@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import Image, { StaticImageData } from 'next/image';
 import { useSearchParams } from 'next/navigation';
+import { Icon } from '@iconify/react';
 
 import { getManAge } from '@/lib/util';
 
@@ -107,8 +108,8 @@ export default function ProfileCareer({ idImgSrc }: ProfileHistoryProps) {
                             </div>
                             <div className="text-xs md:text-sm text-gray-600 dark:text-gray-300 mb-4">
                                 <p>[기간] 2023.05 ~</p>
-                                <p>[부서] (삼성화재) UI운영팀</p>
-                                <p>[직급] Pro</p>
+                                <p>[부서] (삼성화재) 착UI운영팀</p>
+                                <p>[직급] 대리</p>
                                 <p>[직무] 프론트엔드 개발</p>
                                 <p>[근무형태] 프리랜서</p>
                             </div>
@@ -133,52 +134,11 @@ export default function ProfileCareer({ idImgSrc }: ProfileHistoryProps) {
                                         <h5 className="font-semibold mb-1">
                                             1. 자동차 보험 UI 개발 및 유지 보수
                                         </h5>
-                                        <ul className="space-y-1 font-light text-gray-600 dark:text-gray-300">
-                                            <li>
-                                                • JavaScript / jQuery 기반의 웹/앱(웹뷰) 소스 기반
-                                                메인 서비스 유지 보수
-                                            </li>
-                                            <li>
-                                                • 고객 정보 입력, 사진등록, 계약자 및 피보험자 정보
-                                                입력 및 가입 완료 화면 개발 및 운영
-                                            </li>
-                                            <li>
-                                                • 보안성 검토에 따른 개인 정보 동의 항목 관리 및 UI
-                                                마크업을 통한 웹 접근성 개선
-                                            </li>
-                                            <li>
-                                                • 기획팀과 지속적 소통을 통해 기능 개선 및 오류 해결
-                                            </li>
-                                            <li>
-                                                • 백엔드 개발 파트와 협업하여 데이터 CRUD 현황 관리
-                                            </li>
-                                            <li>
-                                                • 2025년도 (2026년 상반기 오픈) 서비스 리뉴얼
-                                                프로젝트 참여
-                                            </li>
-                                        </ul>
                                     </div>
                                     <div className="mb-2 text-xs md:text-sm">
                                         <h5 className="font-semibold mb-1">
                                             2. 자동차 보험 이벤트 프로세스 개발 및 유지 보수
                                         </h5>
-                                        <ul className="space-y-1 font-light text-gray-600 dark:text-gray-300">
-                                            <li>
-                                                • JavaScript / jQuery 기반의 웹/앱(웹뷰) 소스 기반
-                                                이벤트 모듈 개발 및 운영
-                                            </li>
-                                            <li>
-                                                • 이벤트 파트 공통 콘텐츠(팝업, 모달, 이미지 파일 및
-                                                배너 등) 관리
-                                            </li>
-                                            <li>
-                                                • 백엔드 개발 파트와 협업하여 이벤트 참여 데이터
-                                                적재 테스트 진행
-                                            </li>
-                                            <li>
-                                                • 기획팀과 지속적 소통을 통해 기능 개선 및 오류 해결
-                                            </li>
-                                        </ul>
                                     </div>
                                 </div>
                             </div>
@@ -204,15 +164,6 @@ export default function ProfileCareer({ idImgSrc }: ProfileHistoryProps) {
                                         <h5 className="font-semibold mb-1">
                                             1. '엔젤스' 메인 서비스 UI 개발 및 유지 보수
                                         </h5>
-                                        <ul className="space-y-1 font-light text-gray-600 dark:text-gray-300">
-                                            <li>
-                                                • React 기반의 웹 소스 기반 메인 서비스 개발 및 운영
-                                            </li>
-                                            <li>
-                                                • 각 플랜별(기본/추천/고급) 보장 담보 데이터 관리 및
-                                                유지 보수
-                                            </li>
-                                        </ul>
                                     </div>
                                 </div>
                             </div>
@@ -220,12 +171,12 @@ export default function ProfileCareer({ idImgSrc }: ProfileHistoryProps) {
                             <div className="mb-4 bg-gray-100 dark:bg-stone-600 text-gray-800 dark:text-white p-4 rounded-lg">
                                 <div className="mb-6">
                                     <h4 className="font-bold mb-2">
-                                        삼성화재다이렉트착 '착!한펫' 서비스 개편
+                                        삼성화재라운지 '착!한펫' 서비스 개편
                                     </h4>
                                     <span className="font-light text-xs md:text-sm">
                                         <p className="font-semibold">
-                                            삼성화재다이렉트착, 착!한생활 시리즈의 반려동물 케어
-                                            서비스 '착!한펫'
+                                            삼성화재라운지, 착!한생활 시리즈의 반려동물 케어 서비스
+                                            '착!한펫'
                                         </p>
                                         <p className="text-gray-600 dark:text-gray-300">
                                             : 펫 커뮤니티 '오모오모' 서비스 종료에 따라,
@@ -240,28 +191,11 @@ export default function ProfileCareer({ idImgSrc }: ProfileHistoryProps) {
                                         <h5 className="font-semibold mb-1">
                                             1. 사내 관리자 페이지 UI 신규 개발
                                         </h5>
-                                        <ul className="space-y-1 font-light text-gray-600 dark:text-gray-300">
-                                            <li>
-                                                • Vue3(TypeScript) 기반의 사내 관리자 페이지 신규
-                                                개발
-                                            </li>
-                                            <li>• 고객 활동 이력 및 관리 기능 신규 개발</li>
-                                            <li>
-                                                • 백엔드 개발 파트와 협업하여 데이터 CRUD 현황 관리
-                                            </li>
-                                        </ul>
                                     </div>
                                     <div className="mb-2 text-xs md:text-sm">
                                         <h5 className="font-semibold mb-1">
                                             2. '착!한펫' 앱(웹뷰) 메인 서비스 신규 개발
                                         </h5>
-                                        <ul className="space-y-1 font-light text-gray-600 dark:text-gray-300">
-                                            <li>
-                                                • JavaScript / jQuery 기반의 웹 소스 기반 메인
-                                                서비스 신규 개발
-                                            </li>
-                                            <li>• 문진 및 건강체크 기록보기 기능 신규 개발</li>
-                                        </ul>
                                     </div>
                                 </div>
                             </div>
@@ -289,48 +223,76 @@ export default function ProfileCareer({ idImgSrc }: ProfileHistoryProps) {
                                         <h5 className="font-semibold mb-1">
                                             1. 사내 관리자 페이지 UI 개발 및 유지 보수
                                         </h5>
-                                        <ul className="space-y-1 font-light text-gray-600 dark:text-gray-300">
-                                            <li>
-                                                • React(TypeScript) 기반의 사내 관리자 페이지 개발
-                                                및 운영
-                                            </li>
-                                            <li>
-                                                • 광고배너, 통계, 아이템 관리 등 메뉴 개발 및 운영
-                                            </li>
-                                            <li>• Cypress 기반의 e2e 테스트 관리 및 진행</li>
-                                            <li>
-                                                • 백엔드 개발 파트와 협업하여 데이터 CRUD 현황 관리
-                                            </li>
-                                            <li>
-                                                • 기획팀과 지속적 소통을 통해 기능 개선 및 오류 해결
-                                            </li>
-                                            <li>
-                                                • 코드 컨벤션 수립 및 전반적 리팩토링 진행.
-                                                (SonarQube Duplicated Lines Density 21.1% → 4.1%)
-                                            </li>
-                                        </ul>
                                     </div>
                                     <div className="mb-2 text-xs md:text-sm">
                                         <h5 className="font-semibold mb-1">
                                             2. '오모오모' 앱(웹뷰) 메인 서비스 UI 개발 및 유지 보수
                                         </h5>
-                                        <ul className="space-y-1 font-light text-gray-600 dark:text-gray-300">
-                                            <li>
-                                                • React(TypeScript) 기반의 웹 소스 기반 메인 서비스
-                                                개발 및 운영
-                                            </li>
-                                            <li>• 유저 간 채팅, 게시글 댓글-답글 기능 신규 개발</li>
-                                            <li>• 게시글 사진 및 비디오 파일 업로드 최적화</li>
-                                            <li>• 각종 기능 실행 후, 애니메이션 처리 개발</li>
-                                            <li>
-                                                • 백엔드 개발 파트와 협업하여 데이터 CRUD 현황 관리
-                                            </li>
-                                            <li>
-                                                • 기획팀과 지속적 소통을 통해 기능 개선 및 오류 해결
-                                            </li>
-                                        </ul>
                                     </div>
                                 </div>
+                            </div>
+
+                            <div className="mt-4 flex flex-wrap gap-3">
+                                <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-white">
+                                    <Icon icon="logos:javascript" width="16" height="16" />
+                                    JavaScript
+                                </span>
+                                <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-white">
+                                    <Icon icon="logos:typescript-icon" width="16" height="16" />
+                                    TypeScript
+                                </span>
+                                <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-white">
+                                    <Icon icon="logos:jquery" width="32" height="24" />
+                                    jQuery
+                                </span>
+                                <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-white">
+                                    <Icon icon="logos:vue" width="16" height="16" />
+                                    Vue.js
+                                </span>
+                                <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-white">
+                                    <Icon icon="logos:react" width="16" height="16" />
+                                    React
+                                </span>
+                                <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-white">
+                                    <Icon icon="logos:html-5" width="16" height="16" />
+                                    HTML5
+                                </span>
+                                <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-white">
+                                    <Icon icon="logos:css-3" width="16" height="16" />
+                                    CSS3
+                                </span>
+                                <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-white">
+                                    <Icon icon="logos:element" width="16" height="16" />
+                                    Element Plus
+                                </span>
+                                <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-white">
+                                    <Icon icon="logos:visual-studio-code" width="16" height="16" />
+                                    vscode
+                                </span>
+                                <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-white">
+                                    <Icon icon="logos:cypress-icon" width="16" height="16" />
+                                    Cypress
+                                </span>
+                                <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-white">
+                                    <Icon icon="logos:github-icon" width="16" height="16" />
+                                    GitHub
+                                </span>
+                                <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-white">
+                                    <Icon icon="logos:bitbucket" width="16" height="16" />
+                                    Bitbucket
+                                </span>
+                                <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-white">
+                                    <Icon icon="logos:eclipse-icon" width="16" height="16" />
+                                    eclipse
+                                </span>
+                                <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-white">
+                                    <Icon icon="logos:aws" width="24" height="16" />
+                                    AWS
+                                </span>
+                                <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-white">
+                                    <Icon icon="logos:storyblocks-icon" width="16" height="16" />
+                                    Storybook
+                                </span>
                             </div>
                         </div>
 
@@ -380,44 +342,16 @@ export default function ProfileCareer({ idImgSrc }: ProfileHistoryProps) {
                                             1. '라스트오더' 웹/앱(웹뷰) 메인 서비스 UI 개발 및 유지
                                             보수
                                         </h5>
-                                        <ul className="space-y-1 font-light text-gray-600 dark:text-gray-300">
-                                            <li>
-                                                • Vue2 기반의 웹 소스 기반 메인 서비스 개발 및 운영
-                                            </li>
-                                            <li>
-                                                • 무한 스크롤 도입 및 상품 리뷰 내부 차단, 신고 기능
-                                                개발
-                                            </li>
-                                            <li>
-                                                • 데이터 동기화, 렌더링 관련 오류 모니터링, 테스트
-                                                및 유지 보수
-                                            </li>
-                                        </ul>
                                     </div>
                                     <div className="mb-2 text-xs md:text-sm">
                                         <h5 className="font-semibold mb-1">
                                             2. SCM(공급망 관리 서비스) 플랫폼 UI 개발 및 유지 보수
                                         </h5>
-                                        <ul className="space-y-1 font-light text-gray-600 dark:text-gray-300">
-                                            <li>
-                                                • Vue2 기반의 점포별 공급망 관리 서비스 플랫폼 1.0
-                                                버젼 신규 개발 및 운영
-                                            </li>
-                                            <li>
-                                                • AWS QuickSight, Google Data Studio 활용 통계
-                                                데이터 시각화 툴 도입
-                                            </li>
-                                        </ul>
                                     </div>
                                     <div className="text-xs md:text-sm">
                                         <h5 className="font-semibold mb-1">
                                             2. 브랜드 사이트 관리
                                         </h5>
-                                        <ul className="space-y-1 font-light text-gray-600 dark:text-gray-300">
-                                            <li>
-                                                • HTML/CSS 기반 (정적 웹사이트) 브랜드 사이트 관리
-                                            </li>
-                                        </ul>
                                     </div>
                                 </div>
                             </div>
@@ -446,68 +380,59 @@ export default function ProfileCareer({ idImgSrc }: ProfileHistoryProps) {
                                         <h5 className="font-semibold mb-1">
                                             1. BackOffice(백오피스) 플랫폼 UI 신규 개발 및 유지 보수
                                         </h5>
-                                        <ul className="space-y-1 font-light text-gray-600 dark:text-gray-300">
-                                            <li>
-                                                • Vue2 기반의 사내 백오피스 플랫폼 2.0 버젼 신규
-                                                개발 및 운영
-                                            </li>
-                                            <li>
-                                                • KakaoMap API 활용 편의점(세븐일레븐) 배달 서비스
-                                                신규 개발
-                                            </li>
-                                            <li>• 이벤트 및 쿠폰 발행 기능 개발</li>
-                                            <li>
-                                                • 백엔드 개발 파트와 협업하여 데이터 CRUD 현황 관리
-                                            </li>
-                                            <li>
-                                                • 기획, 마케팅 팀과 지속적 소통을 통해 기능 개선 및
-                                                오류 해결
-                                            </li>
-                                            <li>
-                                                • 비동기 처리 패턴 및 컴포넌트 구조 등 프로젝트
-                                                전반적 리팩토링 진행
-                                            </li>
-                                        </ul>
                                     </div>
                                     <div className="mb-2 text-xs md:text-sm">
                                         <h5 className="font-semibold mb-1">
                                             2. FMS(프랜차이즈 관리 서비스) 플랫폼 UI 개발 및 유지
                                             보수
                                         </h5>
-                                        <ul className="space-y-1 font-light text-gray-600 dark:text-gray-300">
-                                            <li>
-                                                • Vue2 기반의 사내 프랜차이즈 관리 서비스 플랫폼
-                                                개발 및 운영
-                                            </li>
-                                            <li>• 프랜차이즈 점포 데이터 일괄 CRUD 기능 개발</li>
-                                        </ul>
                                     </div>
                                     <div className="mb-2 text-xs md:text-sm">
                                         <h5 className="font-semibold mb-1">
                                             3. 개발 가이드 사이트 관리
                                         </h5>
-                                        <ul className="space-y-1 font-light text-gray-600 dark:text-gray-300">
-                                            <li>• HUGO 기반의 사내 개발 가이드 플랫폼 관리</li>
-                                            <li>• 기존 작성 내용 수정 및 신규 개발 내용 반영</li>
-                                        </ul>
                                     </div>
                                     <div className="text-xs md:text-sm">
                                         <h5 className="font-semibold mb-1">
                                             4. 개발 환경 DB 테스트 데이터 관리 및 운영
                                         </h5>
-                                        <ul className="space-y-1 font-light text-gray-600 dark:text-gray-300">
-                                            <li>
-                                                • 데이터 CRUD를 진행하여 메인 서비스 앱, 가맹 점주
-                                                앱, 포스 단말 프로그램, 백오피스 등 테스트 환경 관리
-                                            </li>
-                                            <li>
-                                                • 신규 기능 (배달 서비스, 엑셀 파일 다운로드 등)
-                                                테스트 및 테스트 결과 관련 타 부서와 커뮤니케이션
-                                                담당
-                                            </li>
-                                        </ul>
                                     </div>
                                 </div>
+                            </div>
+
+                            <div className="mt-4 flex flex-wrap gap-3">
+                                <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-white">
+                                    <Icon icon="logos:javascript" width="16" height="16" />
+                                    JavaScript
+                                </span>
+                                <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-white">
+                                    <Icon icon="logos:vue" width="16" height="16" />
+                                    Vue.js
+                                </span>
+                                <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-white">
+                                    <Icon icon="logos:html-5" width="16" height="16" />
+                                    HTML5
+                                </span>
+                                <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-white">
+                                    <Icon icon="logos:css-3" width="16" height="16" />
+                                    CSS3
+                                </span>
+                                <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-white">
+                                    <Icon icon="logos:element" width="16" height="16" />
+                                    Element Plus
+                                </span>
+                                <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-white">
+                                    <Icon icon="logos:visual-studio-code" width="16" height="16" />
+                                    vscode
+                                </span>
+                                <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-white">
+                                    <Icon icon="logos:github-icon" width="16" height="16" />
+                                    GitHub
+                                </span>
+                                <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-white">
+                                    <Icon icon="logos:aws" width="24" height="16" />
+                                    AWS
+                                </span>
                             </div>
                         </div>
 
@@ -557,31 +482,48 @@ export default function ProfileCareer({ idImgSrc }: ProfileHistoryProps) {
                                         <h5 className="font-semibold mb-1">
                                             1. 'DEEP:LABEL' 플랫폼 UI 신규 개발 및 유지 보수
                                         </h5>
-                                        <ul className="space-y-1 font-light text-gray-600 dark:text-gray-300">
-                                            <li>
-                                                • Vue2 기반의 의료 데이터 라벨링 플랫폼 개발 및 운영
-                                            </li>
-                                            <li>
-                                                • 사용자 권한에 따른 전반적인 프로세스 제어 처리
-                                            </li>
-                                            <li>• Postman 기초 세팅하여, 테스트 환경 구축</li>
-                                        </ul>
                                     </div>
                                     <div className="text-xs md:text-sm">
                                         <h5 className="font-semibold mb-1">
                                             2. 프로젝트 기획 및 일정 관리
                                         </h5>
-                                        <ul className="space-y-1 font-light text-gray-600 dark:text-gray-300">
-                                            <li>
-                                                • 사용자와 지속적 소통을 통해 추가 요구 사항 반영 및
-                                                직접 제안을 통해 개선
-                                            </li>
-                                            <li>
-                                                • 주간 보고 작성, 프로젝트 진행 현황 정리 및 공유
-                                            </li>
-                                        </ul>
                                     </div>
                                 </div>
+                            </div>
+
+                            <div className="mt-4 flex flex-wrap gap-3">
+                                <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-white">
+                                    <Icon icon="logos:javascript" width="16" height="16" />
+                                    JavaScript
+                                </span>
+                                <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-white">
+                                    <Icon icon="logos:vue" width="16" height="16" />
+                                    Vue.js
+                                </span>
+                                <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-white">
+                                    <Icon icon="logos:html-5" width="16" height="16" />
+                                    HTML5
+                                </span>
+                                <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-white">
+                                    <Icon icon="logos:css-3" width="16" height="16" />
+                                    CSS3
+                                </span>
+                                <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-white">
+                                    <Icon icon="logos:element" width="16" height="16" />
+                                    Element Plus
+                                </span>
+                                <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-white">
+                                    <Icon icon="logos:visual-studio-code" width="16" height="16" />
+                                    vscode
+                                </span>
+                                <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-white">
+                                    <Icon icon="logos:docker-icon" width="16" height="16" />
+                                    Docker
+                                </span>
+                                <span className="flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-stone-800 text-white">
+                                    <Icon icon="logos:gitlab-icon" width="16" height="16" />
+                                    Gitlab
+                                </span>
                             </div>
                         </div>
                     </div>

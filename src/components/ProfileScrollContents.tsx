@@ -8,8 +8,8 @@ import ProfileAchievements from '@/components/profile/ProfileAchievements';
 
 import YoungAgeImage from '@/assets/images/young_age.jpg';
 import ElementarySchoolImage from '@/assets/images/elementary_school.png';
-import MiddleSchoolImage from '@/assets/images/middleschool_soccer.jpg';
-import HighSchoolImage from '@/assets/images/highschool_graduate.jpg';
+import MiddleSchoolImage from '@/assets/images/middle_school.png';
+import HighSchoolImage from '@/assets/images/high_school.png';
 import ArmyEntireImage from '@/assets/images/army_entire1.jpg';
 import UniversityGraduateImage from '@/assets/images/university_graduate1.jpg';
 import IdificationImage from '@/assets/images/id_picture.jpg';
@@ -18,8 +18,7 @@ import UniversityAward1 from '@/assets/images/scan5.jpg';
 import UniversityAward2 from '@/assets/images/scan6.jpg';
 import UniversityAward3 from '@/assets/images/scan7.jpg';
 import Certification1 from '@/assets/images/hangooksa.jpg';
-import Certification2 from '@/assets/images/kineungsa.jpg';
-import Certification3 from '@/assets/images/yutong.jpg';
+import Certification2 from '@/assets/images/jeongcheogi.jpg';
 
 export default function ProfileScrollContents() {
     useEffect(() => {
@@ -211,16 +210,11 @@ export default function ProfileScrollContents() {
             imgSrc: Certification1,
             imgAlt: 'certification image1',
         },
-        // {
-        //     achievementTitle: '정보처리기능사',
-        //     imgSrc: Certification2,
-        //     imgAlt: 'certification image2',
-        // },
-        // {
-        //     achievementTitle: '유통관리사 3급',
-        //     imgSrc: Certification3,
-        //     imgAlt: 'certification image3',
-        // },
+        {
+            achievementTitle: '정보처리기사',
+            imgSrc: Certification2,
+            imgAlt: 'certification image2',
+        },
     ];
 
     return (
