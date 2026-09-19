@@ -241,45 +241,62 @@ export default function ProfileScrollContents() {
                 </Suspense>
             </section>
 
-            <section style={{ minHeight: '100vh' }}>
-                <h2 className="text-center text-2xl md:text-3xl font-bold mb-8 text-gray-800 dark:text-white">
-                    Achievements
-                </h2>
-
-                <div className="space-y-10">
-                    <div className="space-y-4">
-                        <h3 className="text-center text-xl md:text-2xl font-semibold text-gray-700 dark:text-gray-200">
-                            상장
-                        </h3>
-                        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6">
-                            {awardData.map((data, index) => (
-                                <ProfileAchievements
-                                    key={`award-${index}`}
-                                    achievementTitle={data.achievementTitle}
-                                    imgSrc={data.imgSrc}
-                                    imgAlt={data.imgAlt}
-                                    compact
-                                />
-                            ))}
-                        </div>
+            <section className="min-h-[100vh] px-4 py-10 md:px-8 md:py-14">
+                <div className="mx-auto max-w-6xl rounded-[28px] border border-slate-200/80 bg-white/70 p-5 shadow-[0_24px_80px_rgba(15,23,42,0.08)] backdrop-blur-sm dark:border-slate-700 dark:bg-slate-900/60 md:p-8">
+                    <div className="mb-8 text-center md:mb-10">
+                        <p className="mb-2 text-xs font-semibold uppercase tracking-[0.28em] text-indigo-500 dark:text-indigo-300">
+                            Recognition
+                        </p>
+                        <h2 className="text-3xl font-black tracking-tight text-slate-900 dark:text-white md:text-4xl">
+                            <span className="bg-gradient-to-r from-slate-900 via-indigo-700 to-violet-600 bg-clip-text text-transparent dark:from-white dark:via-indigo-200 dark:to-violet-300">
+                                Achievements
+                            </span>
+                        </h2>
                     </div>
 
-                    <div className="space-y-4">
-                        <h3 className="text-center text-xl md:text-2xl font-semibold text-gray-700 dark:text-gray-200">
-                            자격증
-                        </h3>
-                        <div className="flex flex-wrap justify-center gap-4">
-                            {certificateData.map((data, index) => (
-                                <div
-                                    key={`certificate-${index}`}
-                                    className="group flex items-center gap-3 rounded-2xl border border-indigo-200 bg-gradient-to-r from-indigo-50 via-white to-violet-50 px-5 py-3 shadow-sm ring-1 ring-indigo-100 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md dark:border-indigo-800 dark:from-indigo-950/60 dark:via-slate-900 dark:to-violet-950/60 dark:ring-indigo-900/60"
-                                >
-                                    <span className="inline-flex h-2.5 w-2.5 rounded-full bg-indigo-500 shadow-[0_0_0_4px_rgba(99,102,241,0.12)] dark:bg-indigo-300" />
-                                    <span className="text-sm font-semibold tracking-tight text-indigo-800 dark:text-indigo-100 md:text-base">
-                                        {data.achievementTitle}
-                                    </span>
-                                </div>
-                            ))}
+                    <div className="space-y-10">
+                        <div className="space-y-5">
+                            <div className="flex items-center justify-center gap-3">
+                                <span className="h-px flex-1 bg-gradient-to-r from-transparent via-slate-300 to-transparent dark:via-slate-600" />
+                                <h3 className="text-center text-xl font-bold text-slate-700 dark:text-slate-200 md:text-2xl">
+                                    상장
+                                </h3>
+                                <span className="h-px flex-1 bg-gradient-to-r from-transparent via-slate-300 to-transparent dark:via-slate-600" />
+                            </div>
+                            <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6">
+                                {awardData.map((data, index) => (
+                                    <ProfileAchievements
+                                        key={`award-${index}`}
+                                        achievementTitle={data.achievementTitle}
+                                        imgSrc={data.imgSrc}
+                                        imgAlt={data.imgAlt}
+                                        compact
+                                    />
+                                ))}
+                            </div>
+                        </div>
+
+                        <div className="space-y-5">
+                            <div className="flex items-center justify-center gap-3">
+                                <span className="h-px flex-1 bg-gradient-to-r from-transparent via-indigo-300 to-transparent dark:via-indigo-600" />
+                                <h3 className="text-center text-xl font-bold text-slate-700 dark:text-slate-200 md:text-2xl">
+                                    자격증
+                                </h3>
+                                <span className="h-px flex-1 bg-gradient-to-r from-transparent via-indigo-300 to-transparent dark:via-indigo-600" />
+                            </div>
+                            <div className="flex flex-wrap justify-center gap-3 md:gap-4">
+                                {certificateData.map((data, index) => (
+                                    <div
+                                        key={`certificate-${index}`}
+                                        className="group flex items-center gap-3 rounded-2xl border border-indigo-200/80 bg-gradient-to-r from-indigo-50 via-white to-violet-50 px-5 py-3 shadow-[0_12px_24px_rgba(99,102,241,0.08)] ring-1 ring-indigo-100 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_18px_30px_rgba(99,102,241,0.12)] dark:border-indigo-700 dark:from-indigo-950/70 dark:via-slate-900 dark:to-violet-950/70 dark:ring-indigo-800/80"
+                                    >
+                                        <span className="inline-flex h-2.5 w-2.5 rounded-full bg-gradient-to-br from-indigo-500 to-violet-500 shadow-[0_0_0_4px_rgba(99,102,241,0.12)] dark:from-indigo-300 dark:to-violet-300" />
+                                        <span className="text-sm font-semibold tracking-tight text-indigo-800 dark:text-indigo-100 md:text-base">
+                                            {data.achievementTitle}
+                                        </span>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
                     </div>
                 </div>

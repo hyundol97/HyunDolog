@@ -17,7 +17,7 @@ export default function ProfileAchievements({
     const shouldRotate = Boolean(imgAlt?.includes('university award'));
 
     const containerClass = compact
-        ? 'flex w-full flex-col items-center justify-center rounded-2xl border border-slate-200 bg-white/70 p-4 shadow-sm transition-transform duration-200 hover:-translate-y-0.5 dark:border-slate-700 dark:bg-slate-900/40'
+        ? 'flex w-full flex-col items-center justify-center rounded-2xl border border-slate-200 bg-gradient-to-b from-white to-slate-50 p-4 shadow-[0_10px_28px_rgba(15,23,42,0.06)] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_16px_36px_rgba(79,70,229,0.12)] dark:border-slate-700 dark:from-slate-900 dark:to-slate-950'
         : 'slide-item snap-center shrink-0 p-4 w-screen md:w-full h-full flex flex-col justify-center items-center';
 
     const imageWrapperClass = compact
