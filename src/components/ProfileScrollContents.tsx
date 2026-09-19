@@ -17,8 +17,6 @@ import ElementaryShoolAward from '@/assets/images/scan1.jpg';
 import UniversityAward1 from '@/assets/images/scan5.jpg';
 import UniversityAward2 from '@/assets/images/scan6.jpg';
 import UniversityAward3 from '@/assets/images/scan7.jpg';
-import Certification1 from '@/assets/images/hangooksa.jpg';
-import Certification2 from '@/assets/images/jeongcheogi.jpg';
 
 export default function ProfileScrollContents() {
     useEffect(() => {
@@ -184,7 +182,7 @@ export default function ProfileScrollContents() {
         },
     ];
 
-    const achievementData = [
+    const awardData = [
         {
             achievementTitle: '',
             imgSrc: ElementaryShoolAward,
@@ -205,15 +203,14 @@ export default function ProfileScrollContents() {
             imgSrc: UniversityAward3,
             imgAlt: 'university award3 image',
         },
+    ];
+
+    const certificateData = [
         {
             achievementTitle: '한국사능력검정시험 2급',
-            imgSrc: Certification1,
-            imgAlt: 'certification image1',
         },
         {
             achievementTitle: '정보처리기사',
-            imgSrc: Certification2,
-            imgAlt: 'certification image2',
         },
     ];
 
@@ -248,15 +245,43 @@ export default function ProfileScrollContents() {
                 <h2 className="text-center text-2xl md:text-3xl font-bold mb-8 text-gray-800 dark:text-white">
                     Achievements
                 </h2>
-                <div className="space-y-6">
-                    {achievementData.map((data, index) => (
-                        <ProfileAchievements
-                            key={index}
-                            achievementTitle={data.achievementTitle}
-                            imgSrc={data.imgSrc}
-                            imgAlt={data.imgAlt}
-                        />
-                    ))}
+
+                <div className="space-y-10">
+                    <div className="space-y-4">
+                        <h3 className="text-center text-xl md:text-2xl font-semibold text-gray-700 dark:text-gray-200">
+                            상장
+                        </h3>
+                        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6">
+                            {awardData.map((data, index) => (
+                                <ProfileAchievements
+                                    key={`award-${index}`}
+                                    achievementTitle={data.achievementTitle}
+                                    imgSrc={data.imgSrc}
+                                    imgAlt={data.imgAlt}
+                                    compact
+                                />
+                            ))}
+                        </div>
+                    </div>
+
+                    <div className="space-y-4">
+                        <h3 className="text-center text-xl md:text-2xl font-semibold text-gray-700 dark:text-gray-200">
+                            자격증
+                        </h3>
+                        <div className="flex flex-wrap justify-center gap-4">
+                            {certificateData.map((data, index) => (
+                                <div
+                                    key={`certificate-${index}`}
+                                    className="group flex items-center gap-3 rounded-2xl border border-indigo-200 bg-gradient-to-r from-indigo-50 via-white to-violet-50 px-5 py-3 shadow-sm ring-1 ring-indigo-100 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md dark:border-indigo-800 dark:from-indigo-950/60 dark:via-slate-900 dark:to-violet-950/60 dark:ring-indigo-900/60"
+                                >
+                                    <span className="inline-flex h-2.5 w-2.5 rounded-full bg-indigo-500 shadow-[0_0_0_4px_rgba(99,102,241,0.12)] dark:bg-indigo-300" />
+                                    <span className="text-sm font-semibold tracking-tight text-indigo-800 dark:text-indigo-100 md:text-base">
+                                        {data.achievementTitle}
+                                    </span>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
                 </div>
             </section>
         </div>
